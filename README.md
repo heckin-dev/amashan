@@ -26,6 +26,10 @@ obtaining any relevant access credentials.
 # BattleNet
 BNET_CLIENT_ID="<id>"
 BNET_CLIENT_SECRET="<secret>"
+BNET_REDIRECT_URL="<callback_url>"
+
+# Session
+SESSION_KEY="<your_session_key>"
 ```
 
 ---
@@ -38,9 +42,13 @@ Client which can be [managed here](https://develop.battle.net/access/clients).
 We redirect to the following OAuth2 URLs:
 
 ```text
-https://amashan.com/api/oauth/callback
-http://localhost:9090/api/oauth/callback
+https://amashan.com/api/auth/battlenet/callback
+http://localhost:9090/api/auth/battlenet/callback
 ```
+
+#### Session
+
+This is the value that will be used for the CookieStore.
 
 ## Dependencies
 
@@ -48,3 +56,4 @@ http://localhost:9090/api/oauth/callback
 - [hashicorp/go-hclog](https://github.com/hashicorp/go-hclog)
 - [stretchr/testify](https://github.com/stretchr/testify)
 - [joho/godotenv](https://github.com/joho/godotenv)
+- [x/oauth2](https://github.com/golang/oauth2)

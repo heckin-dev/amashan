@@ -49,6 +49,7 @@ func main() {
 
 	// Routes
 	handlers.NewHealthcheck().Route(apiRouter)
+	handlers.NewBattleNet(l).Route(apiRouter)
 
 	utils.StartServerWithGracefulShutdown(sm, bindAddress, l)
 }

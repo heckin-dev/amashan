@@ -1,0 +1,118 @@
+package handlers
+
+import (
+	"context"
+	"encoding/json"
+	"github.com/gorilla/mux"
+	"github.com/gorilla/sessions"
+	"github.com/hashicorp/go-hclog"
+	"github.com/heckin-dev/amashan/pkg/utils"
+	"golang.org/x/oauth2"
+	"net/http"
+	"os"
+	"strings"
+	"time"
+)
+
+type BattleNet struct {
+	l hclog.Logger
+
+	config *oauth2.Config
+	store  *sessions.CookieStore
+}
+
+func (b *BattleNet) Authorize(w http.ResponseWriter, r *http.Request) {
+	state, err := utils.NewStateString(64)
+	if err != nil {
+		b.l.Error("failed to generate state string", "error", err)
+		http.Error(w, "failed to generate state string", http.StatusInternalServerError)
+		return
+	}
+
+	// Create a new Session and store the state.
+	session, _ := b.store.Get(r, "oauth")
+	session.Values["state"] = state
+
+	// Save the session
+	if err := session.Save(r, w); err != nil {
+		b.l.Error("failed to save session", "error", err)
+		http.Error(w, "failed to save session", http.StatusInternalServerError)
+		return
+	}
+
+	http.Redirect(w, r, b.config.AuthCodeURL(state), http.StatusTemporaryRedirect)
+}
+
+func (b *BattleNet) Callback(w http.ResponseWriter, r *http.Request) {
+	session, err := b.store.Get(r, "oauth")
+	if err != nil || session == nil || session.IsNew {
+		http.Error(w, "no session found for this request", http.StatusBadRequest)
+		return
+	}
+
+	// Get the initial request state
+	rState, ok := session.Values["state"].(string)
+	if !ok {
+		http.Error(w, "failed to read state from session", http.StatusBadRequest)
+		return
+	}
+
+	// Ensure the callback state is equal to the request state
+	cbState := r.URL.Query().Get("state")
+	if !strings.EqualFold(rState, cbState) {
+		http.Error(w, "callback state mismatch", http.StatusBadRequest)
+		return
+	}
+
+	// Exchange the code
+	ctx, cancel := context.WithTimeout(context.Background(), time.Second*30)
+	defer cancel()
+
+	code := r.URL.Query().Get("code")
+	token, err := b.config.Exchange(ctx, code)
+	if err != nil {
+		b.l.Error("token exchange failed", "error", err)
+		http.Error(w, "failed to exchange code for token", http.StatusInternalServerError)
+		return
+	}
+
+	// TODO: Any user management? (do we care or should we just operate client-side)
+	// TODO: Token management?
+
+	// Access token
+	// Token Type
+	// Expiry
+
+	w.Header().Set("Content-Type", "application/json")
+	_ = json.NewEncoder(w).Encode(token)
+}
+
+func (b *BattleNet) Route(r *mux.Router) {
+	oauthRouter := r.PathPrefix("/auth").Subrouter()
+	oauthRouter.HandleFunc("/battlenet", b.Authorize).Methods(http.MethodGet)
+	oauthRouter.HandleFunc("/battlenet/callback", b.Callback).Methods(http.MethodGet)
+}
+
+func NewBattleNet(l hclog.Logger) *BattleNet {
+	// Create a new store
+	store := sessions.NewCookieStore([]byte(os.Getenv("SESSION_KEY")))
+	store.MaxAge(86400 * 30)
+	store.Options.Path = "/"
+	store.Options.HttpOnly = true
+	store.Options.Secure = !strings.EqualFold(os.Getenv("PROD"), "")
+
+	return &BattleNet{
+		l: l,
+		config: &oauth2.Config{
+			ClientID:     os.Getenv("BNET_CLIENT_ID"),
+			ClientSecret: os.Getenv("BNET_CLIENT_SECRET"),
+			Endpoint: oauth2.Endpoint{
+				AuthURL:  "https://oauth.battle.net/authorize",
+				TokenURL: "https://oauth.battle.net/token",
+			},
+			RedirectURL: os.Getenv("BNET_REDIRECT_URL"),
+			Scopes:      []string{"wow.profile", "openid"},
+		},
+		store: store,
+	}
+}

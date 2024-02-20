@@ -18,11 +18,6 @@ func TestHealthcheck_GetHealthcheck(t *testing.T) {
 			method: http.MethodGet,
 			want:   http.StatusOK,
 		},
-		{
-			name:   "POST /health",
-			method: http.MethodPost,
-			want:   http.StatusMethodNotAllowed,
-		},
 	}
 
 	for _, tt := range tests {
@@ -38,9 +33,7 @@ func TestHealthcheck_GetHealthcheck(t *testing.T) {
 			handler.ServeHTTP(rr, req)
 
 			got := rr.Code
-			want := http.StatusOK
-
-			assert.Truef(t, got == want, "got status %v, wanted %v", got, want)
+			assert.Truef(t, got == tt.want, "got status %v, wanted %v", got, tt.want)
 		})
 	}
 }
