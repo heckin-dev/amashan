@@ -78,10 +78,17 @@ func (b *BattleNet) Callback(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Check the token.
-	ok, err = b.client.CheckToken(ctx, token)
+	ct, err := b.client.CheckToken(ctx, token)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 	}
+
+	ui, err := b.client.UserInfo(ctx, token)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusInternalServerError)
+	}
+
+	b.l.Info("callback", "check_token", ct, "userinfo", ui)
 
 	// TODO: Something with the token?
 	// Access token

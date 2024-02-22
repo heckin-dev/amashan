@@ -68,7 +68,7 @@ func (b *BattlenetClient) Exchange(ctx context.Context, code string) (*oauth2.To
 }
 
 // CheckToken ensures the token is valid and contains the required scopes.
-func (b *BattlenetClient) CheckToken(ctx context.Context, t *oauth2.Token) (bool, error) {
+func (b *BattlenetClient) CheckToken(ctx context.Context, t *oauth2.Token) (*CheckTokenResponse, error) {
 	const endpoint string = "/oauth/check_token"
 
 	// Create the request.
@@ -76,7 +76,7 @@ func (b *BattlenetClient) CheckToken(ctx context.Context, t *oauth2.Token) (bool
 	req, err := http.NewRequest(http.MethodPost, url, nil)
 	if err != nil {
 		b.l.Error("failed to create request", "url", url, "error", err)
-		return false, err
+		return nil, err
 	}
 
 	// Add the required query params.
@@ -91,26 +91,65 @@ func (b *BattlenetClient) CheckToken(ctx context.Context, t *oauth2.Token) (bool
 	res, err := b.Do(ctx, t, req)
 	defer res.Body.Close()
 	if err != nil {
-		return false, err
+		return nil, err
 	}
 
 	// Decode the response and validate.
 	ctRes := &CheckTokenResponse{}
 	err = json.NewDecoder(res.Body).Decode(ctRes)
 	if err != nil {
-		return false, err
+		return nil, err
 	}
 
 	// Ensure we have the required scopes.
 	if !slices.Contains(ctRes.Scope, "wow.profile") {
-		return false, ErrMissingRequiredScope{Scope: "wow.profile"}
+		return nil, ErrMissingRequiredScope{Scope: "wow.profile"}
 	}
 
 	if !slices.Contains(ctRes.Scope, "openid") {
-		return false, ErrMissingRequiredScope{Scope: "openid"}
+		return nil, ErrMissingRequiredScope{Scope: "openid"}
 	}
 
-	return true, nil
+	return ctRes, nil
+}
+
+// UserInfo gets the userinfo for the given token.
+func (b *BattlenetClient) UserInfo(ctx context.Context, t *oauth2.Token) (*UserInfoResponse, error) {
+	const endpoint string = "/oauth/userinfo"
+
+	// Create the request.
+	url := fmt.Sprintf("%s%s", BNET_OAUTH_URL, endpoint)
+	req, err := http.NewRequest(http.MethodGet, url, nil)
+	if err != nil {
+		b.l.Error("failed to create request", "url", url, "error", err)
+		return nil, err
+	}
+
+	// Add the required query params.
+	q := req.URL.Query()
+
+	q.Add("region", "us")
+
+	req.URL.RawQuery = q.Encode()
+
+	// Add the token to the header.
+	t.SetAuthHeader(req)
+
+	// Do the request.
+	res, err := b.Do(ctx, t, req)
+	defer res.Body.Close()
+	if err != nil {
+		return nil, err
+	}
+
+	// Decode the response.
+	uiRes := &UserInfoResponse{}
+	err = json.NewDecoder(res.Body).Decode(uiRes)
+	if err != nil {
+		return nil, err
+	}
+
+	return uiRes, nil
 }
 
 // Do does the provided *http.Request using the http.Client associated with the provided *oauth2.Token. This can be
