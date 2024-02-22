@@ -10,6 +10,7 @@ import (
 	"net/http"
 	"os"
 	"slices"
+	"strings"
 	"time"
 )
 
@@ -152,6 +153,40 @@ func (b *BattlenetClient) UserInfo(ctx context.Context, t *oauth2.Token) (*UserI
 	return uiRes, nil
 }
 
+// AccountProfileSummary gets the account summary for the given token.
+func (b *BattlenetClient) AccountProfileSummary(ctx context.Context, t *oauth2.Token, region string) (*AccountSummaryResponse, error) {
+	const endpoint string = "/profile/user/wow"
+
+	url := fmt.Sprintf("%s%s", strings.Replace(BNET_API_URL, "{region}", region, -1), endpoint)
+	req, err := http.NewRequest(http.MethodGet, url, nil)
+	if err != nil {
+		b.l.Error("failed to create request", "url", url, "error", err)
+		return nil, err
+	}
+
+	q := req.URL.Query()
+	q.Add("region", region)
+	q.Add("namespace", fmt.Sprintf("profile-%s", region))
+	q.Add("locale", "en_US")
+	req.URL.RawQuery = q.Encode()
+
+	t.SetAuthHeader(req)
+
+	res, err := b.Do(ctx, t, req)
+	defer res.Body.Close()
+	if err != nil {
+		return nil, err
+	}
+
+	asRes := &AccountSummaryResponse{}
+	err = json.NewDecoder(res.Body).Decode(asRes)
+	if err != nil {
+		return nil, err
+	}
+
+	return asRes, nil
+}
+
 // Do does the provided *http.Request using the http.Client associated with the provided *oauth2.Token. This can be
 // used directly but there are likely other wrapper methods that are more useful.
 func (b *BattlenetClient) Do(ctx context.Context, t *oauth2.Token, req *http.Request) (*http.Response, error) {
@@ -162,7 +197,7 @@ func (b *BattlenetClient) Do(ctx context.Context, t *oauth2.Token, req *http.Req
 	// If we create a new context, we need to defer it.
 	var cancel context.CancelFunc
 	if ctx == nil {
-		ctx, cancel = context.WithTimeout(context.Background(), time.Second*30)
+		ctx, cancel = context.WithTimeout(context.Background(), time.Second*10)
 		defer cancel()
 	}
 

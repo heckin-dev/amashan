@@ -1,25 +1,24 @@
 package handlers
 
 import (
-	"context"
 	"encoding/json"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	"github.com/hashicorp/go-hclog"
 	"github.com/heckin-dev/amashan/pkg/bnet"
+	"github.com/heckin-dev/amashan/pkg/middleware"
 	"github.com/heckin-dev/amashan/pkg/utils"
+	"golang.org/x/oauth2"
 	"net/http"
 	"os"
 	"strings"
-	"time"
 )
 
 type BattleNet struct {
 	l hclog.Logger
 
 	client *bnet.BattlenetClient
-	//config *oauth2.Config
-	store *sessions.CookieStore
+	store  *sessions.CookieStore
 }
 
 func (b *BattleNet) Authorize(w http.ResponseWriter, r *http.Request) {
@@ -65,12 +64,8 @@ func (b *BattleNet) Callback(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	// Exchange the code
-	ctx, cancel := context.WithTimeout(context.Background(), time.Second*30)
-	defer cancel()
-
 	code := r.URL.Query().Get("code")
-	token, err := b.client.Exchange(ctx, code)
+	token, err := b.client.Exchange(r.Context(), code)
 	if err != nil {
 		b.l.Error("token exchange failed", "error", err)
 		http.Error(w, "failed to exchange code for token", http.StatusInternalServerError)
@@ -78,12 +73,12 @@ func (b *BattleNet) Callback(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Check the token.
-	ct, err := b.client.CheckToken(ctx, token)
+	ct, err := b.client.CheckToken(r.Context(), token)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusBadRequest)
 	}
 
-	ui, err := b.client.UserInfo(ctx, token)
+	ui, err := b.client.UserInfo(r.Context(), token)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 	}
@@ -99,10 +94,33 @@ func (b *BattleNet) Callback(w http.ResponseWriter, r *http.Request) {
 	_ = json.NewEncoder(w).Encode(token)
 }
 
+func (b *BattleNet) ProfileSummary(w http.ResponseWriter, r *http.Request) {
+	region := r.Context().Value(middleware.RegionContextKey).(string)
+
+	// TODO: Read the Token from the request header or something.
+	// TODO: Add the token to the line below.
+	as, err := b.client.AccountProfileSummary(r.Context(), &oauth2.Token{}, region)
+	if err != nil {
+		b.l.Error("failed to retrieve account summary", "error", err)
+		http.Error(w, "failed to retrieve account summary", http.StatusInternalServerError)
+		return
+	}
+
+	_ = json.NewEncoder(w).Encode(as)
+}
+
 func (b *BattleNet) Route(r *mux.Router) {
 	oauthRouter := r.PathPrefix("/auth").Subrouter()
+
+	// http://localhost:9090/api/auth/battlenet
 	oauthRouter.HandleFunc("/battlenet", b.Authorize).Methods(http.MethodGet)
 	oauthRouter.HandleFunc("/battlenet/callback", b.Callback).Methods(http.MethodGet)
+
+	bnetRouter := r.PathPrefix("/{region}/battlenet").Subrouter()
+	bnetRouter.Use(middleware.UseRegion().Middleware)
+
+	// http://localhost:9090/api/us/battlenet/profile
+	bnetRouter.HandleFunc("/profile", b.ProfileSummary).Methods(http.MethodGet)
 }
 
 func NewBattleNet(l hclog.Logger) *BattleNet {
