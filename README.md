@@ -57,3 +57,4 @@ This is the value that will be used for the CookieStore.
 - [stretchr/testify](https://github.com/stretchr/testify)
 - [joho/godotenv](https://github.com/joho/godotenv)
 - [x/oauth2](https://github.com/golang/oauth2)
+- [x/time/rate](https://cs.opensource.google/go/x/time)

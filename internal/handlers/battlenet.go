@@ -6,8 +6,8 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	"github.com/hashicorp/go-hclog"
+	"github.com/heckin-dev/amashan/pkg/bnet"
 	"github.com/heckin-dev/amashan/pkg/utils"
-	"golang.org/x/oauth2"
 	"net/http"
 	"os"
 	"strings"
@@ -17,8 +17,9 @@ import (
 type BattleNet struct {
 	l hclog.Logger
 
-	config *oauth2.Config
-	store  *sessions.CookieStore
+	client *bnet.BattlenetClient
+	//config *oauth2.Config
+	store *sessions.CookieStore
 }
 
 func (b *BattleNet) Authorize(w http.ResponseWriter, r *http.Request) {
@@ -40,7 +41,7 @@ func (b *BattleNet) Authorize(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
-	http.Redirect(w, r, b.config.AuthCodeURL(state), http.StatusTemporaryRedirect)
+	http.Redirect(w, r, b.client.AuthCodeURL(state), http.StatusTemporaryRedirect)
 }
 
 func (b *BattleNet) Callback(w http.ResponseWriter, r *http.Request) {
@@ -69,16 +70,20 @@ func (b *BattleNet) Callback(w http.ResponseWriter, r *http.Request) {
 	defer cancel()
 
 	code := r.URL.Query().Get("code")
-	token, err := b.config.Exchange(ctx, code)
+	token, err := b.client.Exchange(ctx, code)
 	if err != nil {
 		b.l.Error("token exchange failed", "error", err)
 		http.Error(w, "failed to exchange code for token", http.StatusInternalServerError)
 		return
 	}
 
-	// TODO: Any user management? (do we care or should we just operate client-side)
-	// TODO: Token management?
+	// Check the token.
+	ok, err = b.client.CheckToken(ctx, token)
+	if err != nil {
+		http.Error(w, err.Error(), http.StatusBadRequest)
+	}
 
+	// TODO: Something with the token?
 	// Access token
 	// Token Type
 	// Expiry
@@ -102,17 +107,8 @@ func NewBattleNet(l hclog.Logger) *BattleNet {
 	store.Options.Secure = !strings.EqualFold(os.Getenv("PROD"), "")
 
 	return &BattleNet{
-		l: l,
-		config: &oauth2.Config{
-			ClientID:     os.Getenv("BNET_CLIENT_ID"),
-			ClientSecret: os.Getenv("BNET_CLIENT_SECRET"),
-			Endpoint: oauth2.Endpoint{
-				AuthURL:  "https://oauth.battle.net/authorize",
-				TokenURL: "https://oauth.battle.net/token",
-			},
-			RedirectURL: os.Getenv("BNET_REDIRECT_URL"),
-			Scopes:      []string{"wow.profile", "openid"},
-		},
-		store: store,
+		l:      l,
+		client: bnet.NewBattlnetClient(l),
+		store:  store,
 	}
 }

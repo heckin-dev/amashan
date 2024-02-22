@@ -20,7 +20,7 @@ func mockBattlenet() (*BattleNet, *httptest.Server) {
 	srv := httptest.NewServer(sm)
 
 	bnet := NewBattleNet(hclog.Default())
-	bnet.config = &oauth2.Config{
+	bnet.client.SetConfig(&oauth2.Config{
 		ClientID:     "client_id",
 		ClientSecret: "client_secret",
 		Endpoint: oauth2.Endpoint{
@@ -29,7 +29,7 @@ func mockBattlenet() (*BattleNet, *httptest.Server) {
 		},
 		RedirectURL: "http://localhost:9090/api/auth/battlenet/callback",
 		Scopes:      []string{"wow.profile", "openid"},
-	}
+	})
 
 	return bnet, srv
 }
