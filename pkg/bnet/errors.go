@@ -5,7 +5,9 @@ import (
 	"fmt"
 )
 
-var ErrTokenIsInvalid = errors.New("the provided token is invalid")
+var (
+	ErrTokenIsInvalid = errors.New("the provided token is invalid")
+)
 
 type ErrMissingRequiredScope struct {
 	Scope string

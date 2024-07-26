@@ -6,6 +6,7 @@ import (
 	"fmt"
 	"github.com/hashicorp/go-hclog"
 	"golang.org/x/oauth2"
+	cc "golang.org/x/oauth2/clientcredentials"
 	"golang.org/x/time/rate"
 	"net/http"
 	"os"
@@ -43,19 +44,20 @@ const (
 type BattlenetClient struct {
 	l hclog.Logger
 
-	config           *oauth2.Config
+	clientConfig     *cc.Config
+	oauthConfig      *oauth2.Config
 	perSecondLimiter *rate.Limiter
 	perHourLimiter   *rate.Limiter
 }
 
 // AuthCodeURL returns the AuthCodeURL produced by the underlying oauth2.Config to be redirected to for OAuth2.
 func (b *BattlenetClient) AuthCodeURL(state string) string {
-	return b.config.AuthCodeURL(state)
+	return b.oauthConfig.AuthCodeURL(state)
 }
 
 // Exchange returns the *oauth2.Token and/or error produced during the token exchange.
 func (b *BattlenetClient) Exchange(ctx context.Context, code string) (*oauth2.Token, error) {
-	return b.config.Exchange(ctx, code)
+	return b.oauthConfig.Exchange(ctx, code)
 }
 
 // CheckToken ensures the token is valid and contains the required scopes.
@@ -79,7 +81,7 @@ func (b *BattlenetClient) CheckToken(ctx context.Context, t *oauth2.Token) (*Che
 	req.URL.RawQuery = q.Encode()
 
 	// Do the request.
-	res, err := b.Do(ctx, t, req)
+	res, err := b.Do(ctx, t, req, OAuthRequest)
 	if err != nil {
 		return nil, err
 	}
@@ -127,7 +129,7 @@ func (b *BattlenetClient) UserInfo(ctx context.Context, t *oauth2.Token) (*UserI
 	t.SetAuthHeader(req)
 
 	// Do the request.
-	res, err := b.Do(ctx, t, req)
+	res, err := b.Do(ctx, t, req, OAuthRequest)
 	if err != nil {
 		return nil, err
 	}
@@ -162,7 +164,7 @@ func (b *BattlenetClient) AccountProfileSummary(ctx context.Context, t *oauth2.T
 
 	t.SetAuthHeader(req)
 
-	res, err := b.Do(ctx, t, req)
+	res, err := b.Do(ctx, t, req, OAuthRequest)
 	if err != nil {
 		return nil, err
 	}
@@ -177,11 +179,46 @@ func (b *BattlenetClient) AccountProfileSummary(ctx context.Context, t *oauth2.T
 	return asRes, nil
 }
 
+// CharacterEquipmentSummary gets the equipment summary for a given character.
+func (b *BattlenetClient) CharacterEquipmentSummary(ctx context.Context, region, realm, character string) (*CharacterEquipmentResponse, error) {
+	var endpoint = fmt.Sprintf("/profile/wow/character/%s/%s/equipment", realm, character)
+
+	url := fmt.Sprintf("%s%s", strings.Replace(BNET_API_URL, "{region}", region, -1), endpoint)
+	req, err := http.NewRequest(http.MethodGet, url, nil)
+	if err != nil {
+		b.l.Error("failed to create request", "url", url, "error", err)
+		return nil, err
+	}
+
+	q := req.URL.Query()
+	q.Add("region", region)
+	q.Add("namespace", fmt.Sprintf("profile-%s", region))
+	q.Add("locale", "en_US")
+	req.URL.RawQuery = q.Encode()
+
+	res, err := b.Do(ctx, nil, req, ClientRequest)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+
+	ceRes := &CharacterEquipmentResponse{}
+	err = json.NewDecoder(res.Body).Decode(ceRes)
+	if err != nil {
+		return nil, err
+	}
+
+	return ceRes, nil
+}
+
 // Do does the provided *http.Request using the http.Client associated with the provided *oauth2.Token. This can be
 // used directly but there are likely other wrapper methods that are more useful.
-func (b *BattlenetClient) Do(ctx context.Context, t *oauth2.Token, req *http.Request) (*http.Response, error) {
-	if !t.Valid() {
-		return nil, ErrTokenIsInvalid
+func (b *BattlenetClient) Do(ctx context.Context, t *oauth2.Token, req *http.Request, rType RequestType) (*http.Response, error) {
+	// If we are making a request on behalf of the user, we should check that their token is valid.
+	if rType == OAuthRequest {
+		if !t.Valid() {
+			return nil, ErrTokenIsInvalid
+		}
 	}
 
 	// If we create a new context, we need to defer it.
@@ -203,7 +240,10 @@ func (b *BattlenetClient) Do(ctx context.Context, t *oauth2.Token, req *http.Req
 
 	req.Header.Set("Accept", "application/json")
 
-	return b.config.Client(ctx, t).Do(req)
+	if rType == ClientRequest {
+		return b.clientConfig.Client(ctx).Do(req)
+	}
+	return b.oauthConfig.Client(ctx, t).Do(req)
 }
 
 // SetConfig overrides the underlying oauth2.Config with the provided one.
@@ -211,13 +251,18 @@ func (b *BattlenetClient) Do(ctx context.Context, t *oauth2.Token, req *http.Req
 //	Should only be used for testing.
 //	Let the environment variables configure it otherwise.
 func (b *BattlenetClient) SetConfig(config *oauth2.Config) {
-	b.config = config
+	b.oauthConfig = config
 }
 
 func NewBattlnetClient(l hclog.Logger) *BattlenetClient {
 	return &BattlenetClient{
 		l: l,
-		config: &oauth2.Config{
+		clientConfig: &cc.Config{
+			ClientID:     os.Getenv("BNET_CLIENT_ID"),
+			ClientSecret: os.Getenv("BNET_CLIENT_SECRET"),
+			TokenURL:     "https://oauth.battle.net/token",
+		},
+		oauthConfig: &oauth2.Config{
 			ClientID:     os.Getenv("BNET_CLIENT_ID"),
 			ClientSecret: os.Getenv("BNET_CLIENT_SECRET"),
 			Endpoint: oauth2.Endpoint{

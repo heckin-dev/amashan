@@ -114,6 +114,21 @@ func (b *BattleNet) ProfileSummary(w http.ResponseWriter, r *http.Request) {
 	_ = json.NewEncoder(w).Encode(as)
 }
 
+func (b *BattleNet) CharacterEquipment(w http.ResponseWriter, r *http.Request) {
+	region := r.Context().Value(middleware.RegionContextKey).(string)
+	realm := r.Context().Value(middleware.RealmContextKey).(string)
+	character := r.Context().Value(middleware.CharacterContextKey).(string)
+
+	ce, err := b.client.CharacterEquipmentSummary(r.Context(), region, realm, character)
+	if err != nil {
+		b.l.Error("failed to retrieve character equipment", "error", err)
+		http.Error(w, "failed to retrieve character equipment", http.StatusInternalServerError)
+		return
+	}
+
+	_ = json.NewEncoder(w).Encode(ce)
+}
+
 func (b *BattleNet) Route(r *mux.Router) {
 	oauthRouter := r.PathPrefix("/auth").Subrouter()
 
@@ -121,11 +136,20 @@ func (b *BattleNet) Route(r *mux.Router) {
 	oauthRouter.HandleFunc("/battlenet", b.Authorize).Methods(http.MethodGet)
 	oauthRouter.HandleFunc("/battlenet/callback", b.Callback).Methods(http.MethodGet)
 
-	bnetRouter := r.PathPrefix("/{region}/battlenet").Subrouter()
-	bnetRouter.Use(middleware.UseRegion().Middleware)
+	regionalWowRouter := r.PathPrefix("/{region}/wow").Subrouter()
+	regionalWowRouter.Use(middleware.UseRegion().Middleware)
 
-	// http://localhost:9090/api/us/battlenet/profile
-	bnetRouter.HandleFunc("/profile", b.ProfileSummary).Methods(http.MethodGet)
+	realmAndCharacterRouter := regionalWowRouter.PathPrefix("/{realm}/{character}").Subrouter()
+	realmAndCharacterRouter.Use(middleware.UseRealm().Middleware)
+	realmAndCharacterRouter.Use(middleware.UseCharacter().Middleware)
+
+	// http://localhost:9090/api/us/wow/illidan/aulene/equipment
+	realmAndCharacterRouter.HandleFunc("/equipment", b.CharacterEquipment)
+
+	/*
+		// http://localhost:9090/api/us/wow/profile
+		bnetRouter.HandleFunc("/profile", b.ProfileSummary).Methods(http.MethodGet)
+	*/
 }
 
 func NewBattleNet(l hclog.Logger) *BattleNet {

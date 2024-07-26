@@ -11,7 +11,7 @@ import (
 
 var regions = []string{"us", "eu", "kr", "tw"}
 
-var RegionContextKey string = "region"
+var RegionContextKey = "region"
 
 type Region struct{}
 
