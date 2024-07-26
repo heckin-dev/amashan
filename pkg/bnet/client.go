@@ -28,17 +28,7 @@ import (
 	1. User does login
 	2. * We retrieve info about the user identity? (do we care)
 	3. Get the user's characters
-	4. ! Determine how we retrieve the appearances the user has?
-	5. Get the user's auction house data
-	6. Show the user the appearances on the AH they don't have
 
-
-	--
-
-	Determine the items and their appearances?
-	Determine the items that share their appearances.
-	Determine the items that can be purchased on the auction house.
-	...
 
 
 https://stackoverflow.com/questions/51628755/how-to-add-default-header-fields-from-http-client
@@ -90,10 +80,10 @@ func (b *BattlenetClient) CheckToken(ctx context.Context, t *oauth2.Token) (*Che
 
 	// Do the request.
 	res, err := b.Do(ctx, t, req)
-	defer res.Body.Close()
 	if err != nil {
 		return nil, err
 	}
+	defer res.Body.Close()
 
 	// Decode the response and validate.
 	ctRes := &CheckTokenResponse{}
@@ -138,10 +128,10 @@ func (b *BattlenetClient) UserInfo(ctx context.Context, t *oauth2.Token) (*UserI
 
 	// Do the request.
 	res, err := b.Do(ctx, t, req)
-	defer res.Body.Close()
 	if err != nil {
 		return nil, err
 	}
+	defer res.Body.Close()
 
 	// Decode the response.
 	uiRes := &UserInfoResponse{}
@@ -173,10 +163,10 @@ func (b *BattlenetClient) AccountProfileSummary(ctx context.Context, t *oauth2.T
 	t.SetAuthHeader(req)
 
 	res, err := b.Do(ctx, t, req)
-	defer res.Body.Close()
 	if err != nil {
 		return nil, err
 	}
+	defer res.Body.Close()
 
 	asRes := &AccountSummaryResponse{}
 	err = json.NewDecoder(res.Body).Decode(asRes)

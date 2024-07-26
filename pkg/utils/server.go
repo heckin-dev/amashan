@@ -26,6 +26,8 @@ func StartServerWithGracefulShutdown(mux http.Handler, addr string, l hclog.Logg
 
 	// Start server
 	go func() {
+		l.Info("Listening", "addr", srv.Addr)
+
 		if err := srv.ListenAndServe(); !errors.Is(err, http.ErrServerClosed) {
 			l.Error("listener", "error", err)
 			os.Exit(1)

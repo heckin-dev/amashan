@@ -30,7 +30,12 @@ func (b *BattleNet) Authorize(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Create a new Session and store the state.
-	session, _ := b.store.Get(r, "oauth")
+	session, err := b.store.Get(r, "oauth")
+	if err != nil {
+		b.l.Error("failed to decode existing session", "error", err)
+		http.Error(w, "failed to decode existing session", http.StatusInternalServerError)
+		return
+	}
 	session.Values["state"] = state
 
 	// Save the session
@@ -129,7 +134,8 @@ func NewBattleNet(l hclog.Logger) *BattleNet {
 	store.MaxAge(86400 * 30)
 	store.Options.Path = "/"
 	store.Options.HttpOnly = true
-	store.Options.Secure = !strings.EqualFold(os.Getenv("PROD"), "")
+	store.Options.Secure = true
+	store.Options.SameSite = http.SameSiteNoneMode
 
 	return &BattleNet{
 		l:      l,
