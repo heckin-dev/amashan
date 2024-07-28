@@ -37,15 +37,9 @@ type AccountSummaryCharacter struct {
 
 // CharacterEquipmentResponse /profile/wow/character/{realmSlug}/{characterName}/equipment
 type CharacterEquipmentResponse struct {
-	Character        CharacterEquipmentCharacter         `json:"character"`
+	Character        Character                           `json:"character"`
 	EquippedItems    []CharacterEquipmentEquippedItem    `json:"equipped_items"`
 	EquippedItemSets []CharacterEquipmentEquippedItemSet `json:"equipped_item_sets"`
-}
-
-type CharacterEquipmentCharacter struct {
-	Key   Link   `json:"key"`
-	Name  string `json:"name"`
-	Realm Realm  `json:"realm"`
 }
 
 type CharacterEquipmentEquippedItem struct {
@@ -82,6 +76,17 @@ type CharacterEquipmentEquippedItemSet struct {
 	DisplayString string         `json:"display_string"`
 }
 
+// CharacterMediaResponse /profile/wow/character/{realmSlug}/{characterName}/character-media
+type CharacterMediaResponse struct {
+	Character Character     `json:"character"`
+	Assets    []KeyAndValue `json:"assets"`
+}
+
+type KeyAndValue struct {
+	Key   string `json:"key"`
+	Value string `json:"value"`
+}
+
 type KeyedID struct {
 	Key Link `json:"key"`
 	ID  int  `json:"id"`
@@ -99,6 +104,12 @@ type NamedTypeAndID struct {
 
 type Link struct {
 	Href string `json:"href"`
+}
+
+type Character struct {
+	Key   Link   `json:"key"`
+	Name  string `json:"name"`
+	Realm Realm  `json:"realm"`
 }
 
 type Realm struct {

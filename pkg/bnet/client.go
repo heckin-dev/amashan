@@ -211,6 +211,37 @@ func (b *BattlenetClient) CharacterEquipmentSummary(ctx context.Context, region,
 	return ceRes, nil
 }
 
+func (b *BattlenetClient) CharacterMedia(ctx context.Context, region, realm, character string) (*CharacterMediaResponse, error) {
+	var endpoint = fmt.Sprintf("/profile/wow/character/%s/%s/character-media", realm, character)
+
+	url := fmt.Sprintf("%s%s", strings.Replace(BNET_API_URL, "{region}", region, -1), endpoint)
+	req, err := http.NewRequest(http.MethodGet, url, nil)
+	if err != nil {
+		b.l.Error("failed to create request", "url", url, "error", err)
+		return nil, err
+	}
+
+	q := req.URL.Query()
+	q.Add("region", region)
+	q.Add("namespace", fmt.Sprintf("profile-%s", region))
+	q.Add("locale", "en_US")
+	req.URL.RawQuery = q.Encode()
+
+	res, err := b.Do(ctx, nil, req, ClientRequest)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+
+	cmRes := &CharacterMediaResponse{}
+	err = json.NewDecoder(res.Body).Decode(cmRes)
+	if err != nil {
+		return nil, err
+	}
+
+	return cmRes, nil
+}
+
 // Do does the provided *http.Request using the http.Client associated with the provided *oauth2.Token. This can be
 // used directly but there are likely other wrapper methods that are more useful.
 func (b *BattlenetClient) Do(ctx context.Context, t *oauth2.Token, req *http.Request, rType RequestType) (*http.Response, error) {

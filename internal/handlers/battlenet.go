@@ -129,6 +129,21 @@ func (b *BattleNet) CharacterEquipment(w http.ResponseWriter, r *http.Request) {
 	_ = json.NewEncoder(w).Encode(ce)
 }
 
+func (b *BattleNet) CharacterMedia(w http.ResponseWriter, r *http.Request) {
+	region := r.Context().Value(middleware.RegionContextKey).(string)
+	realm := r.Context().Value(middleware.RealmContextKey).(string)
+	character := r.Context().Value(middleware.CharacterContextKey).(string)
+
+	cm, err := b.client.CharacterMedia(r.Context(), region, realm, character)
+	if err != nil {
+		b.l.Error("failed to retrieve character media", "error", err)
+		http.Error(w, "failed to retrieve character media", http.StatusInternalServerError)
+		return
+	}
+
+	_ = json.NewEncoder(w).Encode(cm)
+}
+
 func (b *BattleNet) Route(r *mux.Router) {
 	oauthRouter := r.PathPrefix("/auth").Subrouter()
 
@@ -145,6 +160,11 @@ func (b *BattleNet) Route(r *mux.Router) {
 
 	// http://localhost:9090/api/us/wow/illidan/aulene/equipment
 	realmAndCharacterRouter.HandleFunc("/equipment", b.CharacterEquipment)
+	// http://localhost:9090/api/us/wow/illidan/aulene/character-media
+	realmAndCharacterRouter.HandleFunc("/character-media", b.CharacterMedia)
+
+	// TODO: All Client Requests need to check status code(s)
+	// TODO: All Client Requests need to check headers, (ensure correct rates)
 
 	/*
 		// http://localhost:9090/api/us/wow/profile
