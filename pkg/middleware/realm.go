@@ -14,7 +14,7 @@ type Realm struct{}
 func (r *Realm) Middleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		vars := mux.Vars(r)
-		realm, ok := vars["realm"]
+		realm, ok := vars[RealmContextKey]
 		if !ok {
 			http.Error(w, "realm not provided in route parameter", http.StatusBadRequest)
 			return

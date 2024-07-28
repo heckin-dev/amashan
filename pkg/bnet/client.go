@@ -3,6 +3,7 @@ package bnet
 import (
 	"context"
 	"encoding/json"
+	"errors"
 	"fmt"
 	"github.com/hashicorp/go-hclog"
 	"golang.org/x/oauth2"
@@ -12,6 +13,7 @@ import (
 	"net/http"
 	"os"
 	"slices"
+	"strconv"
 	"strings"
 	"time"
 )
@@ -229,6 +231,7 @@ func (b *BattlenetClient) MythicKeystoneIndex(ctx context.Context, options *Char
 	if err != nil {
 		return nil, err
 	}
+	defer res.Body.Close()
 
 	mkiRes := &MythicKeystoneIndexResponse{}
 	err = json.NewDecoder(res.Body).Decode(mkiRes)
@@ -237,6 +240,45 @@ func (b *BattlenetClient) MythicKeystoneIndex(ctx context.Context, options *Char
 	}
 
 	return mkiRes, nil
+}
+
+// MythicKeystoneSeason gets the mythic keystone season for the given character.
+func (b *BattlenetClient) MythicKeystoneSeason(ctx context.Context, options *MythicSeasonOptions) (*MythicKeystoneSeasonResponse, error) {
+	// /profile/wow/character/{realmSlug}/{characterName}/mythic-keystone-profile/season/{seasonId}
+	var endpoint = fmt.Sprintf("/profile/wow/character/%s/%s/mythic-keystone-profile/season/%d", options.Realm, options.Character, options.Season)
+
+	req, err := b.prepareProfileRequest(&ProfileRequestOptions{
+		Region:      options.Region,
+		Endpoint:    endpoint,
+		Method:      http.MethodGet,
+		QueryParams: map[string]string{"seasonId": strconv.Itoa(options.Season)},
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	res, err := b.Do(ctx, nil, req, ClientRequest)
+	if err != nil {
+		// If we got a 404, this is expected, we should handle with value.
+		var errUnexpectedResponse *ErrUnexpectedResponse
+		if errors.As(err, &errUnexpectedResponse) {
+			return &MythicKeystoneSeasonResponse{
+				CharacterPlayedSeason: false,
+			}, nil
+		}
+
+		return nil, err
+	}
+	defer res.Body.Close()
+
+	mksRes := &MythicKeystoneSeasonResponse{}
+	err = json.NewDecoder(res.Body).Decode(mksRes)
+	if err != nil {
+		return nil, err
+	}
+
+	mksRes.CharacterPlayedSeason = true
+	return mksRes, nil
 }
 
 // Do does the provided *http.Request using the http.Client associated with the provided *oauth2.Token. This can be
@@ -278,7 +320,7 @@ func (b *BattlenetClient) Do(ctx context.Context, t *oauth2.Token, req *http.Req
 	}
 
 	if err != nil {
-		b.l.Error("failed to do request", "RequestType", rType, "request", req, "error", err)
+		b.l.Error("Failed to do request", "RequestType", rType, "request", req, "error", err)
 		return nil, err
 	}
 
@@ -289,12 +331,17 @@ func (b *BattlenetClient) Do(ctx context.Context, t *oauth2.Token, req *http.Req
 	if res.StatusCode < 200 || res.StatusCode >= 400 {
 		bs, err := io.ReadAll(res.Body)
 		if err != nil {
-			b.l.Error("failed to read body for error logging", "error", err)
+			b.l.Error("Failed to read body for error logging", "error", err)
 		}
 		defer res.Body.Close()
 
-		b.l.Error("do request returned non-200 status code", "StatusCode", res.StatusCode, "body", string(bs))
-		return nil, ErrUnexpectedResponse{StatusCode: res.StatusCode}
+		if res.StatusCode == 404 {
+			b.l.Warn("Request returned 404 status code", "body", string(bs))
+		} else {
+			b.l.Error("Request returned non-200 status code", "StatusCode", res.StatusCode, "body", string(bs))
+		}
+
+		return nil, &ErrUnexpectedResponse{StatusCode: res.StatusCode, Err: err}
 	}
 
 	return res, nil

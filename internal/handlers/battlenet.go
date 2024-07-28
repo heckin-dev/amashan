@@ -11,6 +11,7 @@ import (
 	"golang.org/x/oauth2"
 	"net/http"
 	"os"
+	"strconv"
 	"strings"
 )
 
@@ -148,6 +149,33 @@ func (b *BattleNet) MythicKeystoneIndex(w http.ResponseWriter, r *http.Request) 
 	_ = json.NewEncoder(w).Encode(mki)
 }
 
+func (b *BattleNet) MythicKeystoneSeason(w http.ResponseWriter, r *http.Request) {
+	vars := mux.Vars(r)
+	seasonStr, ok := vars["seasonID"]
+	if !ok {
+		http.Error(w, "seasonID not provided in route parameter", http.StatusBadRequest)
+		return
+	}
+
+	season, err := strconv.Atoi(seasonStr)
+	if err != nil {
+		http.Error(w, "failed to parse seasonID to integer", http.StatusBadRequest)
+		return
+	}
+
+	mks, err := b.client.MythicKeystoneSeason(r.Context(), &bnet.MythicSeasonOptions{
+		CharacterOptions: *bnet.CharacterOptionsFromContext(r.Context()),
+		Season:           season,
+	})
+	if err != nil {
+		b.l.Error("failed to retrieve mythic keystone season", "error", err)
+		http.Error(w, "failed to retrieve mythic keystone season", http.StatusInternalServerError)
+		return
+	}
+
+	_ = json.NewEncoder(w).Encode(mks)
+}
+
 func (b *BattleNet) Route(r *mux.Router) {
 	oauthRouter := r.PathPrefix("/auth").Subrouter()
 
@@ -168,6 +196,8 @@ func (b *BattleNet) Route(r *mux.Router) {
 	realmAndCharacterRouter.HandleFunc("/character-media", b.CharacterMedia)
 	// http://localhost:9090/api/us/wow/illidan/aulene/mythic-keystone-index
 	realmAndCharacterRouter.HandleFunc("/mythic-keystone-index", b.MythicKeystoneIndex)
+	// http://localhost:9090/api/us/wow/illidan/aulene/mythic-keystone-index/season/11
+	realmAndCharacterRouter.HandleFunc("/mythic-keystone-index/season/{seasonID}", b.MythicKeystoneSeason)
 
 	/*
 		// http://localhost:9090/api/us/wow/profile

@@ -11,10 +11,10 @@ var CharacterContextKey = "character"
 
 type Character struct{}
 
-func (r *Character) Middleware(next http.Handler) http.Handler {
+func (c *Character) Middleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		vars := mux.Vars(r)
-		character, ok := vars["character"]
+		character, ok := vars[CharacterContextKey]
 		if !ok {
 			http.Error(w, "character not provided in route parameter", http.StatusBadRequest)
 			return

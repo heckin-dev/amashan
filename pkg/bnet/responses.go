@@ -90,6 +90,15 @@ type MythicKeystoneIndexResponse struct {
 	CurrentMythicRating MythicRating        `json:"current_mythic_rating"`
 }
 
+// MythicKeystoneSeasonResponse /profile/wow/character/{realmSlug}/{characterName}/mythic-keystone-profile/season/{seasonId}
+type MythicKeystoneSeasonResponse struct {
+	CharacterPlayedSeason bool          `json:"character_played_season"`
+	Character             *Character    `json:"character,omitempty"`
+	Season                *KeyedID      `json:"season,omitempty"`
+	BestRuns              []*MythicRun  `json:"best_runs,omitempty"`
+	MythicRating          *MythicRating `json:"mythic_rating,omitempty"`
+}
+
 type CurrentMythicPeriod struct {
 	Period   KeyedID     `json:"period"`
 	BestRuns []MythicRun `json:"best_runs"`
@@ -103,6 +112,7 @@ type MythicRun struct {
 	Members               []MythicKeystoneMember `json:"members"`
 	Dungeon               NamedTypeAndID         `json:"dungeon"`
 	IsCompletedWithinTime bool                   `json:"is_completed_within_time"`
+	MythicRating          MythicRating           `json:"mythic_rating"`
 	MapRating             MythicRating           `json:"map_rating"`
 }
 

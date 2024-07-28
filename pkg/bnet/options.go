@@ -26,6 +26,11 @@ type ProfileRequestOptions struct {
 	QueryParams map[string]string
 }
 
+type MythicSeasonOptions struct {
+	CharacterOptions
+	Season int
+}
+
 // CharacterOptionsFromContext creates a CharacterOption from a given context.
 //
 // It is expected that the context contains the middleware.RegionContextKey, middleware.RealmContextKey &

@@ -18,7 +18,7 @@ type Region struct{}
 func (r *Region) Middleware(next http.Handler) http.Handler {
 	return http.HandlerFunc(func(w http.ResponseWriter, r *http.Request) {
 		vars := mux.Vars(r)
-		region, ok := vars["region"]
+		region, ok := vars[RegionContextKey]
 		if !ok {
 			http.Error(w, "region not provided in route parameter", http.StatusBadRequest)
 			return

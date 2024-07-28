@@ -19,8 +19,13 @@ func (m ErrMissingRequiredScope) Error() string {
 
 type ErrUnexpectedResponse struct {
 	StatusCode int
+	Err        error
 }
 
-func (e ErrUnexpectedResponse) Error() string {
+func (e *ErrUnexpectedResponse) Error() string {
 	return fmt.Sprintf("unexpected response from server with status '%d'", e.StatusCode)
+}
+
+func (e *ErrUnexpectedResponse) Unwrap() error {
+	return e.Err
 }
