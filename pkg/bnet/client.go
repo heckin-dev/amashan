@@ -8,6 +8,7 @@ import (
 	"golang.org/x/oauth2"
 	cc "golang.org/x/oauth2/clientcredentials"
 	"golang.org/x/time/rate"
+	"io"
 	"net/http"
 	"os"
 	"slices"
@@ -271,10 +272,36 @@ func (b *BattlenetClient) Do(ctx context.Context, t *oauth2.Token, req *http.Req
 
 	req.Header.Set("Accept", "application/json")
 
+	var res *http.Response
+	var err error
+
 	if rType == ClientRequest {
-		return b.clientConfig.Client(ctx).Do(req)
+		res, err = b.clientConfig.Client(ctx).Do(req)
+	} else {
+		res, err = b.oauthConfig.Client(ctx, t).Do(req)
 	}
-	return b.oauthConfig.Client(ctx, t).Do(req)
+
+	if err != nil {
+		b.l.Error("failed to do request", "RequestType", rType, "request", req, "error", err)
+		return nil, err
+	}
+
+	if res.StatusCode == http.StatusTooManyRequests {
+		b.perHourLimiter.Reserve()
+	}
+
+	if res.StatusCode < 200 || res.StatusCode >= 400 {
+		bs, err := io.ReadAll(res.Body)
+		if err != nil {
+			b.l.Error("failed to read body for error logging", "error", err)
+		}
+		defer res.Body.Close()
+
+		b.l.Error("do request returned non-200 status code", "StatusCode", res.StatusCode, "body", string(bs))
+		return nil, ErrUnexpectedResponse{StatusCode: res.StatusCode}
+	}
+
+	return res, nil
 }
 
 // SetConfig overrides the underlying oauth2.Config with the provided one.
