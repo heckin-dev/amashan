@@ -16,27 +16,6 @@ import (
 	"time"
 )
 
-/*
-	TODO: Create a Battlnet API Wrapper Client
-
-	https://develop.battle.net/documentation/guides/getting-started
-
-	1. The client should include a rate-limiter / round-tripper
-	2. We should make it easy to strap up a token for a given request.
-	3. Providing a middleware might be useful for strapping up the client between requests.
-
-	: Flow?
-
-	1. User does login
-	2. * We retrieve info about the user identity? (do we care)
-	3. Get the user's characters
-
-
-
-https://stackoverflow.com/questions/51628755/how-to-add-default-header-fields-from-http-client
-https://medium.com/mflow/rate-limiting-in-golang-http-client-a22fba15861a
-*/
-
 const (
 	BNET_OAUTH_URL string = "https://oauth.battle.net"
 	BNET_API_URL          = "https://{region}.api.blizzard.com"
@@ -147,25 +126,21 @@ func (b *BattlenetClient) UserInfo(ctx context.Context, t *oauth2.Token) (*UserI
 }
 
 // AccountProfileSummary gets the account summary for the given token.
-func (b *BattlenetClient) AccountProfileSummary(ctx context.Context, t *oauth2.Token, region string) (*AccountSummaryResponse, error) {
+func (b *BattlenetClient) AccountProfileSummary(ctx context.Context, options *AccountSummaryOptions) (*AccountSummaryResponse, error) {
 	const endpoint string = "/profile/user/wow"
 
-	url := fmt.Sprintf("%s%s", strings.Replace(BNET_API_URL, "{region}", region, -1), endpoint)
-	req, err := http.NewRequest(http.MethodGet, url, nil)
+	req, err := b.prepareProfileRequest(&ProfileRequestOptions{
+		Region:   options.Region,
+		Endpoint: endpoint,
+		Method:   http.MethodGet,
+	})
 	if err != nil {
-		b.l.Error("failed to create request", "url", url, "error", err)
 		return nil, err
 	}
 
-	q := req.URL.Query()
-	q.Add("region", region)
-	q.Add("namespace", fmt.Sprintf("profile-%s", region))
-	q.Add("locale", "en_US")
-	req.URL.RawQuery = q.Encode()
+	options.Token.SetAuthHeader(req)
 
-	t.SetAuthHeader(req)
-
-	res, err := b.Do(ctx, t, req, OAuthRequest)
+	res, err := b.Do(ctx, options.Token, req, OAuthRequest)
 	if err != nil {
 		return nil, err
 	}
@@ -181,21 +156,17 @@ func (b *BattlenetClient) AccountProfileSummary(ctx context.Context, t *oauth2.T
 }
 
 // CharacterEquipmentSummary gets the equipment summary for a given character.
-func (b *BattlenetClient) CharacterEquipmentSummary(ctx context.Context, region, realm, character string) (*CharacterEquipmentResponse, error) {
-	var endpoint = fmt.Sprintf("/profile/wow/character/%s/%s/equipment", realm, character)
+func (b *BattlenetClient) CharacterEquipmentSummary(ctx context.Context, options *CharacterOptions) (*CharacterEquipmentResponse, error) {
+	var endpoint = fmt.Sprintf("/profile/wow/character/%s/%s/equipment", options.Realm, options.Character)
 
-	url := fmt.Sprintf("%s%s", strings.Replace(BNET_API_URL, "{region}", region, -1), endpoint)
-	req, err := http.NewRequest(http.MethodGet, url, nil)
+	req, err := b.prepareProfileRequest(&ProfileRequestOptions{
+		Region:   options.Region,
+		Endpoint: endpoint,
+		Method:   http.MethodGet,
+	})
 	if err != nil {
-		b.l.Error("failed to create request", "url", url, "error", err)
 		return nil, err
 	}
-
-	q := req.URL.Query()
-	q.Add("region", region)
-	q.Add("namespace", fmt.Sprintf("profile-%s", region))
-	q.Add("locale", "en_US")
-	req.URL.RawQuery = q.Encode()
 
 	res, err := b.Do(ctx, nil, req, ClientRequest)
 	if err != nil {
@@ -212,21 +183,18 @@ func (b *BattlenetClient) CharacterEquipmentSummary(ctx context.Context, region,
 	return ceRes, nil
 }
 
-func (b *BattlenetClient) CharacterMedia(ctx context.Context, region, realm, character string) (*CharacterMediaResponse, error) {
-	var endpoint = fmt.Sprintf("/profile/wow/character/%s/%s/character-media", realm, character)
+// CharacterMedia gets the character media for a given character.
+func (b *BattlenetClient) CharacterMedia(ctx context.Context, options *CharacterOptions) (*CharacterMediaResponse, error) {
+	var endpoint = fmt.Sprintf("/profile/wow/character/%s/%s/character-media", options.Realm, options.Character)
 
-	url := fmt.Sprintf("%s%s", strings.Replace(BNET_API_URL, "{region}", region, -1), endpoint)
-	req, err := http.NewRequest(http.MethodGet, url, nil)
+	req, err := b.prepareProfileRequest(&ProfileRequestOptions{
+		Region:   options.Region,
+		Endpoint: endpoint,
+		Method:   http.MethodGet,
+	})
 	if err != nil {
-		b.l.Error("failed to create request", "url", url, "error", err)
 		return nil, err
 	}
-
-	q := req.URL.Query()
-	q.Add("region", region)
-	q.Add("namespace", fmt.Sprintf("profile-%s", region))
-	q.Add("locale", "en_US")
-	req.URL.RawQuery = q.Encode()
 
 	res, err := b.Do(ctx, nil, req, ClientRequest)
 	if err != nil {
@@ -241,6 +209,34 @@ func (b *BattlenetClient) CharacterMedia(ctx context.Context, region, realm, cha
 	}
 
 	return cmRes, nil
+}
+
+// MythicKeystoneIndex gets the mythic keystone index for the given character.
+func (b *BattlenetClient) MythicKeystoneIndex(ctx context.Context, options *CharacterOptions) (*MythicKeystoneIndexResponse, error) {
+	// /profile/wow/character/{realmSlug}/{characterName}/mythic-keystone-profile
+	var endpoint = fmt.Sprintf("/profile/wow/character/%s/%s/mythic-keystone-profile", options.Realm, options.Character)
+
+	req, err := b.prepareProfileRequest(&ProfileRequestOptions{
+		Region:   options.Region,
+		Endpoint: endpoint,
+		Method:   http.MethodGet,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	res, err := b.Do(ctx, nil, req, ClientRequest)
+	if err != nil {
+		return nil, err
+	}
+
+	mkiRes := &MythicKeystoneIndexResponse{}
+	err = json.NewDecoder(res.Body).Decode(mkiRes)
+	if err != nil {
+		return nil, err
+	}
+
+	return mkiRes, nil
 }
 
 // Do does the provided *http.Request using the http.Client associated with the provided *oauth2.Token. This can be
@@ -310,6 +306,36 @@ func (b *BattlenetClient) Do(ctx context.Context, t *oauth2.Token, req *http.Req
 //	Let the environment variables configure it otherwise.
 func (b *BattlenetClient) SetConfig(config *oauth2.Config) {
 	b.oauthConfig = config
+}
+
+// prepareProfileRequest util wraps common http.NewRequest(...) and query param setup.
+//
+// by default this provides the following query params:
+//
+//	?region=ProfileRequestOptions.Region
+//	&namespaced=profile-ProfileRequestOptions.Region
+//	&locale=en_US
+func (b *BattlenetClient) prepareProfileRequest(options *ProfileRequestOptions) (*http.Request, error) {
+	url := fmt.Sprintf("%s%s", strings.Replace(BNET_API_URL, "{region}", options.Region, -1), options.Endpoint)
+	req, err := http.NewRequest(options.Method, url, options.Body)
+	if err != nil {
+		b.l.Error("failed to create request", "url", url, "error", err)
+		return nil, err
+	}
+
+	q := req.URL.Query()
+	q.Add("region", options.Region)
+	q.Add("namespace", fmt.Sprintf("profile-%s", options.Region))
+	q.Add("locale", "en_US")
+
+	if options.QueryParams != nil {
+		for k, v := range options.QueryParams {
+			q.Add(k, v)
+		}
+	}
+	req.URL.RawQuery = q.Encode()
+
+	return req, nil
 }
 
 func NewBattlnetClient(l hclog.Logger) *BattlenetClient {

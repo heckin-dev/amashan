@@ -100,11 +100,12 @@ func (b *BattleNet) Callback(w http.ResponseWriter, r *http.Request) {
 }
 
 func (b *BattleNet) ProfileSummary(w http.ResponseWriter, r *http.Request) {
-	region := r.Context().Value(middleware.RegionContextKey).(string)
-
 	// TODO: Read the Token from the request header or something.
 	// TODO: Add the token to the line below.
-	as, err := b.client.AccountProfileSummary(r.Context(), &oauth2.Token{}, region)
+	as, err := b.client.AccountProfileSummary(r.Context(), &bnet.AccountSummaryOptions{
+		Token:  &oauth2.Token{},
+		Region: r.Context().Value(middleware.RegionContextKey).(string),
+	})
 	if err != nil {
 		b.l.Error("failed to retrieve account summary", "error", err)
 		http.Error(w, "failed to retrieve account summary", http.StatusInternalServerError)
@@ -115,11 +116,7 @@ func (b *BattleNet) ProfileSummary(w http.ResponseWriter, r *http.Request) {
 }
 
 func (b *BattleNet) CharacterEquipment(w http.ResponseWriter, r *http.Request) {
-	region := r.Context().Value(middleware.RegionContextKey).(string)
-	realm := r.Context().Value(middleware.RealmContextKey).(string)
-	character := r.Context().Value(middleware.CharacterContextKey).(string)
-
-	ce, err := b.client.CharacterEquipmentSummary(r.Context(), region, realm, character)
+	ce, err := b.client.CharacterEquipmentSummary(r.Context(), bnet.CharacterOptionsFromContext(r.Context()))
 	if err != nil {
 		b.l.Error("failed to retrieve character equipment", "error", err)
 		http.Error(w, "failed to retrieve character equipment", http.StatusInternalServerError)
@@ -130,11 +127,7 @@ func (b *BattleNet) CharacterEquipment(w http.ResponseWriter, r *http.Request) {
 }
 
 func (b *BattleNet) CharacterMedia(w http.ResponseWriter, r *http.Request) {
-	region := r.Context().Value(middleware.RegionContextKey).(string)
-	realm := r.Context().Value(middleware.RealmContextKey).(string)
-	character := r.Context().Value(middleware.CharacterContextKey).(string)
-
-	cm, err := b.client.CharacterMedia(r.Context(), region, realm, character)
+	cm, err := b.client.CharacterMedia(r.Context(), bnet.CharacterOptionsFromContext(r.Context()))
 	if err != nil {
 		b.l.Error("failed to retrieve character media", "error", err)
 		http.Error(w, "failed to retrieve character media", http.StatusInternalServerError)
@@ -142,6 +135,17 @@ func (b *BattleNet) CharacterMedia(w http.ResponseWriter, r *http.Request) {
 	}
 
 	_ = json.NewEncoder(w).Encode(cm)
+}
+
+func (b *BattleNet) MythicKeystoneIndex(w http.ResponseWriter, r *http.Request) {
+	mki, err := b.client.MythicKeystoneIndex(r.Context(), bnet.CharacterOptionsFromContext(r.Context()))
+	if err != nil {
+		b.l.Error("failed to retrieve mythic keystone index", "error", err)
+		http.Error(w, "failed to retrieve mythic keystone index", http.StatusInternalServerError)
+		return
+	}
+
+	_ = json.NewEncoder(w).Encode(mki)
 }
 
 func (b *BattleNet) Route(r *mux.Router) {
@@ -162,9 +166,8 @@ func (b *BattleNet) Route(r *mux.Router) {
 	realmAndCharacterRouter.HandleFunc("/equipment", b.CharacterEquipment)
 	// http://localhost:9090/api/us/wow/illidan/aulene/character-media
 	realmAndCharacterRouter.HandleFunc("/character-media", b.CharacterMedia)
-
-	// TODO: All Client Requests need to check status code(s)
-	// TODO: All Client Requests need to check headers, (ensure correct rates)
+	// http://localhost:9090/api/us/wow/illidan/aulene/mythic-keystone-index
+	realmAndCharacterRouter.HandleFunc("/mythic-keystone-index", b.MythicKeystoneIndex)
 
 	/*
 		// http://localhost:9090/api/us/wow/profile

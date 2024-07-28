@@ -82,6 +82,42 @@ type CharacterMediaResponse struct {
 	Assets    []KeyAndValue `json:"assets"`
 }
 
+// MythicKeystoneIndexResponse /profile/wow/character/{realmSlug}/{characterName}/mythic-keystone-profile
+type MythicKeystoneIndexResponse struct {
+	Character           Character           `json:"character"`
+	Seasons             []KeyedID           `json:"seasons"`
+	CurrentPeriod       CurrentMythicPeriod `json:"current_period"`
+	CurrentMythicRating MythicRating        `json:"current_mythic_rating"`
+}
+
+type CurrentMythicPeriod struct {
+	Period   KeyedID     `json:"period"`
+	BestRuns []MythicRun `json:"best_runs"`
+}
+
+type MythicRun struct {
+	CompletedTimestamp    uint64                 `json:"completed_timestamp"`
+	Duration              uint64                 `json:"duration"`
+	KeystoneLevel         int                    `json:"keystone_level"`
+	KeystoneAffixes       []NamedTypeAndID       `json:"keystone_affixes"`
+	Members               []MythicKeystoneMember `json:"members"`
+	Dungeon               NamedTypeAndID         `json:"dungeon"`
+	IsCompletedWithinTime bool                   `json:"is_completed_within_time"`
+	MapRating             MythicRating           `json:"map_rating"`
+}
+
+type MythicKeystoneMember struct {
+	Character         Character      `json:"character"`
+	Specialization    NamedTypeAndID `json:"specialization"`
+	Race              NamedTypeAndID `json:"race"`
+	EquippedItemLevel int            `json:"equipped_item_level"`
+}
+
+type MythicRating struct {
+	Rating float64   `json:"rating"`
+	Color  ColorRGBA `json:"color"`
+}
+
 type KeyAndValue struct {
 	Key   string `json:"key"`
 	Value string `json:"value"`
@@ -99,7 +135,7 @@ type TypeAndName struct {
 
 type NamedTypeAndID struct {
 	KeyedID
-	Name string `json:"name"`
+	Name *string `json:"name,omitempty"`
 }
 
 type Link struct {
@@ -107,8 +143,9 @@ type Link struct {
 }
 
 type Character struct {
-	Key   Link   `json:"key"`
+	Key   *Link  `json:"key,omitempty"`
 	Name  string `json:"name"`
+	ID    int    `json:"id"`
 	Realm Realm  `json:"realm"`
 }
 
