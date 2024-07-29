@@ -13,8 +13,6 @@ import (
 type BattleNetMock struct{}
 
 func (b *BattleNetMock) CharacterEquipmentSummary(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-
 	res := &CharacterEquipmentResponse{}
 	err := json.NewDecoder(bytes.NewReader(test.CharacterEquipment)).Decode(res)
 	if err != nil {
@@ -22,12 +20,11 @@ func (b *BattleNetMock) CharacterEquipmentSummary(w http.ResponseWriter, r *http
 		return
 	}
 
+	w.Header().Set("Content-Type", "application/json")
 	_ = json.NewEncoder(w).Encode(res)
 }
 
 func (b *BattleNetMock) CharacterMedia(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-
 	res := &CharacterMediaResponse{}
 	err := json.NewDecoder(bytes.NewReader(test.CharacterMedia)).Decode(res)
 	if err != nil {
@@ -35,12 +32,23 @@ func (b *BattleNetMock) CharacterMedia(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	w.Header().Set("Content-Type", "application/json")
+	_ = json.NewEncoder(w).Encode(res)
+}
+
+func (b *BattleNetMock) CharacterStatistics(w http.ResponseWriter, r *http.Request) {
+	res := &CharacterMediaResponse{}
+	err := json.NewDecoder(bytes.NewReader(test.CharacterMedia)).Decode(res)
+	if err != nil {
+		http.Error(w, "failed to decode test.CharacterMedia", http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
 	_ = json.NewEncoder(w).Encode(res)
 }
 
 func (b *BattleNetMock) MythicKeystoneIndex(w http.ResponseWriter, r *http.Request) {
-	w.Header().Set("Content-Type", "application/json")
-
 	res := &MythicKeystoneIndexResponse{}
 	err := json.NewDecoder(bytes.NewReader(test.MythicKeystoneIndex)).Decode(res)
 	if err != nil {
@@ -48,6 +56,7 @@ func (b *BattleNetMock) MythicKeystoneIndex(w http.ResponseWriter, r *http.Reque
 		return
 	}
 
+	w.Header().Set("Content-Type", "application/json")
 	_ = json.NewEncoder(w).Encode(res)
 }
 
@@ -83,8 +92,14 @@ func (b *BattleNetMock) Route(r *mux.Router) {
 
 	publicProfile.HandleFunc("/character/{realm}/{character}/equipment", b.CharacterEquipmentSummary)
 	publicProfile.HandleFunc("/character/{realm}/{character}/character-media", b.CharacterMedia)
+	publicProfile.HandleFunc("/character/{realm}/{character}/statistics", b.CharacterStatistics)
 	publicProfile.HandleFunc("/character/{realm}/{character}/mythic-keystone-profile", b.MythicKeystoneIndex)
 	publicProfile.HandleFunc("/character/{realm}/{character}/mythic-keystone-profile/season/{seasonID}", b.MythicKeystoneSeason)
+
+	// Character Statistics - /profile/wow/character/{realmSlug}/{characterName}/statistics
+	// Character Encounters - /profile/wow/character/{realmSlug}/{characterName}/encounters
+	// Character Dungeons	- /profile/wow/character/{realmSlug}/{characterName}/encounters/dungeons
+	// Character Raids 		- /profile/wow/character/{realmSlug}/{characterName}/encounters/raids
 }
 
 func NewBattleNetMock() *BattleNetMock {

@@ -113,6 +113,7 @@ func (b *BattleNet) ProfileSummary(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	w.Header().Set("Content-Type", "application/json")
 	_ = json.NewEncoder(w).Encode(as)
 }
 
@@ -124,6 +125,7 @@ func (b *BattleNet) CharacterEquipment(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	w.Header().Set("Content-Type", "application/json")
 	_ = json.NewEncoder(w).Encode(ce)
 }
 
@@ -135,6 +137,7 @@ func (b *BattleNet) CharacterMedia(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	w.Header().Set("Content-Type", "application/json")
 	_ = json.NewEncoder(w).Encode(cm)
 }
 
@@ -146,6 +149,7 @@ func (b *BattleNet) MythicKeystoneIndex(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 
+	w.Header().Set("Content-Type", "application/json")
 	_ = json.NewEncoder(w).Encode(mki)
 }
 
@@ -173,6 +177,7 @@ func (b *BattleNet) MythicKeystoneSeason(w http.ResponseWriter, r *http.Request)
 		return
 	}
 
+	w.Header().Set("Content-Type", "application/json")
 	_ = json.NewEncoder(w).Encode(mks)
 }
 
