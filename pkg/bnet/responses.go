@@ -183,14 +183,43 @@ type StatisticEffectiveness struct {
 	Effective float64 `json:"effective"`
 }
 
-// CharacterEncountersResponse /profile/wow/character/{realmSlug}/{characterName}/encounters
-type CharacterEncountersResponse struct{}
-
 // CharacterDungeonEncountersResponse /profile/wow/character/{realmSlug}/{characterName}/encounters/dungeons
-type CharacterDungeonEncountersResponse struct{}
+type CharacterDungeonEncountersResponse struct {
+	Expansions []EncounterExpansion `json:"expansions"`
+}
 
 // CharacterRaidEncountersResponse /profile/wow/character/{realmSlug}/{characterName}/encounters/raids
-type CharacterRaidEncountersResponse struct{}
+type CharacterRaidEncountersResponse struct {
+	Character  Character            `json:"character"`
+	Expansions []EncounterExpansion `json:"expansions"`
+}
+
+type EncounterExpansion struct {
+	Expansion NamedTypeAndID      `json:"expansion"`
+	Instances []EncounterInstance `json:"instances"`
+}
+
+type EncounterInstance struct {
+	Instance NamedTypeAndID  `json:"instance"`
+	Modes    []EncounterMode `json:"modes"`
+}
+
+type EncounterMode struct {
+	Difficulty TypeAndName `json:"difficulty"`
+	Status     TypeAndName `json:"status"`
+}
+
+type EncounterProgress struct {
+	CompletedCount int         `json:"completed_count"`
+	TotalCount     int         `json:"total_count"`
+	Encounters     []Encounter `json:"encounters"`
+}
+
+type Encounter struct {
+	Encounter         NamedTypeAndID `json:"encounter"`
+	CompletedCount    int            `json:"completed_count"`
+	LastKillTimestamp uint64         `json:"last_kill_timestamp"`
+}
 
 type KeyAndValue struct {
 	Key   string `json:"key"`

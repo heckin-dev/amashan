@@ -520,3 +520,9 @@ func TestBattlenetClient_CharacterStatistics(t *testing.T) {
 		})
 	}
 }
+
+func TestBattlenetClient_CharacterDungeonEncounters(t *testing.T) {
+}
+
+func TestBattlenetClient_CharacterRaidEncounters(t *testing.T) {
+}
