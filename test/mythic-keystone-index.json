@@ -1,0 +1,634 @@
+{
+  "_links": {
+    "self": {
+      "href": "https://us.api.blizzard.com/profile/wow/character/illidan/skkzr/mythic-keystone-profile?namespace=profile-us"
+    }
+  },
+  "current_period": {
+    "period": {
+      "key": {
+        "href": "https://us.api.blizzard.com/data/wow/mythic-keystone/period/969?namespace=dynamic-us"
+      },
+      "id": 969
+    },
+    "best_runs": [
+      {
+        "completed_timestamp": 1721966791000,
+        "duration": 1774187,
+        "keystone_level": 8,
+        "keystone_affixes": [
+          {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/keystone-affix/10?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Fortified",
+            "id": 10
+          },
+          {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/keystone-affix/135?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Afflicted",
+            "id": 135
+          }
+        ],
+        "members": [
+          {
+            "character": {
+              "name": "Cubanknight",
+              "id": 123963445,
+              "realm": {
+                "key": {
+                  "href": "https://us.api.blizzard.com/data/wow/realm/16?namespace=dynamic-us"
+                },
+                "id": 16,
+                "slug": "kelthuzad"
+              }
+            },
+            "specialization": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-specialization/250?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Blood",
+              "id": 250
+            },
+            "race": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-race/4?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Night Elf",
+              "id": 4
+            },
+            "equipped_item_level": 515
+          },
+          {
+            "character": {
+              "name": "Imaag",
+              "id": 229514753,
+              "realm": {
+                "key": {
+                  "href": "https://us.api.blizzard.com/data/wow/realm/57?namespace=dynamic-us"
+                },
+                "id": 57,
+                "slug": "illidan"
+              }
+            },
+            "specialization": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-specialization/265?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Affliction",
+              "id": 265
+            },
+            "race": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-race/3?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Dwarf",
+              "id": 3
+            },
+            "equipped_item_level": 528
+          },
+          {
+            "character": {
+              "name": "Wyrmshade",
+              "id": 258441946,
+              "realm": {
+                "key": {
+                  "href": "https://us.api.blizzard.com/data/wow/realm/60?namespace=dynamic-us"
+                },
+                "id": 60,
+                "slug": "stormrage"
+              }
+            },
+            "specialization": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-specialization/1468?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Preservation",
+              "id": 1468
+            },
+            "race": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-race/52?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Dracthyr",
+              "id": 52
+            },
+            "equipped_item_level": 512
+          },
+          {
+            "character": {
+              "name": "Mageabuser",
+              "id": 235018642,
+              "realm": {
+                "key": {
+                  "href": "https://us.api.blizzard.com/data/wow/realm/1566?namespace=dynamic-us"
+                },
+                "id": 1566,
+                "slug": "area-52"
+              }
+            },
+            "specialization": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-specialization/62?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Arcane",
+              "id": 62
+            },
+            "race": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-race/8?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Troll",
+              "id": 8
+            },
+            "equipped_item_level": 496
+          },
+          {
+            "character": {
+              "name": "Skkzr",
+              "id": 225511351,
+              "realm": {
+                "key": {
+                  "href": "https://us.api.blizzard.com/data/wow/realm/57?namespace=dynamic-us"
+                },
+                "id": 57,
+                "slug": "illidan"
+              }
+            },
+            "specialization": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-specialization/259?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Assassination",
+              "id": 259
+            },
+            "race": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-race/4?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Night Elf",
+              "id": 4
+            },
+            "equipped_item_level": 493
+          }
+        ],
+        "dungeon": {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/mythic-keystone/dungeon/404?namespace=dynamic-us"
+          },
+          "name": "Neltharus",
+          "id": 404
+        },
+        "is_completed_within_time": true,
+        "mythic_rating": {
+          "color": {
+            "r": 255,
+            "g": 128,
+            "b": 0,
+            "a": 1.0
+          },
+          "rating": 147.29933
+        },
+        "map_rating": {
+          "color": {
+            "r": 0,
+            "g": 112,
+            "b": 221,
+            "a": 1.0
+          },
+          "rating": 220.949
+        }
+      },
+      {
+        "completed_timestamp": 1721969019000,
+        "duration": 1653136,
+        "keystone_level": 8,
+        "keystone_affixes": [
+          {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/keystone-affix/10?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Fortified",
+            "id": 10
+          },
+          {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/keystone-affix/135?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Afflicted",
+            "id": 135
+          }
+        ],
+        "members": [
+          {
+            "character": {
+              "name": "Milktankk",
+              "id": 241169927,
+              "realm": {
+                "key": {
+                  "href": "https://us.api.blizzard.com/data/wow/realm/108?namespace=dynamic-us"
+                },
+                "id": 108,
+                "slug": "stonemaul"
+              }
+            },
+            "specialization": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-specialization/104?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Guardian",
+              "id": 104
+            },
+            "race": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-race/28?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Highmountain Tauren",
+              "id": 28
+            },
+            "equipped_item_level": 506
+          },
+          {
+            "character": {
+              "name": "Imaag",
+              "id": 229514753,
+              "realm": {
+                "key": {
+                  "href": "https://us.api.blizzard.com/data/wow/realm/57?namespace=dynamic-us"
+                },
+                "id": 57,
+                "slug": "illidan"
+              }
+            },
+            "specialization": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-specialization/265?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Affliction",
+              "id": 265
+            },
+            "race": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-race/3?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Dwarf",
+              "id": 3
+            },
+            "equipped_item_level": 528
+          },
+          {
+            "character": {
+              "name": "Mageabuser",
+              "id": 235018642,
+              "realm": {
+                "key": {
+                  "href": "https://us.api.blizzard.com/data/wow/realm/1566?namespace=dynamic-us"
+                },
+                "id": 1566,
+                "slug": "area-52"
+              }
+            },
+            "specialization": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-specialization/62?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Arcane",
+              "id": 62
+            },
+            "race": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-race/8?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Troll",
+              "id": 8
+            },
+            "equipped_item_level": 496
+          },
+          {
+            "character": {
+              "name": "Rammrod",
+              "id": 225054638,
+              "realm": {
+                "key": {
+                  "href": "https://us.api.blizzard.com/data/wow/realm/1357?namespace=dynamic-us"
+                },
+                "id": 1357,
+                "slug": "maiev"
+              }
+            },
+            "specialization": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-specialization/105?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Restoration",
+              "id": 105
+            },
+            "race": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-race/4?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Night Elf",
+              "id": 4
+            },
+            "equipped_item_level": 526
+          },
+          {
+            "character": {
+              "name": "Skkzr",
+              "id": 225511351,
+              "realm": {
+                "key": {
+                  "href": "https://us.api.blizzard.com/data/wow/realm/57?namespace=dynamic-us"
+                },
+                "id": 57,
+                "slug": "illidan"
+              }
+            },
+            "specialization": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-specialization/259?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Assassination",
+              "id": 259
+            },
+            "race": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-race/4?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Night Elf",
+              "id": 4
+            },
+            "equipped_item_level": 493
+          }
+        ],
+        "dungeon": {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/mythic-keystone/dungeon/401?namespace=dynamic-us"
+          },
+          "name": "The Azure Vault",
+          "id": 401
+        },
+        "is_completed_within_time": true,
+        "mythic_rating": {
+          "color": {
+            "r": 255,
+            "g": 128,
+            "b": 0,
+            "a": 1.0
+          },
+          "rating": 149.31592
+        },
+        "map_rating": {
+          "color": {
+            "r": 255,
+            "g": 128,
+            "b": 0,
+            "a": 1.0
+          },
+          "rating": 292.38434
+        }
+      },
+      {
+        "completed_timestamp": 1721963095000,
+        "duration": 1241003,
+        "keystone_level": 8,
+        "keystone_affixes": [
+          {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/keystone-affix/10?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Fortified",
+            "id": 10
+          },
+          {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/keystone-affix/135?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Afflicted",
+            "id": 135
+          }
+        ],
+        "members": [
+          {
+            "character": {
+              "name": "Sunkingh",
+              "id": 232303751,
+              "realm": {
+                "key": {
+                  "href": "https://us.api.blizzard.com/data/wow/realm/1428?namespace=dynamic-us"
+                },
+                "id": 1428,
+                "slug": "quelthalas"
+              }
+            },
+            "specialization": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-specialization/268?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Brewmaster",
+              "id": 268
+            },
+            "race": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-race/25?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Pandaren",
+              "id": 25
+            },
+            "equipped_item_level": 501
+          },
+          {
+            "character": {
+              "name": "Doktuhs",
+              "id": 215005065,
+              "realm": {
+                "key": {
+                  "href": "https://us.api.blizzard.com/data/wow/realm/1566?namespace=dynamic-us"
+                },
+                "id": 1566,
+                "slug": "area-52"
+              }
+            },
+            "specialization": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-specialization/264?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Restoration",
+              "id": 264
+            },
+            "race": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-race/31?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Zandalari Troll",
+              "id": 31
+            },
+            "equipped_item_level": 512
+          },
+          {
+            "character": {
+              "name": "Imaag",
+              "id": 229514753,
+              "realm": {
+                "key": {
+                  "href": "https://us.api.blizzard.com/data/wow/realm/57?namespace=dynamic-us"
+                },
+                "id": 57,
+                "slug": "illidan"
+              }
+            },
+            "specialization": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-specialization/267?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Destruction",
+              "id": 267
+            },
+            "race": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-race/3?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Dwarf",
+              "id": 3
+            },
+            "equipped_item_level": 527
+          },
+          {
+            "character": {
+              "name": "Mageabuser",
+              "id": 235018642,
+              "realm": {
+                "key": {
+                  "href": "https://us.api.blizzard.com/data/wow/realm/1566?namespace=dynamic-us"
+                },
+                "id": 1566,
+                "slug": "area-52"
+              }
+            },
+            "specialization": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-specialization/64?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Frost",
+              "id": 64
+            },
+            "race": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-race/8?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Troll",
+              "id": 8
+            },
+            "equipped_item_level": 494
+          },
+          {
+            "character": {
+              "name": "Skkzr",
+              "id": 225511351,
+              "realm": {
+                "key": {
+                  "href": "https://us.api.blizzard.com/data/wow/realm/57?namespace=dynamic-us"
+                },
+                "id": 57,
+                "slug": "illidan"
+              }
+            },
+            "specialization": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-specialization/259?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Assassination",
+              "id": 259
+            },
+            "race": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-race/4?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Night Elf",
+              "id": 4
+            },
+            "equipped_item_level": 493
+          }
+        ],
+        "dungeon": {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/mythic-keystone/dungeon/399?namespace=dynamic-us"
+          },
+          "name": "Ruby Life Pools",
+          "id": 399
+        },
+        "is_completed_within_time": true,
+        "mythic_rating": {
+          "color": {
+            "r": 255,
+            "g": 128,
+            "b": 0,
+            "a": 1.0
+          },
+          "rating": 149.88193
+        },
+        "map_rating": {
+          "color": {
+            "r": 163,
+            "g": 53,
+            "b": 238,
+            "a": 1.0
+          },
+          "rating": 224.82289
+        }
+      }
+    ]
+  },
+  "seasons": [
+    {
+      "key": {
+        "href": "https://us.api.blizzard.com/profile/wow/character/illidan/skkzr/mythic-keystone-profile/season/11?namespace=profile-us"
+      },
+      "id": 11
+    },
+    {
+      "key": {
+        "href": "https://us.api.blizzard.com/profile/wow/character/illidan/skkzr/mythic-keystone-profile/season/12?namespace=profile-us"
+      },
+      "id": 12
+    },
+    {
+      "key": {
+        "href": "https://us.api.blizzard.com/profile/wow/character/illidan/skkzr/mythic-keystone-profile/season/10?namespace=profile-us"
+      },
+      "id": 10
+    },
+    {
+      "key": {
+        "href": "https://us.api.blizzard.com/profile/wow/character/illidan/skkzr/mythic-keystone-profile/season/9?namespace=profile-us"
+      },
+      "id": 9
+    }
+  ],
+  "character": {
+    "key": {
+      "href": "https://us.api.blizzard.com/profile/wow/character/illidan/skkzr?namespace=profile-us"
+    },
+    "name": "Skkzr",
+    "id": 225511351,
+    "realm": {
+      "key": {
+        "href": "https://us.api.blizzard.com/data/wow/realm/57?namespace=dynamic-us"
+      },
+      "name": "Illidan",
+      "id": 57,
+      "slug": "illidan"
+    }
+  },
+  "current_mythic_rating": {
+    "color": {
+      "r": 30,
+      "g": 255,
+      "b": 0,
+      "a": 1.0
+    },
+    "rating": 1688.9409
+  }
+}

@@ -1,0 +1,36 @@
+{
+  "_links": {
+    "self": {
+      "href": "https://us.api.blizzard.com/profile/wow/character/illidan/aulene/character-media?namespace=profile-us"
+    }
+  },
+  "character": {
+    "key": {
+      "href": "https://us.api.blizzard.com/profile/wow/character/illidan/aulene?namespace=profile-us"
+    },
+    "name": "Aulene",
+    "id": 229483897,
+    "realm": {
+      "key": {
+        "href": "https://us.api.blizzard.com/data/wow/realm/57?namespace=dynamic-us"
+      },
+      "name": "Illidan",
+      "id": 57,
+      "slug": "illidan"
+    }
+  },
+  "assets": [
+    {
+      "key": "avatar",
+      "value": "https://render.worldofwarcraft.com/us/character/illidan/121/229483897-avatar.jpg"
+    },
+    {
+      "key": "inset",
+      "value": "https://render.worldofwarcraft.com/us/character/illidan/121/229483897-inset.jpg"
+    },
+    {
+      "key": "main-raw",
+      "value": "https://render.worldofwarcraft.com/us/character/illidan/121/229483897-main-raw.png"
+    }
+  ]
+}

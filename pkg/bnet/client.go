@@ -23,6 +23,9 @@ const (
 	BNET_API_URL          = "https://{region}.api.blizzard.com"
 )
 
+// RegionalURLFunc wraps the string replacement for building the Region-ed API URL making it more testable.
+type RegionalURLFunc func(region string) string
+
 type BattlenetClient struct {
 	l hclog.Logger
 
@@ -30,6 +33,8 @@ type BattlenetClient struct {
 	oauthConfig      *oauth2.Config
 	perSecondLimiter *rate.Limiter
 	perHourLimiter   *rate.Limiter
+
+	apiURLFn RegionalURLFunc
 }
 
 // AuthCodeURL returns the AuthCodeURL produced by the underlying oauth2.Config to be redirected to for OAuth2.
@@ -363,7 +368,7 @@ func (b *BattlenetClient) SetConfig(config *oauth2.Config) {
 //	&namespaced=profile-ProfileRequestOptions.Region
 //	&locale=en_US
 func (b *BattlenetClient) prepareProfileRequest(options *ProfileRequestOptions) (*http.Request, error) {
-	url := fmt.Sprintf("%s%s", strings.Replace(BNET_API_URL, "{region}", options.Region, -1), options.Endpoint)
+	url := fmt.Sprintf("%s%s", b.apiURLFn(options.Region), options.Endpoint)
 	req, err := http.NewRequest(options.Method, url, options.Body)
 	if err != nil {
 		b.l.Error("failed to create request", "url", url, "error", err)
@@ -405,5 +410,8 @@ func NewBattlnetClient(l hclog.Logger) *BattlenetClient {
 		},
 		perSecondLimiter: rate.NewLimiter(rate.Every(1*time.Second), 100), // 100/s
 		perHourLimiter:   rate.NewLimiter(rate.Every(1*time.Hour), 36000), // 36,000/h
+		apiURLFn: func(region string) string {
+			return strings.Replace(BNET_API_URL, "{region}", region, -1)
+		},
 	}
 }
