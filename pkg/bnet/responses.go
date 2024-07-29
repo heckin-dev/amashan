@@ -128,6 +128,9 @@ type MythicRating struct {
 	Color  ColorRGBA `json:"color"`
 }
 
+// CharacterStatisticsResponse /profile/wow/character/{realmSlug}/{characterName}/statistics
+type CharacterStatisticsResponse struct{}
+
 type KeyAndValue struct {
 	Key   string `json:"key"`
 	Value string `json:"value"`

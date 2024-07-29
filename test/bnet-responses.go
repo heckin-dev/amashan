@@ -8,6 +8,9 @@ var CharacterEquipment []byte
 //go:embed character-media.json
 var CharacterMedia []byte
 
+//go:embed character-statistics.json
+var CharacterStatistics []byte
+
 //go:embed mythic-keystone-index.json
 var MythicKeystoneIndex []byte
 

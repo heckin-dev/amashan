@@ -218,6 +218,34 @@ func (b *BattlenetClient) CharacterMedia(ctx context.Context, options *Character
 	return cmRes, nil
 }
 
+// CharacterStatistics gets the character statistics for a given character.
+func (b *BattlenetClient) CharacterStatistics(ctx context.Context, options *CharacterOptions) (*CharacterStatisticsResponse, error) {
+	var endpoint = fmt.Sprintf("/profile/wow/character/%s/%s/statistics", options.Realm, options.Character)
+
+	req, err := b.prepareProfileRequest(&ProfileRequestOptions{
+		Region:   options.Region,
+		Endpoint: endpoint,
+		Method:   http.MethodGet,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	res, err := b.Do(ctx, nil, req, ClientRequest)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+
+	csRes := &CharacterStatisticsResponse{}
+	err = json.NewDecoder(res.Body).Decode(csRes)
+	if err != nil {
+		return nil, err
+	}
+
+	return csRes, nil
+}
+
 // MythicKeystoneIndex gets the mythic keystone index for the given character.
 func (b *BattlenetClient) MythicKeystoneIndex(ctx context.Context, options *CharacterOptions) (*MythicKeystoneIndexResponse, error) {
 	// /profile/wow/character/{realmSlug}/{characterName}/mythic-keystone-profile

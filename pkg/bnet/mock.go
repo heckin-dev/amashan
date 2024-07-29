@@ -37,10 +37,10 @@ func (b *BattleNetMock) CharacterMedia(w http.ResponseWriter, r *http.Request) {
 }
 
 func (b *BattleNetMock) CharacterStatistics(w http.ResponseWriter, r *http.Request) {
-	res := &CharacterMediaResponse{}
-	err := json.NewDecoder(bytes.NewReader(test.CharacterMedia)).Decode(res)
+	res := &CharacterStatisticsResponse{}
+	err := json.NewDecoder(bytes.NewReader(test.CharacterStatistics)).Decode(res)
 	if err != nil {
-		http.Error(w, "failed to decode test.CharacterMedia", http.StatusInternalServerError)
+		http.Error(w, "failed to decode test.CharacterStatistics", http.StatusInternalServerError)
 		return
 	}
 

@@ -141,6 +141,18 @@ func (b *BattleNet) CharacterMedia(w http.ResponseWriter, r *http.Request) {
 	_ = json.NewEncoder(w).Encode(cm)
 }
 
+func (b *BattleNet) CharacterStatistics(w http.ResponseWriter, r *http.Request) {
+	cs, err := b.client.CharacterStatistics(r.Context(), bnet.CharacterOptionsFromContext(r.Context()))
+	if err != nil {
+		b.l.Error("failed to retrieve character statistics", "error", err)
+		http.Error(w, "failed to retrieve character statistics", http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	_ = json.NewEncoder(w).Encode(cs)
+}
+
 func (b *BattleNet) MythicKeystoneIndex(w http.ResponseWriter, r *http.Request) {
 	mki, err := b.client.MythicKeystoneIndex(r.Context(), bnet.CharacterOptionsFromContext(r.Context()))
 	if err != nil {
@@ -199,6 +211,8 @@ func (b *BattleNet) Route(r *mux.Router) {
 	realmAndCharacterRouter.HandleFunc("/equipment", b.CharacterEquipment)
 	// http://localhost:9090/api/us/wow/illidan/aulene/character-media
 	realmAndCharacterRouter.HandleFunc("/character-media", b.CharacterMedia)
+	// http://localhost:9090/api/us/wow/illidan/aulene/character-statistics
+	realmAndCharacterRouter.HandleFunc("/character-statistics", b.CharacterStatistics)
 	// http://localhost:9090/api/us/wow/illidan/aulene/mythic-keystone-index
 	realmAndCharacterRouter.HandleFunc("/mythic-keystone-index", b.MythicKeystoneIndex)
 	// http://localhost:9090/api/us/wow/illidan/aulene/mythic-keystone-index/season/11

@@ -1,0 +1,132 @@
+{
+  "_links": {
+    "self": {
+      "href": "https://us.api.blizzard.com/profile/wow/character/illidan/aulene/statistics?namespace=profile-us"
+    }
+  },
+  "health": 971439,
+  "power": 100,
+  "power_type": {
+    "key": {
+      "href": "https://us.api.blizzard.com/data/wow/power-type/18?namespace=static-10.2.7_54366-us"
+    },
+    "name": "Pain",
+    "id": 18
+  },
+  "speed": {
+    "rating": 0,
+    "rating_bonus": 0.0
+  },
+  "strength": {
+    "base": 1732,
+    "effective": 1732
+  },
+  "agility": {
+    "base": 2091,
+    "effective": 8262
+  },
+  "intellect": {
+    "base": 1421,
+    "effective": 1421
+  },
+  "stamina": {
+    "base": 3848,
+    "effective": 46259
+  },
+  "melee_crit": {
+    "rating": 3653,
+    "rating_bonus": 20.294992,
+    "value": 30.294994
+  },
+  "melee_haste": {
+    "rating": 4713,
+    "rating_bonus": 27.724276,
+    "value": 27.724281
+  },
+  "mastery": {
+    "rating": 2309,
+    "rating_bonus": 19.242186,
+    "value": 31.242188
+  },
+  "bonus_armor": 0,
+  "lifesteal": {
+    "rating": 0,
+    "rating_bonus": 0.0,
+    "value": 10.0
+  },
+  "versatility": 1052.0,
+  "versatility_damage_done_bonus": 5.1318455,
+  "versatility_healing_done_bonus": 5.1318455,
+  "versatility_damage_taken_bonus": 2.5659227,
+  "avoidance": {
+    "rating": 0,
+    "rating_bonus": 0.0
+  },
+  "attack_power": 9983,
+  "main_hand_damage_min": 6068.071,
+  "main_hand_damage_max": 6557.249,
+  "main_hand_speed": 2.036,
+  "main_hand_dps": 3100.5208,
+  "off_hand_damage_min": 2941.1597,
+  "off_hand_damage_max": 3300.2373,
+  "off_hand_speed": 2.036,
+  "off_hand_dps": 1532.7595,
+  "spell_power": 1421,
+  "spell_penetration": 0,
+  "spell_crit": {
+    "rating": 3653,
+    "rating_bonus": 20.294992,
+    "value": 30.294994
+  },
+  "mana_regen": 0.0,
+  "mana_regen_combat": 0.0,
+  "armor": {
+    "base": 2581,
+    "effective": 11634
+  },
+  "dodge": {
+    "rating": 0,
+    "rating_bonus": 0.0,
+    "value": 15.871554
+  },
+  "parry": {
+    "rating": 3653,
+    "rating_bonus": 18.265491,
+    "value": 18.78076
+  },
+  "block": {
+    "rating": 0,
+    "rating_bonus": 0.0,
+    "value": 0.0
+  },
+  "ranged_crit": {
+    "rating": 3653,
+    "rating_bonus": 20.294992,
+    "value": 30.294994
+  },
+  "ranged_haste": {
+    "rating": 4713,
+    "rating_bonus": 27.724276,
+    "value": 27.724281
+  },
+  "spell_haste": {
+    "rating": 4713,
+    "rating_bonus": 27.724276,
+    "value": 27.724281
+  },
+  "character": {
+    "key": {
+      "href": "https://us.api.blizzard.com/profile/wow/character/illidan/aulene?namespace=profile-us"
+    },
+    "name": "Aulene",
+    "id": 229483897,
+    "realm": {
+      "key": {
+        "href": "https://us.api.blizzard.com/data/wow/realm/57?namespace=dynamic-us"
+      },
+      "name": "Illidan",
+      "id": 57,
+      "slug": "illidan"
+    }
+  }
+}
