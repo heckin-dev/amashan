@@ -48,6 +48,42 @@ func (b *BattleNetMock) CharacterStatistics(w http.ResponseWriter, r *http.Reque
 	_ = json.NewEncoder(w).Encode(res)
 }
 
+func (b *BattleNetMock) CharacterEncounters(w http.ResponseWriter, r *http.Request) {
+	res := &CharacterEncountersResponse{}
+	err := json.NewDecoder(bytes.NewReader(test.CharacterEncounters)).Decode(res)
+	if err != nil {
+		http.Error(w, "failed to decode test.CharacterEncounters", http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	_ = json.NewEncoder(w).Encode(res)
+}
+
+func (b *BattleNetMock) CharacterDungeonEncounters(w http.ResponseWriter, r *http.Request) {
+	res := &CharacterDungeonEncountersResponse{}
+	err := json.NewDecoder(bytes.NewReader(test.CharacterDungeonEncounters)).Decode(res)
+	if err != nil {
+		http.Error(w, "failed to decode test.CharacterDungeonEncounters", http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	_ = json.NewEncoder(w).Encode(res)
+}
+
+func (b *BattleNetMock) CharacterRaidEncounters(w http.ResponseWriter, r *http.Request) {
+	res := &CharacterRaidEncountersResponse{}
+	err := json.NewDecoder(bytes.NewReader(test.CharacterRaidEncounters)).Decode(res)
+	if err != nil {
+		http.Error(w, "failed to decode test.CharacterRaidEncounters", http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	_ = json.NewEncoder(w).Encode(res)
+}
+
 func (b *BattleNetMock) MythicKeystoneIndex(w http.ResponseWriter, r *http.Request) {
 	res := &MythicKeystoneIndexResponse{}
 	err := json.NewDecoder(bytes.NewReader(test.MythicKeystoneIndex)).Decode(res)
@@ -93,13 +129,11 @@ func (b *BattleNetMock) Route(r *mux.Router) {
 	publicProfile.HandleFunc("/character/{realm}/{character}/equipment", b.CharacterEquipmentSummary)
 	publicProfile.HandleFunc("/character/{realm}/{character}/character-media", b.CharacterMedia)
 	publicProfile.HandleFunc("/character/{realm}/{character}/statistics", b.CharacterStatistics)
+	publicProfile.HandleFunc("/character/{realm}/{character}/encounters", b.CharacterEncounters)
+	publicProfile.HandleFunc("/character/{realm}/{character}/encounters/dungeons", b.CharacterDungeonEncounters)
+	publicProfile.HandleFunc("/character/{realm}/{character}/encounters/raids", b.CharacterRaidEncounters)
 	publicProfile.HandleFunc("/character/{realm}/{character}/mythic-keystone-profile", b.MythicKeystoneIndex)
 	publicProfile.HandleFunc("/character/{realm}/{character}/mythic-keystone-profile/season/{seasonID}", b.MythicKeystoneSeason)
-
-	// Character Statistics - /profile/wow/character/{realmSlug}/{characterName}/statistics
-	// Character Encounters - /profile/wow/character/{realmSlug}/{characterName}/encounters
-	// Character Dungeons	- /profile/wow/character/{realmSlug}/{characterName}/encounters/dungeons
-	// Character Raids 		- /profile/wow/character/{realmSlug}/{characterName}/encounters/raids
 }
 
 func NewBattleNetMock() *BattleNetMock {

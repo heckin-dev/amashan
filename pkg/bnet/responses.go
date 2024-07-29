@@ -183,6 +183,15 @@ type StatisticEffectiveness struct {
 	Effective float64 `json:"effective"`
 }
 
+// CharacterEncountersResponse /profile/wow/character/{realmSlug}/{characterName}/encounters
+type CharacterEncountersResponse struct{}
+
+// CharacterDungeonEncountersResponse /profile/wow/character/{realmSlug}/{characterName}/encounters/dungeons
+type CharacterDungeonEncountersResponse struct{}
+
+// CharacterRaidEncountersResponse /profile/wow/character/{realmSlug}/{characterName}/encounters/raids
+type CharacterRaidEncountersResponse struct{}
+
 type KeyAndValue struct {
 	Key   string `json:"key"`
 	Value string `json:"value"`
