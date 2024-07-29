@@ -129,7 +129,59 @@ type MythicRating struct {
 }
 
 // CharacterStatisticsResponse /profile/wow/character/{realmSlug}/{characterName}/statistics
-type CharacterStatisticsResponse struct{}
+type CharacterStatisticsResponse struct {
+	Character                   Character              `json:"character"`
+	PowerType                   NamedTypeAndID         `json:"power_type"`
+	Health                      float64                `json:"health"`
+	Power                       float64                `json:"power"`
+	Avoidance                   StatisticRating        `json:"avoidance"`
+	Block                       StatisticRating        `json:"block"`
+	Dodge                       StatisticRating        `json:"dodge"`
+	Lifesteal                   StatisticRating        `json:"lifesteal"`
+	Mastery                     StatisticRating        `json:"mastery"`
+	MeleeCrit                   StatisticRating        `json:"melee_crit"`
+	MeleeHaste                  StatisticRating        `json:"melee_haste"`
+	Parry                       StatisticRating        `json:"parry"`
+	RangedCrit                  StatisticRating        `json:"ranged_crit"`
+	RangedHaste                 StatisticRating        `json:"ranged_haste"`
+	Speed                       StatisticRating        `json:"speed"`
+	SpellCrit                   StatisticRating        `json:"spell_crit"`
+	SpellHaste                  StatisticRating        `json:"spell_haste"`
+	Agility                     StatisticEffectiveness `json:"agility"`
+	Armor                       StatisticEffectiveness `json:"armor"`
+	Intellect                   StatisticEffectiveness `json:"intellect"`
+	Stamina                     StatisticEffectiveness `json:"stamina"`
+	Strength                    StatisticEffectiveness `json:"strength"`
+	AttackPower                 float64                `json:"attack_power"`
+	BonusArmor                  float64                `json:"bonus_armor"`
+	MainHandDPS                 float64                `json:"main_hand_dps"`
+	MainHandDamageMax           float64                `json:"main_hand_damage_max"`
+	MainHandDamageMin           float64                `json:"main_hand_damage_min"`
+	MainHandSpeed               float64                `json:"main_hand_speed"`
+	ManaRegen                   float64                `json:"mana_regen"`
+	ManaRegenCombat             float64                `json:"mana_regen_combat"`
+	OffHandDPS                  float64                `json:"off_hand_dps"`
+	OffHandDamageMax            float64                `json:"off_hand_damage_max"`
+	OffHandDamageMin            float64                `json:"off_hand_damage_min"`
+	OffHandSpeed                float64                `json:"off_hand_speed"`
+	SpellPenetration            float64                `json:"spell_penetration"`
+	SpellPower                  float64                `json:"spell_power"`
+	Versatility                 float64                `json:"versatility"`
+	VersatilityDamageDone       float64                `json:"versatility_damage_done"`
+	VersatilityDamageTakenBonus float64                `json:"versatility_damage_taken_bonus"`
+	VersatilityHealingDone      float64                `json:"versatility_healing_done"`
+}
+
+type StatisticRating struct {
+	Rating      float64  `json:"rating"`
+	RatingBonus float64  `json:"rating_bonus"`
+	Value       *float64 `json:"value,omitempty"`
+}
+
+type StatisticEffectiveness struct {
+	Base      float64 `json:"base"`
+	Effective float64 `json:"effective"`
+}
 
 type KeyAndValue struct {
 	Key   string `json:"key"`

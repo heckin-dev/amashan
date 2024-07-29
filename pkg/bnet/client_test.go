@@ -464,3 +464,59 @@ func TestBattlenetClient_MythicKeystoneSeason(t *testing.T) {
 		})
 	}
 }
+
+func TestBattlenetClient_CharacterStatistics(t *testing.T) {
+	type args struct {
+		ctx     context.Context
+		options *CharacterOptions
+	}
+	tests := []struct {
+		name    string
+		args    args
+		want    *CharacterStatisticsResponse
+		wantErr bool
+	}{
+		{
+			name: "Should 200",
+			args: args{
+				ctx: nil,
+				options: &CharacterOptions{
+					Region:    "us",
+					Realm:     "illidan",
+					Character: "Aulene",
+				},
+			},
+			want: &CharacterStatisticsResponse{
+				Character: Character{
+					Name: "Aulene",
+					ID:   229483897,
+					Realm: Realm{
+						Slug: "illidan",
+					},
+				},
+			},
+			wantErr: false,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			b, srv := newMockedClient()
+			defer srv.Close()
+
+			got, err := b.CharacterStatistics(tt.args.ctx, tt.args.options)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("CharacterEquipmentSummary() error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+
+			if tt.wantErr {
+				return
+			}
+
+			assert.Equal(t, tt.want.Character.Name, got.Character.Name)
+			assert.Equal(t, tt.want.Character.ID, got.Character.ID)
+			assert.Equal(t, tt.want.Character.Realm.Slug, got.Character.Realm.Slug)
+		})
+	}
+}
