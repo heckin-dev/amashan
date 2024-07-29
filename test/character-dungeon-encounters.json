@@ -1,0 +1,1794 @@
+{
+  "_links": {
+    "self": {
+      "href": "https://us.api.blizzard.com/profile/wow/character/illidan/skkzr/encounters/dungeons?namespace=profile-us"
+    }
+  },
+  "expansions": [
+    {
+      "expansion": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/journal-expansion/74?namespace=static-11.0.0_55478-us"
+        },
+        "name": "Mists of Pandaria",
+        "id": 74
+      },
+      "instances": [
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/321?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Mogu'shan Palace",
+            "id": 321
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "HEROIC",
+                "name": "Heroic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/698?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Xin the Weaponmaster",
+                      "id": 698
+                    },
+                    "completed_count": 1,
+                    "last_kill_timestamp": 1657317054000
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "expansion": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/journal-expansion/72?namespace=static-11.0.0_55478-us"
+        },
+        "name": "Wrath of the Lich King",
+        "id": 72
+      },
+      "instances": [
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/286?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Utgarde Pinnacle",
+            "id": 286
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "HEROIC",
+                "name": "Heroic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/644?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "King Ymiron",
+                      "id": 644
+                    },
+                    "completed_count": 1,
+                    "last_kill_timestamp": 1630738987000
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "expansion": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/journal-expansion/73?namespace=static-11.0.0_55478-us"
+        },
+        "name": "Cataclysm",
+        "id": 73
+      },
+      "instances": [
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/66?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Blackrock Caverns",
+            "id": 66
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "HEROIC",
+                "name": "Heroic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/109?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Ascendant Lord Obsidius",
+                      "id": 109
+                    },
+                    "completed_count": 1,
+                    "last_kill_timestamp": 1685089762000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/67?namespace=static-11.0.0_55478-us"
+            },
+            "name": "The Stonecore",
+            "id": 67
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "HEROIC",
+                "name": "Heroic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/113?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "High Priestess Azil",
+                      "id": 113
+                    },
+                    "completed_count": 1,
+                    "last_kill_timestamp": 1685088978000
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "expansion": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/journal-expansion/395?namespace=static-11.0.0_55478-us"
+        },
+        "name": "Legion",
+        "id": 395
+      },
+      "instances": [
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/707?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Vault of the Wardens",
+            "id": 707
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "HEROIC",
+                "name": "Heroic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/1470?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Cordana Felsong",
+                      "id": 1470
+                    },
+                    "completed_count": 1,
+                    "last_kill_timestamp": 1697306586000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/716?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Eye of Azshara",
+            "id": 716
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "HEROIC",
+                "name": "Heroic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/1492?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Wrath of Azshara",
+                      "id": 1492
+                    },
+                    "completed_count": 2,
+                    "last_kill_timestamp": 1701245052000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/721?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Halls of Valor",
+            "id": 721
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "NORMAL",
+                "name": "Normal"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/1489?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Odyn",
+                      "id": 1489
+                    },
+                    "completed_count": 1,
+                    "last_kill_timestamp": 1622925182000
+                  }
+                ]
+              }
+            },
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/1489?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Odyn",
+                      "id": 1489
+                    },
+                    "completed_count": 4,
+                    "last_kill_timestamp": 1675569856000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/727?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Maw of Souls",
+            "id": 727
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/1663?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Helya",
+                      "id": 1663
+                    },
+                    "completed_count": 1,
+                    "last_kill_timestamp": 1669879011000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/740?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Black Rook Hold",
+            "id": 740
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "HEROIC",
+                "name": "Heroic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/1672?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Lord Kur'talos Ravencrest",
+                      "id": 1672
+                    },
+                    "completed_count": 2,
+                    "last_kill_timestamp": 1701243831000
+                  }
+                ]
+              }
+            },
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/1672?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Lord Kur'talos Ravencrest",
+                      "id": 1672
+                    },
+                    "completed_count": 18,
+                    "last_kill_timestamp": 1707788797000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/762?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Darkheart Thicket",
+            "id": 762
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "HEROIC",
+                "name": "Heroic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/1657?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Shade of Xavius",
+                      "id": 1657
+                    },
+                    "completed_count": 2,
+                    "last_kill_timestamp": 1701244443000
+                  }
+                ]
+              }
+            },
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/1657?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Shade of Xavius",
+                      "id": 1657
+                    },
+                    "completed_count": 22,
+                    "last_kill_timestamp": 1706587810000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/767?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Neltharion's Lair",
+            "id": 767
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "HEROIC",
+                "name": "Heroic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/1687?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Dargrul the Underking",
+                      "id": 1687
+                    },
+                    "completed_count": 1,
+                    "last_kill_timestamp": 1697308248000
+                  }
+                ]
+              }
+            },
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/1687?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Dargrul the Underking",
+                      "id": 1687
+                    },
+                    "completed_count": 3,
+                    "last_kill_timestamp": 1696206894000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/777?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Assault on Violet Hold",
+            "id": 777
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "NORMAL",
+                "name": "Normal"
+              },
+              "status": {
+                "type": "IN_PROGRESS",
+                "name": "In Progress"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 2,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/1711?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Fel Lord Betrug",
+                      "id": 1711
+                    },
+                    "completed_count": 1,
+                    "last_kill_timestamp": 1622837355000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/800?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Court of Stars",
+            "id": 800
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/1720?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Advisor Melandrus",
+                      "id": 1720
+                    },
+                    "completed_count": 9,
+                    "last_kill_timestamp": 1676005514000
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "expansion": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/journal-expansion/396?namespace=static-11.0.0_55478-us"
+        },
+        "name": "Battle for Azeroth",
+        "id": 396
+      },
+      "instances": [
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/968?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Atal'Dazar",
+            "id": 968
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2030?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Yazma",
+                      "id": 2030
+                    },
+                    "completed_count": 14,
+                    "last_kill_timestamp": 1706595136000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/1001?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Freehold",
+            "id": 1001
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "NORMAL",
+                "name": "Normal"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2095?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Harlan Sweete",
+                      "id": 2095
+                    },
+                    "completed_count": 1,
+                    "last_kill_timestamp": 1623473340000
+                  }
+                ]
+              }
+            },
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2095?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Harlan Sweete",
+                      "id": 2095
+                    },
+                    "completed_count": 2,
+                    "last_kill_timestamp": 1696297546000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/1002?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Tol Dagor",
+            "id": 1002
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "NORMAL",
+                "name": "Normal"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2096?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Overseer Korgus",
+                      "id": 2096
+                    },
+                    "completed_count": 1,
+                    "last_kill_timestamp": 1623452500000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/1021?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Waycrest Manor",
+            "id": 1021
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "NORMAL",
+                "name": "Normal"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2129?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Gorak Tul",
+                      "id": 2129
+                    },
+                    "completed_count": 1,
+                    "last_kill_timestamp": 1623463220000
+                  }
+                ]
+              }
+            },
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2129?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Gorak Tul",
+                      "id": 2129
+                    },
+                    "completed_count": 17,
+                    "last_kill_timestamp": 1708991879000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/1022?namespace=static-11.0.0_55478-us"
+            },
+            "name": "The Underrot",
+            "id": 1022
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2158?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Unbound Abomination",
+                      "id": 2158
+                    },
+                    "completed_count": 2,
+                    "last_kill_timestamp": 1685473241000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/1036?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Shrine of the Storm",
+            "id": 1036
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "NORMAL",
+                "name": "Normal"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2156?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Vol'zith the Whisperer",
+                      "id": 2156
+                    },
+                    "completed_count": 1,
+                    "last_kill_timestamp": 1623477925000
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "expansion": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/journal-expansion/503?namespace=static-11.0.0_55478-us"
+        },
+        "name": "Dragonflight",
+        "id": 503
+      },
+      "instances": [
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/1201?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Algeth'ar Academy",
+            "id": 1201
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2514?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Echo of Doragosa",
+                      "id": 2514
+                    },
+                    "completed_count": 6,
+                    "last_kill_timestamp": 1716964369000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/1196?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Brackenhide Hollow",
+            "id": 1196
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2474?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Decatriarch Wratheye",
+                      "id": 2474
+                    },
+                    "completed_count": 7,
+                    "last_kill_timestamp": 1716849971000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/1204?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Halls of Infusion",
+            "id": 1204
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "NORMAL",
+                "name": "Normal"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2511?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Primal Tsunami",
+                      "id": 2511
+                    },
+                    "completed_count": 1,
+                    "last_kill_timestamp": 1674154116000
+                  }
+                ]
+              }
+            },
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2511?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Primal Tsunami",
+                      "id": 2511
+                    },
+                    "completed_count": 8,
+                    "last_kill_timestamp": 1717303349000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/1199?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Neltharus",
+            "id": 1199
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "NORMAL",
+                "name": "Normal"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2501?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Warlord Sargha",
+                      "id": 2501
+                    },
+                    "completed_count": 1,
+                    "last_kill_timestamp": 1670065784000
+                  }
+                ]
+              }
+            },
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2501?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Warlord Sargha",
+                      "id": 2501
+                    },
+                    "completed_count": 6,
+                    "last_kill_timestamp": 1721966791000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/1202?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Ruby Life Pools",
+            "id": 1202
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2503?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Kyrakka and Erkhart Stormvein",
+                      "id": 2503
+                    },
+                    "completed_count": 15,
+                    "last_kill_timestamp": 1721963094000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/1203?namespace=static-11.0.0_55478-us"
+            },
+            "name": "The Azure Vault",
+            "id": 1203
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "NORMAL",
+                "name": "Normal"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2508?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Umbrelskul",
+                      "id": 2508
+                    },
+                    "completed_count": 1,
+                    "last_kill_timestamp": 1670067169000
+                  }
+                ]
+              }
+            },
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2508?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Umbrelskul",
+                      "id": 2508
+                    },
+                    "completed_count": 10,
+                    "last_kill_timestamp": 1721969019000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/1198?namespace=static-11.0.0_55478-us"
+            },
+            "name": "The Nokhud Offensive",
+            "id": 1198
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "HEROIC",
+                "name": "Heroic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2477?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Balakar Khan",
+                      "id": 2477
+                    },
+                    "completed_count": 1,
+                    "last_kill_timestamp": 1685493273000
+                  }
+                ]
+              }
+            },
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2477?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Balakar Khan",
+                      "id": 2477
+                    },
+                    "completed_count": 6,
+                    "last_kill_timestamp": 1716862112000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/1197?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Uldaman: Legacy of Tyr",
+            "id": 1197
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2479?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Chrono-Lord Deios",
+                      "id": 2479
+                    },
+                    "completed_count": 4,
+                    "last_kill_timestamp": 1717232571000
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "expansion": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/journal-expansion/505?namespace=static-11.0.0_55478-us"
+        },
+        "name": "Current Season",
+        "id": 505
+      },
+      "instances": [
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/1196?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Brackenhide Hollow",
+            "id": 1196
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2474?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Decatriarch Wratheye",
+                      "id": 2474
+                    },
+                    "completed_count": 7,
+                    "last_kill_timestamp": 1716849971000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/1201?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Algeth'ar Academy",
+            "id": 1201
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2514?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Echo of Doragosa",
+                      "id": 2514
+                    },
+                    "completed_count": 6,
+                    "last_kill_timestamp": 1716964369000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/1199?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Neltharus",
+            "id": 1199
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "NORMAL",
+                "name": "Normal"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2501?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Warlord Sargha",
+                      "id": 2501
+                    },
+                    "completed_count": 1,
+                    "last_kill_timestamp": 1670065784000
+                  }
+                ]
+              }
+            },
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2501?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Warlord Sargha",
+                      "id": 2501
+                    },
+                    "completed_count": 6,
+                    "last_kill_timestamp": 1721966791000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/1204?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Halls of Infusion",
+            "id": 1204
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "NORMAL",
+                "name": "Normal"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2511?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Primal Tsunami",
+                      "id": 2511
+                    },
+                    "completed_count": 1,
+                    "last_kill_timestamp": 1674154116000
+                  }
+                ]
+              }
+            },
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2511?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Primal Tsunami",
+                      "id": 2511
+                    },
+                    "completed_count": 8,
+                    "last_kill_timestamp": 1717303349000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/1202?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Ruby Life Pools",
+            "id": 1202
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2503?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Kyrakka and Erkhart Stormvein",
+                      "id": 2503
+                    },
+                    "completed_count": 15,
+                    "last_kill_timestamp": 1721963094000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/1203?namespace=static-11.0.0_55478-us"
+            },
+            "name": "The Azure Vault",
+            "id": 1203
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "NORMAL",
+                "name": "Normal"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2508?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Umbrelskul",
+                      "id": 2508
+                    },
+                    "completed_count": 1,
+                    "last_kill_timestamp": 1670067169000
+                  }
+                ]
+              }
+            },
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2508?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Umbrelskul",
+                      "id": 2508
+                    },
+                    "completed_count": 10,
+                    "last_kill_timestamp": 1721969019000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/1197?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Uldaman: Legacy of Tyr",
+            "id": 1197
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2479?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Chrono-Lord Deios",
+                      "id": 2479
+                    },
+                    "completed_count": 4,
+                    "last_kill_timestamp": 1717232571000
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        {
+          "instance": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/journal-instance/1198?namespace=static-11.0.0_55478-us"
+            },
+            "name": "The Nokhud Offensive",
+            "id": 1198
+          },
+          "modes": [
+            {
+              "difficulty": {
+                "type": "HEROIC",
+                "name": "Heroic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2477?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Balakar Khan",
+                      "id": 2477
+                    },
+                    "completed_count": 1,
+                    "last_kill_timestamp": 1685493273000
+                  }
+                ]
+              }
+            },
+            {
+              "difficulty": {
+                "type": "MYTHIC",
+                "name": "Mythic"
+              },
+              "status": {
+                "type": "COMPLETE",
+                "name": "Complete"
+              },
+              "progress": {
+                "completed_count": 1,
+                "total_count": 1,
+                "encounters": [
+                  {
+                    "encounter": {
+                      "key": {
+                        "href": "https://us.api.blizzard.com/data/wow/journal-encounter/2477?namespace=static-11.0.0_55478-us"
+                      },
+                      "name": "Balakar Khan",
+                      "id": 2477
+                    },
+                    "completed_count": 6,
+                    "last_kill_timestamp": 1716862112000
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

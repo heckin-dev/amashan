@@ -153,6 +153,30 @@ func (b *BattleNet) CharacterStatistics(w http.ResponseWriter, r *http.Request) 
 	_ = json.NewEncoder(w).Encode(cs)
 }
 
+func (b *BattleNet) CharacterDungeonEncounters(w http.ResponseWriter, r *http.Request) {
+	cde, err := b.client.CharacterDungeonEncounters(r.Context(), bnet.CharacterOptionsFromContext(r.Context()))
+	if err != nil {
+		b.l.Error("failed to retrieve character dungeon encounters", "error", err)
+		http.Error(w, "failed to retrieve character dungeon encounters", http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	_ = json.NewEncoder(w).Encode(cde)
+}
+
+func (b *BattleNet) CharacterRaidEncounters(w http.ResponseWriter, r *http.Request) {
+	cre, err := b.client.CharacterRaidEncounters(r.Context(), bnet.CharacterOptionsFromContext(r.Context()))
+	if err != nil {
+		b.l.Error("failed to retrieve character raid encounters", "error", err)
+		http.Error(w, "failed to retrieve character raid encounters", http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	_ = json.NewEncoder(w).Encode(cre)
+}
+
 func (b *BattleNet) MythicKeystoneIndex(w http.ResponseWriter, r *http.Request) {
 	mki, err := b.client.MythicKeystoneIndex(r.Context(), bnet.CharacterOptionsFromContext(r.Context()))
 	if err != nil {
@@ -196,7 +220,6 @@ func (b *BattleNet) MythicKeystoneSeason(w http.ResponseWriter, r *http.Request)
 func (b *BattleNet) Route(r *mux.Router) {
 	oauthRouter := r.PathPrefix("/auth").Subrouter()
 
-	// http://localhost:9090/api/auth/battlenet
 	oauthRouter.HandleFunc("/battlenet", b.Authorize).Methods(http.MethodGet)
 	oauthRouter.HandleFunc("/battlenet/callback", b.Callback).Methods(http.MethodGet)
 
@@ -207,16 +230,13 @@ func (b *BattleNet) Route(r *mux.Router) {
 	realmAndCharacterRouter.Use(middleware.UseRealm().Middleware)
 	realmAndCharacterRouter.Use(middleware.UseCharacter().Middleware)
 
-	// http://localhost:9090/api/us/wow/illidan/aulene/equipment
 	realmAndCharacterRouter.HandleFunc("/equipment", b.CharacterEquipment)
-	// http://localhost:9090/api/us/wow/illidan/aulene/character-media
 	realmAndCharacterRouter.HandleFunc("/character-media", b.CharacterMedia)
-	// http://localhost:9090/api/us/wow/illidan/aulene/character-statistics
 	realmAndCharacterRouter.HandleFunc("/character-statistics", b.CharacterStatistics)
-	// http://localhost:9090/api/us/wow/illidan/aulene/mythic-keystone-index
 	realmAndCharacterRouter.HandleFunc("/mythic-keystone-index", b.MythicKeystoneIndex)
-	// http://localhost:9090/api/us/wow/illidan/aulene/mythic-keystone-index/season/11
 	realmAndCharacterRouter.HandleFunc("/mythic-keystone-index/season/{seasonID}", b.MythicKeystoneSeason)
+	realmAndCharacterRouter.HandleFunc("/encounters/dungeons", b.CharacterDungeonEncounters)
+	realmAndCharacterRouter.HandleFunc("/encounters/raids", b.CharacterRaidEncounters)
 
 	/*
 		// http://localhost:9090/api/us/wow/profile

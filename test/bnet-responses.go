@@ -11,10 +11,10 @@ var CharacterMedia []byte
 //go:embed character-statistics.json
 var CharacterStatistics []byte
 
-var CharacterEncounters []byte
-
+//go:embed character-dungeon-encounters.json
 var CharacterDungeonEncounters []byte
 
+//go:embed character-raid-encounters.json
 var CharacterRaidEncounters []byte
 
 //go:embed mythic-keystone-index.json

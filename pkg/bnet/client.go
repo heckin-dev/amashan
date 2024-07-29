@@ -246,6 +246,62 @@ func (b *BattlenetClient) CharacterStatistics(ctx context.Context, options *Char
 	return csRes, nil
 }
 
+// CharacterDungeonEncounters gets the dungeon encounters for the given character.
+func (b *BattlenetClient) CharacterDungeonEncounters(ctx context.Context, options *CharacterOptions) (*CharacterDungeonEncountersResponse, error) {
+	var endpoint = fmt.Sprintf("/profile/wow/character/%s/%s/encounters/dungeons", options.Realm, options.Character)
+
+	req, err := b.prepareProfileRequest(&ProfileRequestOptions{
+		Region:   options.Region,
+		Endpoint: endpoint,
+		Method:   http.MethodGet,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	res, err := b.Do(ctx, nil, req, ClientRequest)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+
+	cdeRes := &CharacterDungeonEncountersResponse{}
+	err = json.NewDecoder(res.Body).Decode(cdeRes)
+	if err != nil {
+		return nil, err
+	}
+
+	return cdeRes, nil
+}
+
+// CharacterRaidEncounters gets the raid encounters for the given character.
+func (b *BattlenetClient) CharacterRaidEncounters(ctx context.Context, options *CharacterOptions) (*CharacterRaidEncountersResponse, error) {
+	var endpoint = fmt.Sprintf("/profile/wow/character/%s/%s/encounters/raids", options.Realm, options.Character)
+
+	req, err := b.prepareProfileRequest(&ProfileRequestOptions{
+		Region:   options.Region,
+		Endpoint: endpoint,
+		Method:   http.MethodGet,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	res, err := b.Do(ctx, nil, req, ClientRequest)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+
+	creRes := &CharacterRaidEncountersResponse{}
+	err = json.NewDecoder(res.Body).Decode(creRes)
+	if err != nil {
+		return nil, err
+	}
+
+	return creRes, nil
+}
+
 // MythicKeystoneIndex gets the mythic keystone index for the given character.
 func (b *BattlenetClient) MythicKeystoneIndex(ctx context.Context, options *CharacterOptions) (*MythicKeystoneIndexResponse, error) {
 	// /profile/wow/character/{realmSlug}/{characterName}/mythic-keystone-profile
