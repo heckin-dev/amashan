@@ -621,3 +621,103 @@ func TestBattlenetClient_CharacterRaidEncounters(t *testing.T) {
 		})
 	}
 }
+
+func TestBattlenetClient_CharacterSummary(t *testing.T) {
+	type args struct {
+		ctx     context.Context
+		options *CharacterOptions
+	}
+	tests := []struct {
+		name    string
+		args    args
+		want    *CharacterSummaryResponse
+		wantErr bool
+	}{
+		{
+			name: "Should 200",
+			args: args{
+				ctx: nil,
+				options: &CharacterOptions{
+					Region:    "us",
+					Realm:     "illidan",
+					Character: "Aulene",
+				},
+			},
+			want: &CharacterSummaryResponse{
+				Name: "Aulene",
+				ID:   229483897,
+			},
+			wantErr: false,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			b, srv := newMockedClient()
+			defer srv.Close()
+
+			got, err := b.CharacterSummary(tt.args.ctx, tt.args.options)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("CharacterSummary() error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+
+			if tt.wantErr {
+				return
+			}
+
+			assert.Equal(t, tt.want.Name, got.Name)
+			assert.Equal(t, tt.want.ID, got.ID)
+		})
+	}
+}
+
+func TestBattlenetClient_CharacterStatus(t *testing.T) {
+	type args struct {
+		ctx     context.Context
+		options *CharacterOptions
+	}
+	tests := []struct {
+		name    string
+		args    args
+		want    *CharacterStatusResponse
+		wantErr bool
+	}{
+		{
+			name: "Should 200",
+			args: args{
+				ctx: nil,
+				options: &CharacterOptions{
+					Region:    "us",
+					Realm:     "illidan",
+					Character: "Aulene",
+				},
+			},
+			want: &CharacterStatusResponse{
+				ID:      229483897,
+				IsValid: true,
+			},
+			wantErr: false,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			b, srv := newMockedClient()
+			defer srv.Close()
+
+			got, err := b.CharacterStatus(tt.args.ctx, tt.args.options)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("CharacterStatus() error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+
+			if tt.wantErr {
+				return
+			}
+
+			assert.Equal(t, tt.want.IsValid, got.IsValid)
+			assert.Equal(t, tt.want.ID, got.ID)
+		})
+	}
+}

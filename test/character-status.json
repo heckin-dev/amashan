@@ -1,0 +1,9 @@
+{
+  "_links": {
+    "self": {
+      "href": "https://us.api.blizzard.com/profile/wow/character/illidan/aulene/status?namespace=profile-us"
+    }
+  },
+  "id": 229483897,
+  "is_valid": true
+}

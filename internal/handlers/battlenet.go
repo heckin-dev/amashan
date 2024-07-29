@@ -117,6 +117,18 @@ func (b *BattleNet) ProfileSummary(w http.ResponseWriter, r *http.Request) {
 	_ = json.NewEncoder(w).Encode(as)
 }
 
+func (b *BattleNet) CharacterSummary(w http.ResponseWriter, r *http.Request) {
+	cs, err := b.client.CharacterSummary(r.Context(), bnet.CharacterOptionsFromContext(r.Context()))
+	if err != nil {
+		b.l.Error("failed to retrieve character summary", "error", err)
+		http.Error(w, "failed to retrieve character summary", http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	_ = json.NewEncoder(w).Encode(cs)
+}
+
 func (b *BattleNet) CharacterEquipment(w http.ResponseWriter, r *http.Request) {
 	ce, err := b.client.CharacterEquipmentSummary(r.Context(), bnet.CharacterOptionsFromContext(r.Context()))
 	if err != nil {
@@ -230,6 +242,7 @@ func (b *BattleNet) Route(r *mux.Router) {
 	realmAndCharacterRouter.Use(middleware.UseRealm().Middleware)
 	realmAndCharacterRouter.Use(middleware.UseCharacter().Middleware)
 
+	realmAndCharacterRouter.HandleFunc("", b.CharacterSummary)
 	realmAndCharacterRouter.HandleFunc("/equipment", b.CharacterEquipment)
 	realmAndCharacterRouter.HandleFunc("/character-media", b.CharacterMedia)
 	realmAndCharacterRouter.HandleFunc("/character-statistics", b.CharacterStatistics)

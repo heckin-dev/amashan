@@ -2,6 +2,12 @@ package test
 
 import _ "embed"
 
+//go:embed character-summary.json
+var CharacterSummary []byte
+
+//go:embed character-status.json
+var CharacterStatus []byte
+
 //go:embed character-equipment.json
 var CharacterEquipment []byte
 

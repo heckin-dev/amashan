@@ -12,6 +12,30 @@ import (
 
 type BattleNetMock struct{}
 
+func (b *BattleNetMock) CharacterSummary(w http.ResponseWriter, r *http.Request) {
+	res := &CharacterSummaryResponse{}
+	err := json.NewDecoder(bytes.NewReader(test.CharacterSummary)).Decode(res)
+	if err != nil {
+		http.Error(w, "failed to decode test.CharacterSummary", http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	_ = json.NewEncoder(w).Encode(res)
+}
+
+func (b *BattleNetMock) CharacterStatus(w http.ResponseWriter, r *http.Request) {
+	res := &CharacterStatusResponse{}
+	err := json.NewDecoder(bytes.NewReader(test.CharacterStatus)).Decode(res)
+	if err != nil {
+		http.Error(w, "failed to decode test.CharacterStatus", http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	_ = json.NewEncoder(w).Encode(res)
+}
+
 func (b *BattleNetMock) CharacterEquipmentSummary(w http.ResponseWriter, r *http.Request) {
 	res := &CharacterEquipmentResponse{}
 	err := json.NewDecoder(bytes.NewReader(test.CharacterEquipment)).Decode(res)
@@ -114,6 +138,8 @@ func (b *BattleNetMock) Route(r *mux.Router) {
 	publicProfile.Use(middleware.UseRealm().Middleware)
 	publicProfile.Use(middleware.UseCharacter().Middleware)
 
+	publicProfile.HandleFunc("/character/{realm}/{character}", b.CharacterSummary)
+	publicProfile.HandleFunc("/character/{realm}/{character}/status", b.CharacterStatus)
 	publicProfile.HandleFunc("/character/{realm}/{character}/equipment", b.CharacterEquipmentSummary)
 	publicProfile.HandleFunc("/character/{realm}/{character}/character-media", b.CharacterMedia)
 	publicProfile.HandleFunc("/character/{realm}/{character}/statistics", b.CharacterStatistics)

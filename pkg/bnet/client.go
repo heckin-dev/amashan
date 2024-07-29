@@ -162,6 +162,62 @@ func (b *BattlenetClient) AccountProfileSummary(ctx context.Context, options *Ac
 	return asRes, nil
 }
 
+// CharacterSummary gets the summary for a given character.
+func (b *BattlenetClient) CharacterSummary(ctx context.Context, options *CharacterOptions) (*CharacterSummaryResponse, error) {
+	var endpoint = fmt.Sprintf("/profile/wow/character/%s/%s", options.Realm, options.Character)
+
+	req, err := b.prepareProfileRequest(&ProfileRequestOptions{
+		Region:   options.Region,
+		Endpoint: endpoint,
+		Method:   http.MethodGet,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	res, err := b.Do(ctx, nil, req, ClientRequest)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+
+	csRes := &CharacterSummaryResponse{}
+	err = json.NewDecoder(res.Body).Decode(csRes)
+	if err != nil {
+		return nil, err
+	}
+
+	return csRes, nil
+}
+
+// CharacterStatus gets the status for a given character.
+func (b *BattlenetClient) CharacterStatus(ctx context.Context, options *CharacterOptions) (*CharacterStatusResponse, error) {
+	var endpoint = fmt.Sprintf("/profile/wow/character/%s/%s/status", options.Realm, options.Character)
+
+	req, err := b.prepareProfileRequest(&ProfileRequestOptions{
+		Region:   options.Region,
+		Endpoint: endpoint,
+		Method:   http.MethodGet,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	res, err := b.Do(ctx, nil, req, ClientRequest)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+
+	csRes := &CharacterStatusResponse{}
+	err = json.NewDecoder(res.Body).Decode(csRes)
+	if err != nil {
+		return nil, err
+	}
+
+	return csRes, nil
+}
+
 // CharacterEquipmentSummary gets the equipment summary for a given character.
 func (b *BattlenetClient) CharacterEquipmentSummary(ctx context.Context, options *CharacterOptions) (*CharacterEquipmentResponse, error) {
 	var endpoint = fmt.Sprintf("/profile/wow/character/%s/%s/equipment", options.Realm, options.Character)

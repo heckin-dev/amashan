@@ -35,6 +35,31 @@ type AccountSummaryCharacter struct {
 	Level              int            `json:"level"`
 }
 
+// CharacterSummaryResponse /profile/wow/character/{realmSlug}/{characterName}
+type CharacterSummaryResponse struct {
+	ID                 int            `json:"id"`
+	Name               string         `json:"name"`
+	Gender             TypeAndName    `json:"gender"`
+	Faction            TypeAndName    `json:"faction"`
+	Race               NamedTypeAndID `json:"race"`
+	CharacterClass     NamedTypeAndID `json:"character_class"`
+	ActiveSpec         NamedTypeAndID `json:"active_spec"`
+	Realm              Realm          `json:"realm"`
+	Guild              Guild          `json:"guild"`
+	Level              int            `json:"level"`
+	Experience         int            `json:"experience"`
+	AchievementPoints  int            `json:"achievement_points"`
+	LastLoginTimestamp uint64         `json:"last_login_timestamp"`
+	AverageItemLevel   int            `json:"average_item_level"`
+	EquippedItemLevel  int            `json:"equipped_item_level"`
+}
+
+// CharacterStatusResponse /profile/wow/character/{realmSlug}/{characterName}/status
+type CharacterStatusResponse struct {
+	ID      int  `json:"id"`
+	IsValid bool `json:"is_valid"`
+}
+
 // CharacterEquipmentResponse /profile/wow/character/{realmSlug}/{characterName}/equipment
 type CharacterEquipmentResponse struct {
 	Character        Character                           `json:"character"`
@@ -347,4 +372,10 @@ type Transmog struct {
 	Item                     NamedTypeAndID `json:"item"`
 	DisplayString            string         `json:"display_string"`
 	ItemModifiedAppearanceID int            `json:"item_modified_appearance_id"`
+}
+
+type Guild struct {
+	NamedTypeAndID
+	Realm   Realm       `json:"realm"`
+	Faction TypeAndName `json:"faction"`
 }
