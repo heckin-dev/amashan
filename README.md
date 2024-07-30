@@ -28,6 +28,11 @@ BNET_CLIENT_ID="<id>"
 BNET_CLIENT_SECRET="<secret>"
 BNET_REDIRECT_URL="<callback_url>"
 
+# WarcraftLogs
+WL_CLIENT_ID="<id>"
+WL_CLIENT_SECRET="<secret>"
+WL_REDIRECT_URL="<callback_url>"
+
 # Session
 SESSION_KEY="<your_session_key>"
 ```
@@ -46,9 +51,21 @@ https://amashan.com/api/auth/battlenet/callback
 http://localhost:9090/api/auth/battlenet/callback
 ```
 
+#### WarcraftLogs
+
+Otherwise, referred to as WL is WarcraftLog's API for all things log and parse related. We require an API client which can be [managed
+here](https://www.warcraftlogs.com/api/clients/).
+
+We redirect to the following OAuth2 URLs:
+
+```text
+https://amashan.com/api/auth/warcraftlogs/callback
+http://localhost:9090/api/auth/warcraftlogs/callback
+```
+
 #### Session
 
-This is the value that will be used for the CookieStore.
+This is the value that will be used for the `CookieStore`.
 
 ## Dependencies
 
