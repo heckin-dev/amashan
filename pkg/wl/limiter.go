@@ -1,8 +1,10 @@
 package wl
 
 import (
+	"errors"
 	"github.com/hashicorp/go-hclog"
 	"math"
+	"net/http"
 	"sync"
 	"time"
 )
@@ -18,6 +20,13 @@ type PointLimiter struct {
 	mu    *sync.RWMutex
 }
 
+func (p *PointLimiter) SpendAllPoints() {
+	p.mu.Lock()
+	defer p.mu.Unlock()
+
+	p.pointsSpentThisHour = float64(p.limitPerHour)
+}
+
 // SetPointsSpent updates the total points spent.
 func (p *PointLimiter) SetPointsSpent(data RateLimitData) {
 	p.mu.Lock()
@@ -26,15 +35,23 @@ func (p *PointLimiter) SetPointsSpent(data RateLimitData) {
 	p.limitPerHour = int(data.LimitPerHour)
 	p.pointsSpentThisHour = float64(data.PointsSpentThisHour)
 
-	p.l.Debug("PointLimiter", "limit", p.limitPerHour, "spent", p.pointsSpentThisHour)
+	p.l.Info("PointLimiter", "limit", p.limitPerHour, "spent", p.pointsSpentThisHour)
 }
 
 // CanSpendPoints determines if there are points to spend this hour.
-func (p *PointLimiter) CanSpendPoints() bool {
+func (p *PointLimiter) CanSpendPoints() error {
 	p.mu.RLock()
 	defer p.mu.RUnlock()
 
-	return math.Ceil(p.pointsSpentThisHour) < float64(p.limitPerHour)
+	if math.Ceil(p.pointsSpentThisHour) < float64(p.limitPerHour) {
+		return nil
+	}
+
+	return &ErrNoPointsLeft{
+		StatusCode:       http.StatusServiceUnavailable,
+		RemainingSeconds: p.resetInSeconds,
+		Err:              errors.New("no points available to spend"),
+	}
 }
 
 // tick is the func called by time.AfterFunc when the timer ticks.

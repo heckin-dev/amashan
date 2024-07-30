@@ -7,3 +7,23 @@ type RateLimitData struct {
 	PointsSpentThisHour graphql.Float
 	PointsResetIn       graphql.Int
 }
+
+type WorldData struct {
+	Expansions []Expansion
+}
+
+type Expansion struct {
+	ID    graphql.Int
+	Name  graphql.String
+	Zones []Zone
+}
+
+type Zone struct {
+	ID         graphql.Int
+	Encounters []Encounter
+}
+
+type Encounter struct {
+	ID   graphql.Int
+	Name graphql.String
+}

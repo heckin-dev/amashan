@@ -16,7 +16,7 @@ func TestNewPointLimiter(t *testing.T) {
 		PointsResetIn:       3,
 	})
 
-	assert.True(t, pl.CanSpendPoints())
+	assert.Nil(t, pl.CanSpendPoints())
 
 	pl.SetPointsSpent(RateLimitData{
 		LimitPerHour:        5,
@@ -24,12 +24,12 @@ func TestNewPointLimiter(t *testing.T) {
 		PointsResetIn:       3,
 	})
 
-	assert.False(t, pl.CanSpendPoints())
+	assert.NotNil(t, pl.CanSpendPoints())
 
 	//time.Sleep(5 * time.Second)
 	pl.tick()
 
-	assert.True(t, pl.CanSpendPoints())
+	assert.Nil(t, pl.CanSpendPoints())
 	assert.Equal(t, float64(0), pl.pointsSpentThisHour)
 	assert.Equal(t, 3600, pl.resetInSeconds)
 }
