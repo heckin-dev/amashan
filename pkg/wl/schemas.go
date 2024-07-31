@@ -1,7 +1,6 @@
 package wl
 
 import (
-	"encoding/json"
 	"github.com/hasura/go-graphql-client"
 )
 
@@ -41,6 +40,13 @@ type Encounter struct {
 	Name graphql.String
 }
 
+func (e Encounter) DTO() EncounterDTO {
+	return EncounterDTO{
+		ID:   int(e.ID),
+		Name: string(e.Name),
+	}
+}
+
 type Partition struct {
 	ID          graphql.Int
 	Name        graphql.String
@@ -49,38 +55,46 @@ type Partition struct {
 }
 
 type CharacterData struct {
-	Character Character `graphql:"character(name: $name, serverSlug: $server_slug, serverRegion: $server_region)"`
+	Character *Character `graphql:"character(name: $name, serverSlug: $server_slug, serverRegion: $server_region)"`
 }
 
 type Character struct {
-	Hidden       graphql.Boolean
-	ZoneRankings ZoneRankings `graphql:"zoneRankings(zoneID: $zone_id, partition: $partition)" scalar:"true"`
-}
-
-type ZoneRankings []ZoneRanking
-
-func (z *ZoneRankings) UnmarshalJSON(bytes []byte) error {
-	var zr ZoneRanking
-
-	err := json.Unmarshal(bytes, &zr)
-	if err != nil {
-		return err
-	}
-
-	*z = append(*z, zr)
-
-	return nil
+	Hidden       *graphql.Boolean
+	ZoneRankings *ZoneRanking `graphql:"zoneRankings(zoneID: $zone_id, partition: $partition)" scalar:"true"`
 }
 
 type ZoneRanking struct {
-	BestPerformanceAverage   float64   `json:"bestPerformanceAverage"`
-	MedianPerformanceAverage float64   `json:"medianPerformanceAverage"`
-	Difficulty               int       `json:"difficulty"`
-	Metric                   string    `json:"metric"`
-	Partition                int       `json:"partition"`
-	Zone                     int       `json:"zone"`
-	AllStars                 []AllStar `json:"all_stars"`
-	Rankings                 []Ranking `json:"rankings"`
+	BestPerformanceAverage   *float64   `json:"bestPerformanceAverage"`
+	MedianPerformanceAverage *float64   `json:"medianPerformanceAverage"`
+	Difficulty               *int       `json:"difficulty"`
+	Metric                   *string    `json:"metric"`
+	Partition                *int       `json:"partition"`
+	Zone                     *int       `json:"zone"`
+	AllStars                 []*AllStar `json:"allStars"`
+	Rankings                 []*Ranking `json:"rankings"`
+}
+
+func (r ZoneRanking) DTO() *ZoneRankingDTO {
+	var allStars []*AllStarDTO
+	for _, as := range r.AllStars {
+		allStars = append(allStars, as.DTO())
+	}
+
+	var rankings []*RankingDTO
+	for _, r := range r.Rankings {
+		rankings = append(rankings, r.DTO())
+	}
+
+	return &ZoneRankingDTO{
+		BestPerformanceAverage:   r.BestPerformanceAverage,
+		MedianPerformanceAverage: r.MedianPerformanceAverage,
+		Difficulty:               r.Difficulty,
+		Metric:                   r.Metric,
+		Partition:                r.Partition,
+		Zone:                     r.Zone,
+		AllStars:                 allStars,
+		Rankings:                 rankings,
+	}
 }
 
 type AllStar struct {
@@ -95,15 +109,49 @@ type AllStar struct {
 	Total          float64 `json:"total"`
 }
 
+func (s *AllStar) DTO() *AllStarDTO {
+	return &AllStarDTO{
+		Partition:      s.Partition,
+		Spec:           s.Spec,
+		Points:         s.Points,
+		PossiblePoints: s.PossiblePoints,
+		Rank:           s.Rank,
+		RegionRank:     s.RegionRank,
+		ServerRank:     s.ServerRank,
+		RankPercent:    s.RankPercent,
+		Total:          s.Total,
+	}
+}
+
 type Ranking struct {
 	Encounter     Encounter `json:"encounter"`
-	RankPercent   float64   `json:"rankPercent"`
-	MedianPercent float64   `json:"medianPercent"`
+	RankPercent   *float64  `json:"rankPercent"`
+	MedianPercent *float64  `json:"medianPercent"`
 	LockedIn      bool      `json:"lockedIn"`
 	TotalKills    int       `json:"totalKills"`
-	FastestKill   uint64    `json:"fastestKill"`
-	AllStars      AllStar   `json:"allStars"`
-	Spec          string    `json:"spec"`
-	BestSpec      string    `json:"bestSpec"`
+	FastestKill   *uint64   `json:"fastestKill"`
+	AllStars      *AllStar  `json:"allStars"`
+	Spec          *string   `json:"spec"`
+	BestSpec      *string   `json:"bestSpec"`
 	BestAmount    float64   `json:"bestAmount"`
+}
+
+func (r Ranking) DTO() *RankingDTO {
+	dto := &RankingDTO{
+		Encounter:     r.Encounter.DTO(),
+		RankPercent:   r.RankPercent,
+		MedianPercent: r.MedianPercent,
+		LockedIn:      r.LockedIn,
+		TotalKills:    r.TotalKills,
+		FastestKill:   r.FastestKill,
+		Spec:          r.Spec,
+		BestSpec:      r.BestSpec,
+		BestAmount:    r.BestAmount,
+	}
+
+	if r.AllStars != nil {
+		dto.AllStars = r.AllStars.DTO()
+	}
+
+	return dto
 }

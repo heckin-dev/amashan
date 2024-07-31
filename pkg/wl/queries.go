@@ -38,3 +38,18 @@ type CharacterParsesQuery struct {
 func (c *CharacterParsesQuery) Data() RateLimitData {
 	return c.RateLimitData
 }
+
+func (c *CharacterParsesQuery) ToDTO() *CharacterParseDTO {
+	dto := &CharacterParseDTO{}
+	if c.CharacterData.Character.Hidden != nil {
+		dto.Hidden = Bool(bool(*c.CharacterData.Character.Hidden))
+	}
+
+	dto.ZoneRankings = c.CharacterData.Character.ZoneRankings.DTO()
+
+	return dto
+}
+
+func Bool(v bool) *bool {
+	return &v
+}
