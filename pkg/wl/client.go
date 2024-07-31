@@ -44,6 +44,18 @@ func (w *WarcraftLogsClient) GetExpansionEncounters(ctx context.Context) (*Expan
 	return eeq, nil
 }
 
+func (w *WarcraftLogsClient) GetPartitionsForExpansion(ctx context.Context, expansionID int) (*ExpansionPartitionsQuery, error) {
+	epq := &ExpansionPartitionsQuery{}
+	vars := map[string]any{
+		"expansion_id": graphql.Int(expansionID),
+	}
+	if err := w.Query(ctx, epq, vars); err != nil {
+		w.l.Error("ExpansionPartitionsQuery failed", "error", err)
+		return nil, err
+	}
+	return epq, nil
+}
+
 // Query performs a query.
 func (w *WarcraftLogsClient) Query(ctx context.Context, query RatedQuery, vars map[string]interface{}) error {
 	var cancel context.CancelFunc

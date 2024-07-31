@@ -20,3 +20,12 @@ type ExpansionEncountersQuery struct {
 func (e *ExpansionEncountersQuery) Data() RateLimitData {
 	return e.RateLimitData
 }
+
+type ExpansionPartitionsQuery struct {
+	WorldData     WorldDataByExpansionID
+	RateLimitData RateLimitData
+}
+
+func (e *ExpansionPartitionsQuery) Data() RateLimitData {
+	return e.RateLimitData
+}
