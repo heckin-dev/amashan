@@ -29,3 +29,12 @@ type ExpansionPartitionsQuery struct {
 func (e *ExpansionPartitionsQuery) Data() RateLimitData {
 	return e.RateLimitData
 }
+
+type CharacterParsesQuery struct {
+	CharacterData CharacterData
+	RateLimitData RateLimitData
+}
+
+func (c *CharacterParsesQuery) Data() RateLimitData {
+	return c.RateLimitData
+}

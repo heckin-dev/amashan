@@ -4,8 +4,9 @@ import (
 	"context"
 	"errors"
 	"github.com/hashicorp/go-hclog"
-	"github.com/shurcooL/graphql"
+	"github.com/hasura/go-graphql-client"
 	"golang.org/x/oauth2/clientcredentials"
+	"net/http"
 	"os"
 	"time"
 )
@@ -44,6 +45,7 @@ func (w *WarcraftLogsClient) GetExpansionEncounters(ctx context.Context) (*Expan
 	return eeq, nil
 }
 
+// GetPartitionsForExpansion gets the partitions for the expansion id.
 func (w *WarcraftLogsClient) GetPartitionsForExpansion(ctx context.Context, expansionID int) (*ExpansionPartitionsQuery, error) {
 	epq := &ExpansionPartitionsQuery{}
 	vars := map[string]any{
@@ -54,6 +56,23 @@ func (w *WarcraftLogsClient) GetPartitionsForExpansion(ctx context.Context, expa
 		return nil, err
 	}
 	return epq, nil
+}
+
+// GetParsesForCharacter gets the parses for the given character, partition and zone id.
+func (w *WarcraftLogsClient) GetParsesForCharacter(ctx context.Context, options *CharacterParsesQueryOptions) (*CharacterParsesQuery, error) {
+	cpq := &CharacterParsesQuery{}
+	vars := map[string]any{
+		"name":          graphql.String(options.Name),
+		"server_slug":   graphql.String(options.ServerSlug),
+		"server_region": graphql.String(options.ServerRegion),
+		"partition":     graphql.Int(options.Partition),
+		"zone_id":       graphql.Int(options.ZoneID),
+	}
+	if err := w.Query(ctx, cpq, vars); err != nil {
+		w.l.Error("CharacterParsesQuery failed", "error", err)
+		return nil, err
+	}
+	return cpq, nil
 }
 
 // Query performs a query.
@@ -70,9 +89,10 @@ func (w *WarcraftLogsClient) Query(ctx context.Context, query RatedQuery, vars m
 
 	client := graphql.NewClient(WL_API_URL, w.config.Client(ctx))
 	if err := client.Query(ctx, query, vars); err != nil {
-		if errors.Is(err, graphql.ErrClientResponse) {
+		var ne graphql.NetworkError
+		if errors.As(err, &ne) && ne.StatusCode() == http.StatusTooManyRequests {
 			w.limiter.SpendAllPoints()
-			w.l.Warn("WarcraftLogs Query received a 4xx Status Code")
+			w.l.Warn("WarcraftLogs Rate Limit Exceeded, spent all remaining points")
 			return err
 		}
 
