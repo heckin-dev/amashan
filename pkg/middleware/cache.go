@@ -13,6 +13,7 @@ import (
 type CacheClient interface {
 	Get(ctx context.Context, key string) (string, error)
 	Set(key, value string, expiration time.Duration)
+	Del(key string)
 }
 
 var CacheContextKey = "cache"
@@ -58,6 +59,13 @@ func (c *Cache) Set(key, value string, expiration time.Duration) {
 	}
 
 	c.l.Info("Cache SET", "url", key)
+}
+
+func (c *Cache) Del(key string) {
+	ctx, cancel := context.WithDeadline(context.Background(), time.Now().Add(10*time.Second))
+	defer cancel()
+
+	c.client.Del(ctx, key)
 }
 
 func (c *Cache) Middleware(next http.Handler) http.Handler {
