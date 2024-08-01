@@ -1,0 +1,237 @@
+{
+  "name": "Skkzr",
+  "race": "Night Elf",
+  "class": "Rogue",
+  "active_spec_name": "Subtlety",
+  "active_spec_role": "DPS",
+  "gender": "female",
+  "faction": "alliance",
+  "achievement_points": 13355,
+  "honorable_kills": 0,
+  "thumbnail_url": "https://render.worldofwarcraft.com/us/character/illidan/183/225511351-avatar.jpg?alt=/wow/static/images/2d/avatar/4-1.jpg",
+  "region": "us",
+  "realm": "Illidan",
+  "last_crawled_at": "2024-08-01T00:23:49.000Z",
+  "profile_url": "https://raider.io/characters/us/illidan/Skkzr",
+  "profile_banner": "alliancebanner1",
+  "mythic_plus_best_runs": [
+    {
+      "dungeon": "Brackenhide Hollow",
+      "short_name": "BH",
+      "mythic_level": 9,
+      "completed_at": "2024-05-10T02:25:32.000Z",
+      "clear_time_ms": 1723987,
+      "par_time_ms": 2100999,
+      "num_keystone_upgrades": 1,
+      "map_challenge_mode_id": 405,
+      "zone_id": 13991,
+      "score": 155.2,
+      "affixes": [
+        {
+          "id": 9,
+          "name": "Tyrannical",
+          "description": "Bosses have 30% more health. Bosses and their minions inflict up to 15% increased damage.",
+          "icon": "achievement_boss_archaedas",
+          "wowhead_url": "https://wowhead.com/affix=9"
+        },
+        {
+          "id": 136,
+          "name": "Incorporeal",
+          "description": "While in combat, incorporeal beings periodically appear and attempt to weaken players.",
+          "icon": "achievement_boss_anomalus",
+          "wowhead_url": "https://wowhead.com/affix=136"
+        }
+      ],
+      "url": "https://raider.io/mythic-plus-runs/season-df-4/3834910-9-brackenhide-hollow"
+    },
+    {
+      "dungeon": "Neltharus",
+      "short_name": "NELT",
+      "mythic_level": 8,
+      "completed_at": "2024-07-31T19:31:04.000Z",
+      "clear_time_ms": 1279829,
+      "par_time_ms": 1980999,
+      "num_keystone_upgrades": 2,
+      "map_challenge_mode_id": 404,
+      "zone_id": 14011,
+      "score": 150.4,
+      "affixes": [
+        {
+          "id": 9,
+          "name": "Tyrannical",
+          "description": "Bosses have 30% more health. Bosses and their minions inflict up to 15% increased damage.",
+          "icon": "achievement_boss_archaedas",
+          "wowhead_url": "https://wowhead.com/affix=9"
+        },
+        {
+          "id": 3,
+          "name": "Volcanic",
+          "description": "While in combat, enemies periodically cause gouts of flame to erupt beneath the feet of distant players.",
+          "icon": "spell_shaman_lavasurge",
+          "wowhead_url": "https://wowhead.com/affix=3"
+        }
+      ],
+      "url": "https://raider.io/mythic-plus-runs/season-df-4/11777719-8-neltharus"
+    },
+    {
+      "dungeon": "Ruby Life Pools",
+      "short_name": "RLP",
+      "mythic_level": 8,
+      "completed_at": "2024-07-26T03:04:55.000Z",
+      "clear_time_ms": 1241003,
+      "par_time_ms": 1800999,
+      "num_keystone_upgrades": 2,
+      "map_challenge_mode_id": 399,
+      "zone_id": 14063,
+      "score": 149.9,
+      "affixes": [
+        {
+          "id": 10,
+          "name": "Fortified",
+          "description": "Non-boss enemies have 20% more health and inflict up to 30% increased damage.",
+          "icon": "ability_toughness",
+          "wowhead_url": "https://wowhead.com/affix=10"
+        },
+        {
+          "id": 135,
+          "name": "Afflicted",
+          "description": "While in combat, afflicted souls periodically appear and seek the aid of players.",
+          "icon": "spell_misc_emotionsad",
+          "wowhead_url": "https://wowhead.com/affix=135"
+        }
+      ],
+      "url": "https://raider.io/mythic-plus-runs/season-df-4/11411771-8-ruby-life-pools"
+    },
+    {
+      "dungeon": "The Azure Vault",
+      "short_name": "AV",
+      "mythic_level": 8,
+      "completed_at": "2024-07-26T04:43:39.000Z",
+      "clear_time_ms": 1653136,
+      "par_time_ms": 2250999,
+      "num_keystone_upgrades": 2,
+      "map_challenge_mode_id": 401,
+      "zone_id": 13954,
+      "score": 149.3,
+      "affixes": [
+        {
+          "id": 10,
+          "name": "Fortified",
+          "description": "Non-boss enemies have 20% more health and inflict up to 30% increased damage.",
+          "icon": "ability_toughness",
+          "wowhead_url": "https://wowhead.com/affix=10"
+        },
+        {
+          "id": 135,
+          "name": "Afflicted",
+          "description": "While in combat, afflicted souls periodically appear and seek the aid of players.",
+          "icon": "spell_misc_emotionsad",
+          "wowhead_url": "https://wowhead.com/affix=135"
+        }
+      ],
+      "url": "https://raider.io/mythic-plus-runs/season-df-4/11414671-8-the-azure-vault"
+    },
+    {
+      "dungeon": "Halls of Infusion",
+      "short_name": "HOI",
+      "mythic_level": 8,
+      "completed_at": "2024-08-01T00:24:41.000Z",
+      "clear_time_ms": 1932576,
+      "par_time_ms": 2100999,
+      "num_keystone_upgrades": 1,
+      "map_challenge_mode_id": 406,
+      "zone_id": 14082,
+      "score": 147,
+      "affixes": [
+        {
+          "id": 9,
+          "name": "Tyrannical",
+          "description": "Bosses have 30% more health. Bosses and their minions inflict up to 15% increased damage.",
+          "icon": "achievement_boss_archaedas",
+          "wowhead_url": "https://wowhead.com/affix=9"
+        },
+        {
+          "id": 3,
+          "name": "Volcanic",
+          "description": "While in combat, enemies periodically cause gouts of flame to erupt beneath the feet of distant players.",
+          "icon": "spell_shaman_lavasurge",
+          "wowhead_url": "https://wowhead.com/affix=3"
+        }
+      ],
+      "url": "https://raider.io/mythic-plus-runs/season-df-4/11777827-8-halls-of-infusion"
+    },
+    {
+      "dungeon": "Algeth'ar Academy",
+      "short_name": "AA",
+      "mythic_level": 6,
+      "completed_at": "2024-05-29T06:32:49.000Z",
+      "clear_time_ms": 992386,
+      "par_time_ms": 1920999,
+      "num_keystone_upgrades": 3,
+      "map_challenge_mode_id": 402,
+      "zone_id": 14032,
+      "score": 137,
+      "affixes": [
+        {
+          "id": 10,
+          "name": "Fortified",
+          "description": "Non-boss enemies have 20% more health and inflict up to 30% increased damage.",
+          "icon": "ability_toughness",
+          "wowhead_url": "https://wowhead.com/affix=10"
+        },
+        {
+          "id": 124,
+          "name": "Storming",
+          "description": "While in combat, enemies periodically summon damaging whirlwinds.",
+          "icon": "spell_nature_cyclone",
+          "wowhead_url": "https://wowhead.com/affix=124"
+        }
+      ],
+      "url": "https://raider.io/mythic-plus-runs/season-df-4/6876813-6-algethar-academy"
+    },
+    {
+      "dungeon": "Uldaman: Legacy of Tyr",
+      "short_name": "ULD",
+      "mythic_level": 2,
+      "completed_at": "2024-06-01T07:24:33.000Z",
+      "clear_time_ms": 1033459,
+      "par_time_ms": 2100999,
+      "num_keystone_upgrades": 3,
+      "map_challenge_mode_id": 403,
+      "zone_id": 13968,
+      "score": 99,
+      "affixes": [
+        {
+          "id": 10,
+          "name": "Fortified",
+          "description": "Non-boss enemies have 20% more health and inflict up to 30% increased damage.",
+          "icon": "ability_toughness",
+          "wowhead_url": "https://wowhead.com/affix=10"
+        }
+      ],
+      "url": "https://raider.io/mythic-plus-runs/season-df-4/7442972-2-uldaman-legacy-of-tyr"
+    },
+    {
+      "dungeon": "The Nokhud Offensive",
+      "short_name": "NO",
+      "mythic_level": 2,
+      "completed_at": "2024-05-28T02:08:32.000Z",
+      "clear_time_ms": 1735471,
+      "par_time_ms": 2400999,
+      "num_keystone_upgrades": 2,
+      "map_challenge_mode_id": 400,
+      "zone_id": 13982,
+      "score": 97.5,
+      "affixes": [
+        {
+          "id": 9,
+          "name": "Tyrannical",
+          "description": "Bosses have 30% more health. Bosses and their minions inflict up to 15% increased damage.",
+          "icon": "achievement_boss_archaedas",
+          "wowhead_url": "https://wowhead.com/affix=9"
+        }
+      ],
+      "url": "https://raider.io/mythic-plus-runs/season-df-4/6735433-2-the-nokhud-offensive"
+    }
+  ]
+}
