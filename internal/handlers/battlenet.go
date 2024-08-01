@@ -13,6 +13,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"time"
 )
 
 type BattleNet struct {
@@ -118,6 +119,16 @@ func (b *BattleNet) ProfileSummary(w http.ResponseWriter, r *http.Request) {
 }
 
 func (b *BattleNet) CharacterSummary(w http.ResponseWriter, r *http.Request) {
+	cache := r.Context().Value(middleware.CacheContextKey).(middleware.CacheClient)
+	key := r.URL.Path
+
+	// Cache HIT
+	if val, err := cache.Get(r.Context(), key); err == nil {
+		w.Header().Set("Content-Type", "application/json")
+		_, _ = w.Write([]byte(val))
+		return
+	}
+
 	cs, err := b.client.CharacterSummary(r.Context(), bnet.CharacterOptionsFromContext(r.Context()))
 	if err != nil {
 		b.l.Error("failed to retrieve character summary", "error", err)
@@ -125,11 +136,32 @@ func (b *BattleNet) CharacterSummary(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// Marshal the CharacterSummary
+	bs, err := json.Marshal(cs)
+	if err != nil {
+		b.l.Error("json.Marshal failed for CharacterSummary", "error", err)
+		http.Error(w, "failed to marshal character summary", http.StatusInternalServerError)
+		return
+	}
+
+	// Cache SET
+	go cache.Set(key, string(bs), 15*time.Minute)
+
 	w.Header().Set("Content-Type", "application/json")
-	_ = json.NewEncoder(w).Encode(cs)
+	_, _ = w.Write(bs)
 }
 
 func (b *BattleNet) CharacterEquipment(w http.ResponseWriter, r *http.Request) {
+	cache := r.Context().Value(middleware.CacheContextKey).(middleware.CacheClient)
+	key := r.URL.Path
+
+	// Cache HIT
+	if val, err := cache.Get(r.Context(), key); err == nil {
+		w.Header().Set("Content-Type", "application/json")
+		_, _ = w.Write([]byte(val))
+		return
+	}
+
 	ce, err := b.client.CharacterEquipmentSummary(r.Context(), bnet.CharacterOptionsFromContext(r.Context()))
 	if err != nil {
 		b.l.Error("failed to retrieve character equipment", "error", err)
@@ -137,11 +169,32 @@ func (b *BattleNet) CharacterEquipment(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// Marshal the CharacterEquipment
+	bs, err := json.Marshal(ce)
+	if err != nil {
+		b.l.Error("json.Marshal failed for CharacterEquipment", "error", err)
+		http.Error(w, "failed to marshal character equipment", http.StatusInternalServerError)
+		return
+	}
+
+	// Cache SET
+	go cache.Set(key, string(bs), 15*time.Minute)
+
 	w.Header().Set("Content-Type", "application/json")
-	_ = json.NewEncoder(w).Encode(ce)
+	_, _ = w.Write(bs)
 }
 
 func (b *BattleNet) CharacterMedia(w http.ResponseWriter, r *http.Request) {
+	cache := r.Context().Value(middleware.CacheContextKey).(middleware.CacheClient)
+	key := r.URL.Path
+
+	// Cache HIT
+	if val, err := cache.Get(r.Context(), key); err == nil {
+		w.Header().Set("Content-Type", "application/json")
+		_, _ = w.Write([]byte(val))
+		return
+	}
+
 	cm, err := b.client.CharacterMedia(r.Context(), bnet.CharacterOptionsFromContext(r.Context()))
 	if err != nil {
 		b.l.Error("failed to retrieve character media", "error", err)
@@ -149,11 +202,32 @@ func (b *BattleNet) CharacterMedia(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// Marshal the CharacterMedia
+	bs, err := json.Marshal(cm)
+	if err != nil {
+		b.l.Error("json.Marshal failed for CharacterMedia", "error", err)
+		http.Error(w, "failed to marshal character media", http.StatusInternalServerError)
+		return
+	}
+
+	// Cache SET
+	go cache.Set(key, string(bs), 15*time.Minute)
+
 	w.Header().Set("Content-Type", "application/json")
-	_ = json.NewEncoder(w).Encode(cm)
+	_, _ = w.Write(bs)
 }
 
 func (b *BattleNet) CharacterStatistics(w http.ResponseWriter, r *http.Request) {
+	cache := r.Context().Value(middleware.CacheContextKey).(middleware.CacheClient)
+	key := r.URL.Path
+
+	// Cache HIT
+	if val, err := cache.Get(r.Context(), key); err == nil {
+		w.Header().Set("Content-Type", "application/json")
+		_, _ = w.Write([]byte(val))
+		return
+	}
+
 	cs, err := b.client.CharacterStatistics(r.Context(), bnet.CharacterOptionsFromContext(r.Context()))
 	if err != nil {
 		b.l.Error("failed to retrieve character statistics", "error", err)
@@ -161,8 +235,19 @@ func (b *BattleNet) CharacterStatistics(w http.ResponseWriter, r *http.Request) 
 		return
 	}
 
+	// Marshal the CharacterStatistics
+	bs, err := json.Marshal(cs)
+	if err != nil {
+		b.l.Error("json.Marshal failed for CharacterStatistics", "error", err)
+		http.Error(w, "failed to marshal character statistics", http.StatusInternalServerError)
+		return
+	}
+
+	// Cache SET
+	go cache.Set(key, string(bs), 15*time.Minute)
+
 	w.Header().Set("Content-Type", "application/json")
-	_ = json.NewEncoder(w).Encode(cs)
+	_, _ = w.Write(bs)
 }
 
 func (b *BattleNet) CharacterDungeonEncounters(w http.ResponseWriter, r *http.Request) {
@@ -246,10 +331,12 @@ func (b *BattleNet) Route(r *mux.Router) {
 	realmAndCharacterRouter.HandleFunc("/equipment", b.CharacterEquipment)
 	realmAndCharacterRouter.HandleFunc("/character-media", b.CharacterMedia)
 	realmAndCharacterRouter.HandleFunc("/character-statistics", b.CharacterStatistics)
-	realmAndCharacterRouter.HandleFunc("/mythic-keystone-index", b.MythicKeystoneIndex)
-	realmAndCharacterRouter.HandleFunc("/mythic-keystone-index/season/{seasonID}", b.MythicKeystoneSeason)
-	realmAndCharacterRouter.HandleFunc("/encounters/dungeons", b.CharacterDungeonEncounters)
-	realmAndCharacterRouter.HandleFunc("/encounters/raids", b.CharacterRaidEncounters)
+	/*
+		realmAndCharacterRouter.HandleFunc("/mythic-keystone-index", b.MythicKeystoneIndex)
+		realmAndCharacterRouter.HandleFunc("/mythic-keystone-index/season/{seasonID}", b.MythicKeystoneSeason)
+		realmAndCharacterRouter.HandleFunc("/encounters/dungeons", b.CharacterDungeonEncounters)
+		realmAndCharacterRouter.HandleFunc("/encounters/raids", b.CharacterRaidEncounters)
+	*/
 
 	/*
 		// http://localhost:9090/api/us/wow/profile
