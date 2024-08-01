@@ -1,0 +1,66 @@
+{
+  "name": "Skkzr",
+  "race": "Night Elf",
+  "class": "Rogue",
+  "active_spec_name": "Subtlety",
+  "active_spec_role": "DPS",
+  "gender": "female",
+  "faction": "alliance",
+  "achievement_points": 13355,
+  "honorable_kills": 0,
+  "thumbnail_url": "https://render.worldofwarcraft.com/us/character/illidan/183/225511351-avatar.jpg?alt=/wow/static/images/2d/avatar/4-1.jpg",
+  "region": "us",
+  "realm": "Illidan",
+  "last_crawled_at": "2024-08-01T00:23:49.000Z",
+  "profile_url": "https://raider.io/characters/us/illidan/Skkzr",
+  "profile_banner": "alliancebanner1",
+  "mythic_plus_scores_by_season": [
+    {
+      "season": "season-df-4",
+      "scores": {
+        "all": 1875.4,
+        "dps": 1875.4,
+        "healer": 0,
+        "tank": 0,
+        "spec_0": 977.3,
+        "spec_1": 1209,
+        "spec_2": 446.1,
+        "spec_3": 0
+      },
+      "segments": {
+        "all": {
+          "score": 1875.4,
+          "color": "#5aa1a9"
+        },
+        "dps": {
+          "score": 1875.4,
+          "color": "#5aa1a9"
+        },
+        "healer": {
+          "score": 0,
+          "color": "#ffffff"
+        },
+        "tank": {
+          "score": 0,
+          "color": "#ffffff"
+        },
+        "spec_0": {
+          "score": 977.3,
+          "color": "#45ff2c"
+        },
+        "spec_1": {
+          "score": 1209,
+          "color": "#46ec47"
+        },
+        "spec_2": {
+          "score": 446.1,
+          "color": "#d8ffc9"
+        },
+        "spec_3": {
+          "score": 0,
+          "color": "#ffffff"
+        }
+      }
+    }
+  ]
+}

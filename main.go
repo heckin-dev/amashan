@@ -51,6 +51,7 @@ func main() {
 	handlers.NewHealthcheck().Route(apiRouter)
 	handlers.NewBattleNet(l).Route(apiRouter)
 	handlers.NewWarcraftLogs(l).Route(apiRouter)
+	handlers.NewRaiderIO(l).Route(apiRouter)
 
 	utils.StartServerWithGracefulShutdown(sm, bindAddress, l)
 }

@@ -470,7 +470,9 @@ func (b *BattlenetClient) Do(ctx context.Context, t *oauth2.Token, req *http.Req
 	}
 
 	if res.StatusCode == http.StatusTooManyRequests {
-		b.perHourLimiter.Reserve()
+		b.perSecondLimiter.ReserveN(time.Now().Add(1*time.Minute), b.perSecondLimiter.Burst())
+		b.perHourLimiter.ReserveN(time.Now().Add(1*time.Hour), b.perHourLimiter.Burst())
+		b.l.Info("BattleNet Rate-Limit reached, drained remaining tokens")
 	}
 
 	if res.StatusCode < 200 || res.StatusCode >= 400 {

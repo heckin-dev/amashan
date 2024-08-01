@@ -1,0 +1,54 @@
+{
+  "name": "Skkzr",
+  "race": "Night Elf",
+  "class": "Rogue",
+  "active_spec_name": "Subtlety",
+  "active_spec_role": "DPS",
+  "gender": "female",
+  "faction": "alliance",
+  "achievement_points": 13355,
+  "honorable_kills": 0,
+  "thumbnail_url": "https://render.worldofwarcraft.com/us/character/illidan/183/225511351-avatar.jpg?alt=/wow/static/images/2d/avatar/4-1.jpg",
+  "region": "us",
+  "realm": "Illidan",
+  "last_crawled_at": "2024-08-01T00:23:49.000Z",
+  "profile_url": "https://raider.io/characters/us/illidan/Skkzr",
+  "profile_banner": "alliancebanner1",
+  "mythic_plus_ranks": {
+    "overall": {
+      "world": 753666,
+      "region": 244177,
+      "realm": 21701
+    },
+    "class": {
+      "world": 18516,
+      "region": 6025,
+      "realm": 607
+    },
+    "dps": {
+      "world": 474288,
+      "region": 153758,
+      "realm": 13949
+    },
+    "class_dps": {
+      "world": 18516,
+      "region": 6026,
+      "realm": 607
+    },
+    "spec_259": {
+      "world": 9626,
+      "region": 3442,
+      "realm": 273
+    },
+    "spec_260": {
+      "world": 17129,
+      "region": 5620,
+      "realm": 598
+    },
+    "spec_261": {
+      "world": 5971,
+      "region": 2085,
+      "realm": 215
+    }
+  }
+}
