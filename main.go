@@ -46,6 +46,7 @@ func main() {
 
 	// /api grouping
 	apiRouter := sm.PathPrefix("/api").Subrouter()
+	apiRouter.Use(middleware.UseCaching(l).Middleware)
 
 	// Routes
 	handlers.NewHealthcheck().Route(apiRouter)
