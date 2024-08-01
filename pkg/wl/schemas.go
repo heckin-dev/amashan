@@ -19,14 +19,41 @@ type WorldDataByExpansionID struct {
 }
 
 type Expansion struct {
-	ID    graphql.Int
-	Name  graphql.String
+	Encounter
 	Zones []Zone
 }
 
 type Zone struct {
 	ID         graphql.Int
+	Name       graphql.String
 	Encounters []Encounter
+	Partitions []Partition
+}
+
+func (z Zone) GetZoneEncounters() []ZoneEncounter {
+	var encounters []ZoneEncounter
+	for _, e := range z.Encounters {
+		ze := ZoneEncounter{
+			ID:   int(e.ID),
+			Name: string(e.Name),
+		}
+		encounters = append(encounters, ze)
+	}
+	return encounters
+}
+
+func (z Zone) GetZonePartitions() []ZonePartition {
+	var paritions []ZonePartition
+	for _, p := range z.Partitions {
+		zp := ZonePartition{
+			ID:          int(p.ID),
+			Name:        string(p.Name),
+			CompactName: string(p.CompactName),
+			Default:     bool(p.Default),
+		}
+		paritions = append(paritions, zp)
+	}
+	return paritions
 }
 
 type PartitionedZone struct {

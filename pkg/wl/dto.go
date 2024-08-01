@@ -45,3 +45,56 @@ type EncounterDTO struct {
 	ID   int    `json:"id"`
 	Name string `json:"name"`
 }
+
+type PartitionedExpansion struct {
+	ID    int             `json:"id"`
+	Name  string          `json:"name"`
+	Zones []ExpansionZone `json:"zones"`
+}
+
+func PartitionedExpansionFromExpansionEncounterQuery(q *ExpansionEncountersQuery) []*PartitionedExpansion {
+	var result []*PartitionedExpansion
+
+	for _, exp := range q.WorldData.Expansions {
+		pe := &PartitionedExpansion{
+			ID:    int(exp.ID),
+			Name:  string(exp.Name),
+			Zones: nil,
+		}
+
+		// Collects the zones
+		var zones []ExpansionZone
+		for _, zone := range exp.Zones {
+			peZone := ExpansionZone{
+				ID:         int(zone.ID),
+				Name:       string(zone.Name),
+				Encounters: zone.GetZoneEncounters(),
+				Partitions: zone.GetZonePartitions(),
+			}
+			zones = append(zones, peZone)
+		}
+		pe.Zones = zones
+		result = append(result, pe)
+	}
+
+	return result
+}
+
+type ExpansionZone struct {
+	ID         int             `json:"id"`
+	Name       string          `json:"name"`
+	Encounters []ZoneEncounter `json:"encounters"`
+	Partitions []ZonePartition `json:"partitions"`
+}
+
+type ZoneEncounter struct {
+	ID   int    `json:"id"`
+	Name string `json:"name"`
+}
+
+type ZonePartition struct {
+	ID          int    `json:"id"`
+	Name        string `json:"name"`
+	CompactName string `json:"compact_name"`
+	Default     bool   `json:"default"`
+}
