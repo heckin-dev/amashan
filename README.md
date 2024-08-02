@@ -82,3 +82,5 @@ This is the value used to connect with `redis.ParseURL(...)`.
 - [joho/godotenv](https://github.com/joho/godotenv)
 - [x/oauth2](https://github.com/golang/oauth2)
 - [x/time/rate](https://cs.opensource.google/go/x/time)
+- [hasura/go-graphql-client](https://github.com/hasura/go-graphql-client)
+- [redis/go-redis](https://github.com/redis/go-redis/v9)
