@@ -1,69 +1,109 @@
 {
   "_links": {
     "self": {
-      "href": "https://us.api.blizzard.com/profile/wow/character/illidan/aulene/equipment?namespace=profile-us"
+      "href": "https://us.api.blizzard.com/profile/wow/character/tichondrius/skxyz/equipment?namespace=profile-us"
     }
   },
   "character": {
     "key": {
-      "href": "https://us.api.blizzard.com/profile/wow/character/illidan/aulene?namespace=profile-us"
+      "href": "https://us.api.blizzard.com/profile/wow/character/tichondrius/skxyz?namespace=profile-us"
     },
-    "name": "Aulene",
-    "id": 229483897,
+    "name": "Skxyz",
+    "id": 242328372,
     "realm": {
       "key": {
-        "href": "https://us.api.blizzard.com/data/wow/realm/57?namespace=dynamic-us"
+        "href": "https://us.api.blizzard.com/data/wow/realm/11?namespace=dynamic-us"
       },
-      "name": "Illidan",
-      "id": 57,
-      "slug": "illidan"
+      "name": "Tichondrius",
+      "id": 11,
+      "slug": "tichondrius"
     }
   },
   "equipped_items": [
     {
       "item": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item/207263?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item/202602?namespace=static-11.0.0_55478-us"
         },
-        "id": 207263
+        "id": 202602
       },
+      "enchantments": [
+        {
+          "display_string": "Enchanted: |cnITEM_EPIC_COLOR:Incandescent Essence|r",
+          "source_item": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/item/210494?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Incandescent Essence",
+            "id": 210494
+          },
+          "enchantment_id": 7052,
+          "enchantment_slot": {
+            "id": 0,
+            "type": "PERMANENT"
+          }
+        }
+      ],
+      "sockets": [
+        {
+          "socket_type": {
+            "type": "PRISMATIC",
+            "name": "Prismatic Socket"
+          },
+          "item": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/item/192958?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Sensei's Neltharite",
+            "id": 192958
+          },
+          "display_string": "+70 Mastery and +33 Critical Strike",
+          "media": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/media/item/192958?namespace=static-11.0.0_55478-us"
+            },
+            "id": 192958
+          }
+        }
+      ],
       "slot": {
         "type": "HEAD",
         "name": "Head"
       },
       "quantity": 1,
-      "context": 4,
+      "context": 85,
       "bonus_list": [
         6652,
-        9600,
-        7982,
-        9555,
-        9513,
-        1481,
-        8767
+        10874,
+        7981,
+        10884,
+        10338,
+        1585,
+        8767,
+        10531
       ],
       "quality": {
         "type": "EPIC",
         "name": "Epic"
       },
-      "name": "Screaming Torchfiend's Burning Scowl",
-      "modified_appearance_id": 192374,
+      "name": "Violent Gravemask",
+      "modified_appearance_id": 186651,
       "media": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/media/item/207263?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/media/item/202602?namespace=static-11.0.0_55478-us"
         },
-        "id": 207263
+        "id": 202602
       },
       "item_class": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-11.0.0_55478-us"
         },
         "name": "Armor",
         "id": 4
       },
       "item_subclass": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/2?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/2?namespace=static-11.0.0_55478-us"
         },
         "name": "Leather",
         "id": 2
@@ -77,9 +117,9 @@
         "name": "Binds when picked up"
       },
       "armor": {
-        "value": 508,
+        "value": 1520,
         "display": {
-          "display_string": "508 Armor",
+          "display_string": "1,520 Armor",
           "color": {
             "r": 255,
             "g": 255,
@@ -94,9 +134,9 @@
             "type": "AGILITY",
             "name": "Agility"
           },
-          "value": 653,
+          "value": 1349,
           "display": {
-            "display_string": "+653 Agility",
+            "display_string": "+1,349 Agility",
             "color": {
               "r": 255,
               "g": 255,
@@ -110,10 +150,10 @@
             "type": "INTELLECT",
             "name": "Intellect"
           },
-          "value": 653,
+          "value": 1349,
           "is_negated": true,
           "display": {
-            "display_string": "+653 Intellect",
+            "display_string": "+1,349 Intellect",
             "color": {
               "r": 128,
               "g": 128,
@@ -127,9 +167,9 @@
             "type": "STAMINA",
             "name": "Stamina"
           },
-          "value": 2481,
+          "value": 6822,
           "display": {
-            "display_string": "+2,481 Stamina",
+            "display_string": "+6,822 Stamina",
             "color": {
               "r": 255,
               "g": 255,
@@ -140,13 +180,13 @@
         },
         {
           "type": {
-            "type": "HASTE_RATING",
-            "name": "Haste"
+            "type": "VERSATILITY",
+            "name": "Versatility"
           },
-          "value": 617,
+          "value": 396,
           "is_equip_bonus": true,
           "display": {
-            "display_string": "+617 Haste",
+            "display_string": "+396 Versatility",
             "color": {
               "r": 0,
               "g": 255,
@@ -157,13 +197,13 @@
         },
         {
           "type": {
-            "type": "VERSATILITY",
-            "name": "Versatility"
+            "type": "MASTERY_RATING",
+            "name": "Mastery"
           },
-          "value": 268,
+          "value": 835,
           "is_equip_bonus": true,
           "display": {
-            "display_string": "+268 Versatility",
+            "display_string": "+835 Mastery",
             "color": {
               "r": 0,
               "g": 255,
@@ -174,172 +214,156 @@
         }
       ],
       "sell_price": {
-        "value": 696119,
+        "value": 666995,
         "display_strings": {
           "header": "Sell Price:",
-          "gold": "69",
-          "silver": "61",
-          "copper": "19"
+          "gold": "66",
+          "silver": "69",
+          "copper": "95"
         }
       },
       "requirements": {
         "level": {
           "value": 70,
           "display_string": "Requires Level 70"
-        },
-        "playable_classes": {
-          "links": [
-            {
-              "key": {
-                "href": "https://us.api.blizzard.com/data/wow/playable-class/12?namespace=static-10.2.7_54366-us"
-              },
-              "name": "Demon Hunter",
-              "id": 12
-            }
-          ],
-          "display_string": "Classes: Demon Hunter"
         }
       },
-      "set": {
-        "item_set": {
-          "key": {
-            "href": "https://us.api.blizzard.com/data/wow/item-set/1558?namespace=static-10.2.7_54366-us"
-          },
-          "name": "Screaming Torchfiend's Brutality",
-          "id": 1558
-        },
-        "items": [
-          {
-            "item": {
-              "key": {
-                "href": "https://us.api.blizzard.com/data/wow/item/207261?namespace=static-10.2.7_54366-us"
-              },
-              "name": "Screaming Torchfiend's Horned Memento",
-              "id": 207261
-            },
-            "is_equipped": true
-          },
-          {
-            "item": {
-              "key": {
-                "href": "https://us.api.blizzard.com/data/wow/item/207262?namespace=static-10.2.7_54366-us"
-              },
-              "name": "Screaming Torchfiend's Blazewraps",
-              "id": 207262
-            }
-          },
-          {
-            "item": {
-              "key": {
-                "href": "https://us.api.blizzard.com/data/wow/item/207263?namespace=static-10.2.7_54366-us"
-              },
-              "name": "Screaming Torchfiend's Burning Scowl",
-              "id": 207263
-            },
-            "is_equipped": true
-          },
-          {
-            "item": {
-              "key": {
-                "href": "https://us.api.blizzard.com/data/wow/item/207264?namespace=static-10.2.7_54366-us"
-              },
-              "name": "Screaming Torchfiend's Grasp",
-              "id": 207264
-            },
-            "is_equipped": true
-          },
-          {
-            "item": {
-              "key": {
-                "href": "https://us.api.blizzard.com/data/wow/item/207266?namespace=static-10.2.7_54366-us"
-              },
-              "name": "Screaming Torchfiend's Binding",
-              "id": 207266
-            },
-            "is_equipped": true
-          }
-        ],
-        "effects": [
-          {
-            "display_string": "Set: When you attack a target afflicted by Sigil of Flame, your damage and healing are increased by 2% and your Stamina is increased by 2% for 8 sec, stacking up to 5.",
-            "required_count": 2,
-            "is_active": true
-          },
-          {
-            "display_string": "Set: Sigil of Flame's periodic damage has a chance to flare up, shattering an additional Soul Fragment from a target and dealing 13,797 additional damage. Each 40 Fury you spend reduces its cooldown by 1.0 sec.",
-            "required_count": 4,
-            "is_active": true
-          }
-        ],
-        "display_string": "Screaming Torchfiend's Brutality (4/5)"
-      },
       "level": {
-        "value": 450,
-        "display_string": "Item Level 450"
+        "value": 528,
+        "display_string": "Item Level 528"
       },
       "transmog": {
         "item": {
           "key": {
-            "href": "https://us.api.blizzard.com/data/wow/item/180751?namespace=static-10.2.7_54366-us"
+            "href": "https://us.api.blizzard.com/data/wow/item/186091?namespace=static-11.0.0_55478-us"
           },
-          "name": "Red Noggin Candle",
-          "id": 180751
+          "name": "Onyx Glare-Reducers",
+          "id": 186091
         },
-        "display_string": "Transmogrified to:\nRed Noggin Candle",
-        "item_modified_appearance_id": 113236
+        "display_string": "Transmogrified to:\nOnyx Glare-Reducers",
+        "item_modified_appearance_id": 116830
       },
       "durability": {
-        "value": 82,
-        "display_string": "Durability 82 / 100"
+        "value": 98,
+        "display_string": "Durability 98 / 100"
       },
       "name_description": {
-        "display_string": "Dragonflight Season 3 Raid Finder",
+        "display_string": "Awakened Mythic",
         "color": {
-          "r": 128,
-          "g": 128,
-          "b": 128,
-          "a": 255
+          "r": 0,
+          "g": 255,
+          "b": 0,
+          "a": 1
         }
       }
     },
     {
       "item": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item/154747?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item/193647?namespace=static-11.0.0_55478-us"
         },
-        "id": 154747
+        "id": 193647
       },
+      "sockets": [
+        {
+          "socket_type": {
+            "type": "PRISMATIC",
+            "name": "Prismatic Socket"
+          },
+          "item": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/item/192964?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Zen Neltharite",
+            "id": 192964
+          },
+          "display_string": "+70 Mastery and +33 Versatility",
+          "media": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/media/item/192964?namespace=static-11.0.0_55478-us"
+            },
+            "id": 192964
+          }
+        },
+        {
+          "socket_type": {
+            "type": "PRISMATIC",
+            "name": "Prismatic Socket"
+          },
+          "item": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/item/192964?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Zen Neltharite",
+            "id": 192964
+          },
+          "display_string": "+70 Mastery and +33 Versatility",
+          "media": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/media/item/192964?namespace=static-11.0.0_55478-us"
+            },
+            "id": 192964
+          }
+        },
+        {
+          "socket_type": {
+            "type": "PRISMATIC",
+            "name": "Prismatic Socket"
+          },
+          "item": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/item/192988?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Skillful Illimited Diamond",
+            "id": 192988
+          },
+          "display_string": "+75 Primary Stat and +66 Mastery",
+          "media": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/media/item/192988?namespace=static-11.0.0_55478-us"
+            },
+            "id": 192988
+          }
+        }
+      ],
       "slot": {
         "type": "NECK",
         "name": "Neck"
       },
       "quantity": 1,
-      "context": 61,
+      "context": 35,
       "bonus_list": [
-        3303,
+        9639,
+        6652,
+        9144,
+        9477,
+        8782,
+        10338,
+        3207,
         8767
       ],
       "quality": {
         "type": "EPIC",
         "name": "Epic"
       },
-      "name": "Illidari Chain",
+      "name": "Custodian's Medallion of Delusion",
+      "modified_appearance_id": 0,
       "media": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/media/item/154747?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/media/item/193647?namespace=static-11.0.0_55478-us"
         },
-        "id": 154747
+        "id": 193647
       },
       "item_class": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-11.0.0_55478-us"
         },
         "name": "Armor",
         "id": 4
       },
       "item_subclass": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/0?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/0?namespace=static-11.0.0_55478-us"
         },
         "name": "Miscellaneous",
         "id": 0
@@ -358,9 +382,9 @@
             "type": "STAMINA",
             "name": "Stamina"
           },
-          "value": 1014,
+          "value": 3837,
           "display": {
-            "display_string": "+1,014 Stamina",
+            "display_string": "+3,837 Stamina",
             "color": {
               "r": 255,
               "g": 255,
@@ -371,13 +395,13 @@
         },
         {
           "type": {
-            "type": "CRIT_RATING",
-            "name": "Critical Strike"
+            "type": "VERSATILITY",
+            "name": "Versatility"
           },
-          "value": 636,
+          "value": 1661,
           "is_equip_bonus": true,
           "display": {
-            "display_string": "+636 Critical Strike",
+            "display_string": "+1,661 Versatility",
             "color": {
               "r": 0,
               "g": 255,
@@ -388,13 +412,13 @@
         },
         {
           "type": {
-            "type": "HASTE_RATING",
-            "name": "Haste"
+            "type": "MASTERY_RATING",
+            "name": "Mastery"
           },
-          "value": 600,
+          "value": 1175,
           "is_equip_bonus": true,
           "display": {
-            "display_string": "+600 Haste",
+            "display_string": "+1,175 Mastery",
             "color": {
               "r": 0,
               "g": 255,
@@ -405,81 +429,78 @@
         }
       ],
       "sell_price": {
-        "value": 1,
+        "value": 418464,
         "display_strings": {
           "header": "Sell Price:",
-          "gold": "0",
-          "silver": "0",
-          "copper": "1"
+          "gold": "41",
+          "silver": "84",
+          "copper": "64"
         }
       },
       "requirements": {
         "level": {
-          "value": 45,
-          "display_string": "Requires Level 45"
-        },
-        "playable_classes": {
-          "links": [
-            {
-              "key": {
-                "href": "https://us.api.blizzard.com/data/wow/playable-class/12?namespace=static-10.2.7_54366-us"
-              },
-              "name": "Demon Hunter",
-              "id": 12
-            }
-          ],
-          "display_string": "Classes: Demon Hunter"
+          "value": 58,
+          "display_string": "Requires Level 58"
         }
       },
       "level": {
-        "value": 424,
-        "display_string": "Item Level 424"
+        "value": 528,
+        "display_string": "Item Level 528"
       },
-      "is_subclass_hidden": true
+      "is_subclass_hidden": true,
+      "name_description": {
+        "display_string": "Mythic+",
+        "color": {
+          "r": 0,
+          "g": 255,
+          "b": 0,
+          "a": 1
+        }
+      }
     },
     {
       "item": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item/207261?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item/217210?namespace=static-11.0.0_55478-us"
         },
-        "id": 207261
+        "id": 217210
       },
       "slot": {
         "type": "SHOULDER",
         "name": "Shoulders"
       },
       "quantity": 1,
-      "context": 4,
+      "context": 35,
       "bonus_list": [
         6652,
-        7982,
-        9554,
-        9511,
-        1478,
+        9639,
+        10869,
+        10338,
+        1520,
         8767
       ],
       "quality": {
         "type": "EPIC",
         "name": "Epic"
       },
-      "name": "Screaming Torchfiend's Horned Memento",
-      "modified_appearance_id": 192352,
+      "name": "Lurking Specter's Shoulderblades",
+      "modified_appearance_id": 199145,
       "media": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/media/item/207261?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/media/item/217210?namespace=static-11.0.0_55478-us"
         },
-        "id": 207261
+        "id": 217210
       },
       "item_class": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-11.0.0_55478-us"
         },
         "name": "Armor",
         "id": 4
       },
       "item_subclass": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/2?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/2?namespace=static-11.0.0_55478-us"
         },
         "name": "Leather",
         "id": 2
@@ -493,9 +514,9 @@
         "name": "Binds when picked up"
       },
       "armor": {
-        "value": 456,
+        "value": 1393,
         "display": {
-          "display_string": "456 Armor",
+          "display_string": "1,393 Armor",
           "color": {
             "r": 255,
             "g": 255,
@@ -510,9 +531,9 @@
             "type": "AGILITY",
             "name": "Agility"
           },
-          "value": 476,
+          "value": 1012,
           "display": {
-            "display_string": "+476 Agility",
+            "display_string": "+1,012 Agility",
             "color": {
               "r": 255,
               "g": 255,
@@ -526,10 +547,10 @@
             "type": "INTELLECT",
             "name": "Intellect"
           },
-          "value": 476,
+          "value": 1012,
           "is_negated": true,
           "display": {
-            "display_string": "+476 Intellect",
+            "display_string": "+1,012 Intellect",
             "color": {
               "r": 128,
               "g": 128,
@@ -543,9 +564,9 @@
             "type": "STAMINA",
             "name": "Stamina"
           },
-          "value": 1796,
+          "value": 5116,
           "display": {
-            "display_string": "+1,796 Stamina",
+            "display_string": "+5,116 Stamina",
             "color": {
               "r": 255,
               "g": 255,
@@ -556,13 +577,13 @@
         },
         {
           "type": {
-            "type": "HASTE_RATING",
-            "name": "Haste"
+            "type": "CRIT_RATING",
+            "name": "Critical Strike"
           },
-          "value": 210,
+          "value": 620,
           "is_equip_bonus": true,
           "display": {
-            "display_string": "+210 Haste",
+            "display_string": "+620 Critical Strike",
             "color": {
               "r": 0,
               "g": 255,
@@ -573,13 +594,13 @@
         },
         {
           "type": {
-            "type": "VERSATILITY",
-            "name": "Versatility"
+            "type": "HASTE_RATING",
+            "name": "Haste"
           },
-          "value": 445,
+          "value": 303,
           "is_equip_bonus": true,
           "display": {
-            "display_string": "+445 Versatility",
+            "display_string": "+303 Haste",
             "color": {
               "r": 0,
               "g": 255,
@@ -590,12 +611,12 @@
         }
       ],
       "sell_price": {
-        "value": 689877,
+        "value": 717658,
         "display_strings": {
           "header": "Sell Price:",
-          "gold": "68",
-          "silver": "98",
-          "copper": "77"
+          "gold": "71",
+          "silver": "76",
+          "copper": "58"
         }
       },
       "requirements": {
@@ -607,96 +628,96 @@
           "links": [
             {
               "key": {
-                "href": "https://us.api.blizzard.com/data/wow/playable-class/12?namespace=static-10.2.7_54366-us"
+                "href": "https://us.api.blizzard.com/data/wow/playable-class/4?namespace=static-11.0.0_55478-us"
               },
-              "name": "Demon Hunter",
-              "id": 12
+              "name": "Rogue",
+              "id": 4
             }
           ],
-          "display_string": "Classes: Demon Hunter"
+          "display_string": "Classes: Rogue"
         }
       },
       "set": {
         "item_set": {
           "key": {
-            "href": "https://us.api.blizzard.com/data/wow/item-set/1558?namespace=static-10.2.7_54366-us"
+            "href": "https://us.api.blizzard.com/data/wow/item-set/1600?namespace=static-11.0.0_55478-us"
           },
-          "name": "Screaming Torchfiend's Brutality",
-          "id": 1558
+          "name": "Lurking Specter's Shadeweave",
+          "id": 1600
         },
         "items": [
           {
             "item": {
               "key": {
-                "href": "https://us.api.blizzard.com/data/wow/item/207261?namespace=static-10.2.7_54366-us"
+                "href": "https://us.api.blizzard.com/data/wow/item/217206?namespace=static-11.0.0_55478-us"
               },
-              "name": "Screaming Torchfiend's Horned Memento",
-              "id": 207261
+              "name": "Lurking Specter's Brigandine",
+              "id": 217206
             },
             "is_equipped": true
           },
           {
             "item": {
               "key": {
-                "href": "https://us.api.blizzard.com/data/wow/item/207262?namespace=static-10.2.7_54366-us"
+                "href": "https://us.api.blizzard.com/data/wow/item/217207?namespace=static-11.0.0_55478-us"
               },
-              "name": "Screaming Torchfiend's Blazewraps",
-              "id": 207262
+              "name": "Lurking Specter's Handgrips",
+              "id": 217207
+            },
+            "is_equipped": true
+          },
+          {
+            "item": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/item/217208?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Lurking Specter's Visage",
+              "id": 217208
             }
           },
           {
             "item": {
               "key": {
-                "href": "https://us.api.blizzard.com/data/wow/item/207263?namespace=static-10.2.7_54366-us"
+                "href": "https://us.api.blizzard.com/data/wow/item/217209?namespace=static-11.0.0_55478-us"
               },
-              "name": "Screaming Torchfiend's Burning Scowl",
-              "id": 207263
+              "name": "Lurking Specter's Tights",
+              "id": 217209
             },
             "is_equipped": true
           },
           {
             "item": {
               "key": {
-                "href": "https://us.api.blizzard.com/data/wow/item/207264?namespace=static-10.2.7_54366-us"
+                "href": "https://us.api.blizzard.com/data/wow/item/217210?namespace=static-11.0.0_55478-us"
               },
-              "name": "Screaming Torchfiend's Grasp",
-              "id": 207264
-            },
-            "is_equipped": true
-          },
-          {
-            "item": {
-              "key": {
-                "href": "https://us.api.blizzard.com/data/wow/item/207266?namespace=static-10.2.7_54366-us"
-              },
-              "name": "Screaming Torchfiend's Binding",
-              "id": 207266
+              "name": "Lurking Specter's Shoulderblades",
+              "id": 217210
             },
             "is_equipped": true
           }
         ],
         "effects": [
           {
-            "display_string": "Set: When you attack a target afflicted by Sigil of Flame, your damage and healing are increased by 2% and your Stamina is increased by 2% for 8 sec, stacking up to 5.",
+            "display_string": "Set: Using Eviscerate, Rupture, or Black Powder has a chance to summon a shadow clone to echo your finishing move for 70% additional Shadow damage.",
             "required_count": 2,
             "is_active": true
           },
           {
-            "display_string": "Set: Sigil of Flame's periodic damage has a chance to flare up, shattering an additional Soul Fragment from a target and dealing 13,797 additional damage. Each 40 Fury you spend reduces its cooldown by 1.0 sec.",
+            "display_string": "Set: Your shadow clones deal 20% increased damage with all attacks and grant you 2 combo points per clone when summoned.",
             "required_count": 4,
             "is_active": true
           }
         ],
-        "display_string": "Screaming Torchfiend's Brutality (4/5)"
+        "display_string": "Lurking Specter's Shadeweave (4/5)"
       },
       "level": {
-        "value": 447,
-        "display_string": "Item Level 447"
+        "value": 528,
+        "display_string": "Item Level 528"
       },
       "transmog": {
         "item": {
           "key": {
-            "href": "https://us.api.blizzard.com/data/wow/item/134112?namespace=static-10.2.7_54366-us"
+            "href": "https://us.api.blizzard.com/data/wow/item/134112?namespace=static-11.0.0_55478-us"
           },
           "name": "Hidden Shoulder",
           "id": 134112
@@ -705,52 +726,53 @@
         "item_modified_appearance_id": 77343
       },
       "durability": {
-        "value": 82,
-        "display_string": "Durability 82 / 100"
+        "value": 99,
+        "display_string": "Durability 99 / 100"
       },
       "name_description": {
-        "display_string": "Dragonflight Season 3 Raid Finder",
+        "display_string": "Mythic+",
         "color": {
-          "r": 128,
-          "g": 128,
-          "b": 128,
-          "a": 255
+          "r": 0,
+          "g": 255,
+          "b": 0,
+          "a": 1
         }
       }
     },
     {
       "item": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item/2576?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item/151116?namespace=static-11.0.0_55478-us"
         },
-        "id": 2576
+        "id": 151116
       },
       "slot": {
         "type": "SHIRT",
         "name": "Shirt"
       },
       "quantity": 1,
+      "context": 14,
       "quality": {
-        "type": "UNCOMMON",
-        "name": "Uncommon"
+        "type": "RARE",
+        "name": "Rare"
       },
-      "name": "White Linen Shirt",
+      "name": "Fashionable Undershirt",
       "media": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/media/item/2576?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/media/item/151116?namespace=static-11.0.0_55478-us"
         },
-        "id": 2576
+        "id": 151116
       },
       "item_class": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-11.0.0_55478-us"
         },
         "name": "Armor",
         "id": 4
       },
       "item_subclass": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/0?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/0?namespace=static-11.0.0_55478-us"
         },
         "name": "Miscellaneous",
         "id": 0
@@ -760,78 +782,90 @@
         "name": "Shirt"
       },
       "binding": {
-        "type": "ON_EQUIP",
-        "name": "Binds when equipped"
+        "type": "ON_ACQUIRE",
+        "name": "Binds when picked up"
       },
-      "sell_price": {
-        "value": 75,
-        "display_strings": {
-          "header": "Sell Price:",
-          "gold": "0",
-          "silver": "0",
-          "copper": "75"
+      "spells": [
+        {
+          "spell": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/spell/245686?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Fashionable!",
+            "id": 245686
+          },
+          "description": "Equip: Proclaim your fashion sense to the world."
         }
-      },
+      ],
       "level": {
         "value": 1,
         "display_string": "Item Level 1"
       },
-      "transmog": {
-        "item": {
-          "key": {
-            "href": "https://us.api.blizzard.com/data/wow/item/6795?namespace=static-10.2.7_54366-us"
-          },
-          "name": "White Swashbuckler's Shirt",
-          "id": 6795
-        },
-        "display_string": "Transmogrified to:\nWhite Swashbuckler's Shirt",
-        "item_modified_appearance_id": 2619
-      },
-      "is_subclass_hidden": true
+      "is_subclass_hidden": true,
+      "name_description": {
+        "display_string": "Trial of Style Season 1",
+        "color": {
+          "r": 0,
+          "g": 255,
+          "b": 0,
+          "a": 1
+        }
+      }
     },
     {
       "item": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item/207266?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item/217206?namespace=static-11.0.0_55478-us"
         },
-        "id": 207266
+        "id": 217206
       },
+      "enchantments": [
+        {
+          "display_string": "Enchanted: Waking Stats |A:Professions-ChatIcon-Quality-Tier3:20:20|a",
+          "enchantment_id": 6625,
+          "enchantment_slot": {
+            "id": 0,
+            "type": "PERMANENT"
+          }
+        }
+      ],
       "slot": {
         "type": "CHEST",
         "name": "Chest"
       },
       "quantity": 1,
-      "context": 5,
+      "context": 85,
       "bonus_list": [
         6652,
-        9570,
-        7980,
-        8094,
-        9515,
-        1504
+        7981,
+        10865,
+        10884,
+        10338,
+        1520,
+        8767
       ],
       "quality": {
         "type": "EPIC",
         "name": "Epic"
       },
-      "name": "Screaming Torchfiend's Binding",
-      "modified_appearance_id": 192408,
+      "name": "Lurking Specter's Brigandine",
+      "modified_appearance_id": 199120,
       "media": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/media/item/207266?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/media/item/217206?namespace=static-11.0.0_55478-us"
         },
-        "id": 207266
+        "id": 217206
       },
       "item_class": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-11.0.0_55478-us"
         },
         "name": "Armor",
         "id": 4
       },
       "item_subclass": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/2?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/2?namespace=static-11.0.0_55478-us"
         },
         "name": "Leather",
         "id": 2
@@ -845,9 +879,9 @@
         "name": "Binds when picked up"
       },
       "armor": {
-        "value": 797,
+        "value": 2026,
         "display": {
-          "display_string": "797 Armor",
+          "display_string": "2,026 Armor",
           "color": {
             "r": 255,
             "g": 255,
@@ -862,9 +896,9 @@
             "type": "AGILITY",
             "name": "Agility"
           },
-          "value": 808,
+          "value": 1349,
           "display": {
-            "display_string": "+808 Agility",
+            "display_string": "+1,349 Agility",
             "color": {
               "r": 255,
               "g": 255,
@@ -878,10 +912,10 @@
             "type": "INTELLECT",
             "name": "Intellect"
           },
-          "value": 808,
+          "value": 1349,
           "is_negated": true,
           "display": {
-            "display_string": "+808 Intellect",
+            "display_string": "+1,349 Intellect",
             "color": {
               "r": 128,
               "g": 128,
@@ -895,878 +929,9 @@
             "type": "STAMINA",
             "name": "Stamina"
           },
-          "value": 3279,
+          "value": 6822,
           "display": {
-            "display_string": "+3,279 Stamina",
-            "color": {
-              "r": 255,
-              "g": 255,
-              "b": 255,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "CRIT_RATING",
-            "name": "Critical Strike"
-          },
-          "value": 660,
-          "is_equip_bonus": true,
-          "display": {
-            "display_string": "+660 Critical Strike",
-            "color": {
-              "r": 0,
-              "g": 255,
-              "b": 0,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "HASTE_RATING",
-            "name": "Haste"
-          },
-          "value": 313,
-          "is_equip_bonus": true,
-          "display": {
-            "display_string": "+313 Haste",
-            "color": {
-              "r": 0,
-              "g": 255,
-              "b": 0,
-              "a": 1
-            }
-          }
-        }
-      ],
-      "sell_price": {
-        "value": 954026,
-        "display_strings": {
-          "header": "Sell Price:",
-          "gold": "95",
-          "silver": "40",
-          "copper": "26"
-        }
-      },
-      "requirements": {
-        "level": {
-          "value": 70,
-          "display_string": "Requires Level 70"
-        },
-        "playable_classes": {
-          "links": [
-            {
-              "key": {
-                "href": "https://us.api.blizzard.com/data/wow/playable-class/12?namespace=static-10.2.7_54366-us"
-              },
-              "name": "Demon Hunter",
-              "id": 12
-            }
-          ],
-          "display_string": "Classes: Demon Hunter"
-        }
-      },
-      "set": {
-        "item_set": {
-          "key": {
-            "href": "https://us.api.blizzard.com/data/wow/item-set/1558?namespace=static-10.2.7_54366-us"
-          },
-          "name": "Screaming Torchfiend's Brutality",
-          "id": 1558
-        },
-        "items": [
-          {
-            "item": {
-              "key": {
-                "href": "https://us.api.blizzard.com/data/wow/item/207261?namespace=static-10.2.7_54366-us"
-              },
-              "name": "Screaming Torchfiend's Horned Memento",
-              "id": 207261
-            },
-            "is_equipped": true
-          },
-          {
-            "item": {
-              "key": {
-                "href": "https://us.api.blizzard.com/data/wow/item/207262?namespace=static-10.2.7_54366-us"
-              },
-              "name": "Screaming Torchfiend's Blazewraps",
-              "id": 207262
-            }
-          },
-          {
-            "item": {
-              "key": {
-                "href": "https://us.api.blizzard.com/data/wow/item/207263?namespace=static-10.2.7_54366-us"
-              },
-              "name": "Screaming Torchfiend's Burning Scowl",
-              "id": 207263
-            },
-            "is_equipped": true
-          },
-          {
-            "item": {
-              "key": {
-                "href": "https://us.api.blizzard.com/data/wow/item/207264?namespace=static-10.2.7_54366-us"
-              },
-              "name": "Screaming Torchfiend's Grasp",
-              "id": 207264
-            },
-            "is_equipped": true
-          },
-          {
-            "item": {
-              "key": {
-                "href": "https://us.api.blizzard.com/data/wow/item/207266?namespace=static-10.2.7_54366-us"
-              },
-              "name": "Screaming Torchfiend's Binding",
-              "id": 207266
-            },
-            "is_equipped": true
-          }
-        ],
-        "effects": [
-          {
-            "display_string": "Set: When you attack a target afflicted by Sigil of Flame, your damage and healing are increased by 2% and your Stamina is increased by 2% for 8 sec, stacking up to 5.",
-            "required_count": 2,
-            "is_active": true
-          },
-          {
-            "display_string": "Set: Sigil of Flame's periodic damage has a chance to flare up, shattering an additional Soul Fragment from a target and dealing 13,797 additional damage. Each 40 Fury you spend reduces its cooldown by 1.0 sec.",
-            "required_count": 4,
-            "is_active": true
-          }
-        ],
-        "display_string": "Screaming Torchfiend's Brutality (4/5)"
-      },
-      "level": {
-        "value": 473,
-        "display_string": "Item Level 473"
-      },
-      "transmog": {
-        "item": {
-          "key": {
-            "href": "https://us.api.blizzard.com/data/wow/item/2370?namespace=static-10.2.7_54366-us"
-          },
-          "name": "Battered Leather Harness",
-          "id": 2370
-        },
-        "display_string": "Transmogrified to:\nBattered Leather Harness",
-        "item_modified_appearance_id": 751
-      },
-      "durability": {
-        "value": 137,
-        "display_string": "Durability 137 / 165"
-      },
-      "name_description": {
-        "display_string": "Heroic Dragonflight Season 3",
-        "color": {
-          "r": 128,
-          "g": 128,
-          "b": 128,
-          "a": 255
-        }
-      }
-    },
-    {
-      "item": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item/210371?namespace=static-10.2.7_54366-us"
-        },
-        "id": 210371
-      },
-      "slot": {
-        "type": "WAIST",
-        "name": "Waist"
-      },
-      "quantity": 1,
-      "context": 43,
-      "bonus_list": [
-        9553,
-        9506,
-        6652,
-        9600,
-        1475,
-        8767
-      ],
-      "quality": {
-        "type": "EPIC",
-        "name": "Epic"
-      },
-      "name": "Crystalline Tender's Belt",
-      "modified_appearance_id": 192992,
-      "media": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/media/item/210371?namespace=static-10.2.7_54366-us"
-        },
-        "id": 210371
-      },
-      "item_class": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-10.2.7_54366-us"
-        },
-        "name": "Armor",
-        "id": 4
-      },
-      "item_subclass": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/2?namespace=static-10.2.7_54366-us"
-        },
-        "name": "Leather",
-        "id": 2
-      },
-      "inventory_type": {
-        "type": "WAIST",
-        "name": "Waist"
-      },
-      "binding": {
-        "type": "ON_ACQUIRE",
-        "name": "Binds when picked up"
-      },
-      "armor": {
-        "value": 366,
-        "display": {
-          "display_string": "366 Armor",
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255,
-            "a": 1
-          }
-        }
-      },
-      "stats": [
-        {
-          "type": {
-            "type": "AGILITY",
-            "name": "Agility"
-          },
-          "value": 463,
-          "display": {
-            "display_string": "+463 Agility",
-            "color": {
-              "r": 255,
-              "g": 255,
-              "b": 255,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "INTELLECT",
-            "name": "Intellect"
-          },
-          "value": 463,
-          "is_negated": true,
-          "display": {
-            "display_string": "+463 Intellect",
-            "color": {
-              "r": 128,
-              "g": 128,
-              "b": 128,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "STAMINA",
-            "name": "Stamina"
-          },
-          "value": 1731,
-          "display": {
-            "display_string": "+1,731 Stamina",
-            "color": {
-              "r": 255,
-              "g": 255,
-              "b": 255,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "CRIT_RATING",
-            "name": "Critical Strike"
-          },
-          "value": 420,
-          "is_equip_bonus": true,
-          "display": {
-            "display_string": "+420 Critical Strike",
-            "color": {
-              "r": 0,
-              "g": 255,
-              "b": 0,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "MASTERY_RATING",
-            "name": "Mastery"
-          },
-          "value": 226,
-          "is_equip_bonus": true,
-          "display": {
-            "display_string": "+226 Mastery",
-            "color": {
-              "r": 0,
-              "g": 255,
-              "b": 0,
-              "a": 1
-            }
-          }
-        }
-      ],
-      "sell_price": {
-        "value": 427658,
-        "display_strings": {
-          "header": "Sell Price:",
-          "gold": "42",
-          "silver": "76",
-          "copper": "58"
-        }
-      },
-      "requirements": {
-        "level": {
-          "value": 70,
-          "display_string": "Requires Level 70"
-        }
-      },
-      "level": {
-        "value": 444,
-        "display_string": "Item Level 444"
-      },
-      "transmog": {
-        "item": {
-          "key": {
-            "href": "https://us.api.blizzard.com/data/wow/item/2371?namespace=static-10.2.7_54366-us"
-          },
-          "name": "Battered Leather Belt",
-          "id": 2371
-        },
-        "display_string": "Transmogrified to:\nBattered Leather Belt",
-        "item_modified_appearance_id": 752
-      },
-      "durability": {
-        "value": 43,
-        "display_string": "Durability 43 / 55"
-      },
-      "name_description": {
-        "display_string": "Dragonflight Season 3",
-        "color": {
-          "r": 128,
-          "g": 128,
-          "b": 128,
-          "a": 255
-        }
-      }
-    },
-    {
-      "item": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item/154736?namespace=static-10.2.7_54366-us"
-        },
-        "id": 154736
-      },
-      "slot": {
-        "type": "LEGS",
-        "name": "Legs"
-      },
-      "quantity": 1,
-      "context": 61,
-      "bonus_list": [
-        3303,
-        8767
-      ],
-      "quality": {
-        "type": "EPIC",
-        "name": "Epic"
-      },
-      "name": "Illidari Leggings",
-      "media": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/media/item/154736?namespace=static-10.2.7_54366-us"
-        },
-        "id": 154736
-      },
-      "item_class": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-10.2.7_54366-us"
-        },
-        "name": "Armor",
-        "id": 4
-      },
-      "item_subclass": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/2?namespace=static-10.2.7_54366-us"
-        },
-        "name": "Leather",
-        "id": 2
-      },
-      "inventory_type": {
-        "type": "LEGS",
-        "name": "Legs"
-      },
-      "binding": {
-        "type": "ON_ACQUIRE",
-        "name": "Binds when picked up"
-      },
-      "armor": {
-        "value": 499,
-        "display": {
-          "display_string": "499 Armor",
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255,
-            "a": 1
-          }
-        }
-      },
-      "stats": [
-        {
-          "type": {
-            "type": "AGILITY",
-            "name": "Agility"
-          },
-          "value": 512,
-          "display": {
-            "display_string": "+512 Agility",
-            "color": {
-              "r": 255,
-              "g": 255,
-              "b": 255,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "INTELLECT",
-            "name": "Intellect"
-          },
-          "value": 512,
-          "is_negated": true,
-          "display": {
-            "display_string": "+512 Intellect",
-            "color": {
-              "r": 128,
-              "g": 128,
-              "b": 128,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "STAMINA",
-            "name": "Stamina"
-          },
-          "value": 1803,
-          "display": {
-            "display_string": "+1,803 Stamina",
-            "color": {
-              "r": 255,
-              "g": 255,
-              "b": 255,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "CRIT_RATING",
-            "name": "Critical Strike"
-          },
-          "value": 382,
-          "is_equip_bonus": true,
-          "display": {
-            "display_string": "+382 Critical Strike",
-            "color": {
-              "r": 0,
-              "g": 255,
-              "b": 0,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "HASTE_RATING",
-            "name": "Haste"
-          },
-          "value": 404,
-          "is_equip_bonus": true,
-          "display": {
-            "display_string": "+404 Haste",
-            "color": {
-              "r": 0,
-              "g": 255,
-              "b": 0,
-              "a": 1
-            }
-          }
-        }
-      ],
-      "sell_price": {
-        "value": 1,
-        "display_strings": {
-          "header": "Sell Price:",
-          "gold": "0",
-          "silver": "0",
-          "copper": "1"
-        }
-      },
-      "requirements": {
-        "level": {
-          "value": 45,
-          "display_string": "Requires Level 45"
-        },
-        "playable_classes": {
-          "links": [
-            {
-              "key": {
-                "href": "https://us.api.blizzard.com/data/wow/playable-class/12?namespace=static-10.2.7_54366-us"
-              },
-              "name": "Demon Hunter",
-              "id": 12
-            }
-          ],
-          "display_string": "Classes: Demon Hunter"
-        }
-      },
-      "level": {
-        "value": 424,
-        "display_string": "Item Level 424"
-      },
-      "transmog": {
-        "item": {
-          "key": {
-            "href": "https://us.api.blizzard.com/data/wow/item/193781?namespace=static-10.2.7_54366-us"
-          },
-          "name": "Lavabearer Legwraps",
-          "id": 193781
-        },
-        "display_string": "Transmogrified to:\nLavabearer Legwraps",
-        "item_modified_appearance_id": 180885
-      },
-      "durability": {
-        "value": 94,
-        "display_string": "Durability 94 / 120"
-      }
-    },
-    {
-      "item": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item/207838?namespace=static-10.2.7_54366-us"
-        },
-        "id": 207838
-      },
-      "slot": {
-        "type": "FEET",
-        "name": "Feet"
-      },
-      "quantity": 1,
-      "context": 16,
-      "bonus_list": [
-        9552,
-        9639,
-        6652,
-        9506,
-        9144,
-        1534,
-        8767
-      ],
-      "quality": {
-        "type": "EPIC",
-        "name": "Epic"
-      },
-      "name": "Vigorous Sandstompers",
-      "modified_appearance_id": 188922,
-      "media": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/media/item/207838?namespace=static-10.2.7_54366-us"
-        },
-        "id": 207838
-      },
-      "item_class": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-10.2.7_54366-us"
-        },
-        "name": "Armor",
-        "id": 4
-      },
-      "item_subclass": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/2?namespace=static-10.2.7_54366-us"
-        },
-        "name": "Leather",
-        "id": 2
-      },
-      "inventory_type": {
-        "type": "FEET",
-        "name": "Feet"
-      },
-      "binding": {
-        "type": "ON_ACQUIRE",
-        "name": "Binds when picked up"
-      },
-      "armor": {
-        "value": 398,
-        "display": {
-          "display_string": "398 Armor",
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255,
-            "a": 1
-          }
-        }
-      },
-      "stats": [
-        {
-          "type": {
-            "type": "AGILITY",
-            "name": "Agility"
-          },
-          "value": 450,
-          "display": {
-            "display_string": "+450 Agility",
-            "color": {
-              "r": 255,
-              "g": 255,
-              "b": 255,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "INTELLECT",
-            "name": "Intellect"
-          },
-          "value": 450,
-          "is_negated": true,
-          "display": {
-            "display_string": "+450 Intellect",
-            "color": {
-              "r": 128,
-              "g": 128,
-              "b": 128,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "STAMINA",
-            "name": "Stamina"
-          },
-          "value": 1667,
-          "display": {
-            "display_string": "+1,667 Stamina",
-            "color": {
-              "r": 255,
-              "g": 255,
-              "b": 255,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "HASTE_RATING",
-            "name": "Haste"
-          },
-          "value": 333,
-          "is_equip_bonus": true,
-          "display": {
-            "display_string": "+333 Haste",
-            "color": {
-              "r": 0,
-              "g": 255,
-              "b": 0,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "MASTERY_RATING",
-            "name": "Mastery"
-          },
-          "value": 305,
-          "is_equip_bonus": true,
-          "display": {
-            "display_string": "+305 Mastery",
-            "color": {
-              "r": 0,
-              "g": 255,
-              "b": 0,
-              "a": 1
-            }
-          }
-        }
-      ],
-      "sell_price": {
-        "value": 667524,
-        "display_strings": {
-          "header": "Sell Price:",
-          "gold": "66",
-          "silver": "75",
-          "copper": "24"
-        }
-      },
-      "requirements": {
-        "level": {
-          "value": 70,
-          "display_string": "Requires Level 70"
-        }
-      },
-      "level": {
-        "value": 441,
-        "display_string": "Item Level 441"
-      },
-      "transmog": {
-        "item": {
-          "key": {
-            "href": "https://us.api.blizzard.com/data/wow/item/2373?namespace=static-10.2.7_54366-us"
-          },
-          "name": "Battered Leather Boots",
-          "id": 2373
-        },
-        "display_string": "Transmogrified to:\nBattered Leather Boots",
-        "item_modified_appearance_id": 754
-      },
-      "durability": {
-        "value": 67,
-        "display_string": "Durability 67 / 80"
-      },
-      "name_description": {
-        "display_string": "Mythic+ Dragonflight Season 3",
-        "color": {
-          "r": 128,
-          "g": 128,
-          "b": 128,
-          "a": 255
-        }
-      }
-    },
-    {
-      "item": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item/207128?namespace=static-10.2.7_54366-us"
-        },
-        "id": 207128
-      },
-      "slot": {
-        "type": "WRIST",
-        "name": "Wrist"
-      },
-      "quantity": 1,
-      "context": 4,
-      "bonus_list": [
-        6652,
-        9600,
-        9507,
-        7982,
-        9553,
-        1475,
-        8767
-      ],
-      "quality": {
-        "type": "EPIC",
-        "name": "Epic"
-      },
-      "name": "Primordial Serpent's Bindings",
-      "modified_appearance_id": 192561,
-      "media": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/media/item/207128?namespace=static-10.2.7_54366-us"
-        },
-        "id": 207128
-      },
-      "item_class": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-10.2.7_54366-us"
-        },
-        "name": "Armor",
-        "id": 4
-      },
-      "item_subclass": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/2?namespace=static-10.2.7_54366-us"
-        },
-        "name": "Leather",
-        "id": 2
-      },
-      "inventory_type": {
-        "type": "WRIST",
-        "name": "Wrist"
-      },
-      "binding": {
-        "type": "ON_ACQUIRE",
-        "name": "Binds when picked up"
-      },
-      "armor": {
-        "value": 325,
-        "display": {
-          "display_string": "325 Armor",
-          "color": {
-            "r": 255,
-            "g": 255,
-            "b": 255,
-            "a": 1
-          }
-        }
-      },
-      "stats": [
-        {
-          "type": {
-            "type": "AGILITY",
-            "name": "Agility"
-          },
-          "value": 347,
-          "display": {
-            "display_string": "+347 Agility",
-            "color": {
-              "r": 255,
-              "g": 255,
-              "b": 255,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "INTELLECT",
-            "name": "Intellect"
-          },
-          "value": 347,
-          "is_negated": true,
-          "display": {
-            "display_string": "+347 Intellect",
-            "color": {
-              "r": 128,
-              "g": 128,
-              "b": 128,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "STAMINA",
-            "name": "Stamina"
-          },
-          "value": 1299,
-          "display": {
-            "display_string": "+1,299 Stamina",
+            "display_string": "+6,822 Stamina",
             "color": {
               "r": 255,
               "g": 255,
@@ -1780,10 +945,10 @@
             "type": "VERSATILITY",
             "name": "Versatility"
           },
-          "value": 339,
+          "value": 809,
           "is_equip_bonus": true,
           "display": {
-            "display_string": "+339 Versatility",
+            "display_string": "+809 Versatility",
             "color": {
               "r": 0,
               "g": 255,
@@ -1797,10 +962,10 @@
             "type": "MASTERY_RATING",
             "name": "Mastery"
           },
-          "value": 146,
+          "value": 422,
           "is_equip_bonus": true,
           "display": {
-            "display_string": "+146 Mastery",
+            "display_string": "+422 Mastery",
             "color": {
               "r": 0,
               "g": 255,
@@ -1811,12 +976,334 @@
         }
       ],
       "sell_price": {
-        "value": 450679,
+        "value": 920296,
         "display_strings": {
           "header": "Sell Price:",
-          "gold": "45",
-          "silver": "6",
-          "copper": "79"
+          "gold": "92",
+          "silver": "2",
+          "copper": "96"
+        }
+      },
+      "requirements": {
+        "level": {
+          "value": 70,
+          "display_string": "Requires Level 70"
+        },
+        "playable_classes": {
+          "links": [
+            {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-class/4?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Rogue",
+              "id": 4
+            }
+          ],
+          "display_string": "Classes: Rogue"
+        }
+      },
+      "set": {
+        "item_set": {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/item-set/1600?namespace=static-11.0.0_55478-us"
+          },
+          "name": "Lurking Specter's Shadeweave",
+          "id": 1600
+        },
+        "items": [
+          {
+            "item": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/item/217206?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Lurking Specter's Brigandine",
+              "id": 217206
+            },
+            "is_equipped": true
+          },
+          {
+            "item": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/item/217207?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Lurking Specter's Handgrips",
+              "id": 217207
+            },
+            "is_equipped": true
+          },
+          {
+            "item": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/item/217208?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Lurking Specter's Visage",
+              "id": 217208
+            }
+          },
+          {
+            "item": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/item/217209?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Lurking Specter's Tights",
+              "id": 217209
+            },
+            "is_equipped": true
+          },
+          {
+            "item": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/item/217210?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Lurking Specter's Shoulderblades",
+              "id": 217210
+            },
+            "is_equipped": true
+          }
+        ],
+        "effects": [
+          {
+            "display_string": "Set: Using Eviscerate, Rupture, or Black Powder has a chance to summon a shadow clone to echo your finishing move for 70% additional Shadow damage.",
+            "required_count": 2,
+            "is_active": true
+          },
+          {
+            "display_string": "Set: Your shadow clones deal 20% increased damage with all attacks and grant you 2 combo points per clone when summoned.",
+            "required_count": 4,
+            "is_active": true
+          }
+        ],
+        "display_string": "Lurking Specter's Shadeweave (4/5)"
+      },
+      "level": {
+        "value": 528,
+        "display_string": "Item Level 528"
+      },
+      "transmog": {
+        "item": {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/item/217377?namespace=static-11.0.0_55478-us"
+          },
+          "name": "Fearless Buccaneer's Tunic",
+          "id": 217377
+        },
+        "display_string": "Transmogrified to:\nFearless Buccaneer's Tunic",
+        "item_modified_appearance_id": 200152
+      },
+      "durability": {
+        "value": 164,
+        "display_string": "Durability 164 / 165"
+      },
+      "name_description": {
+        "display_string": "Awakened Mythic",
+        "color": {
+          "r": 0,
+          "g": 255,
+          "b": 0,
+          "a": 1
+        }
+      }
+    },
+    {
+      "item": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item/195501?namespace=static-11.0.0_55478-us"
+        },
+        "id": 195501
+      },
+      "enchantments": [
+        {
+          "display_string": "Enchanted: Shadowed Belt Clasp|A:Professions-ChatIcon-Quality-Tier3:20:20|a",
+          "source_item": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/item/205039?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Shadowed Belt Clasp",
+            "id": 205039
+          },
+          "enchantment_id": 6904,
+          "enchantment_slot": {
+            "id": 0,
+            "type": "PERMANENT"
+          }
+        }
+      ],
+      "sockets": [
+        {
+          "socket_type": {
+            "type": "PRISMATIC",
+            "name": "Prismatic Socket"
+          },
+          "item": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/item/192961?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Keen Neltharite",
+            "id": 192961
+          },
+          "display_string": "+70 Mastery and +33 Haste",
+          "media": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/media/item/192961?namespace=static-11.0.0_55478-us"
+            },
+            "id": 192961
+          }
+        }
+      ],
+      "slot": {
+        "type": "WAIST",
+        "name": "Waist"
+      },
+      "quantity": 1,
+      "context": 85,
+      "bonus_list": [
+        6652,
+        10874,
+        7981,
+        10884,
+        10338,
+        1611,
+        8767,
+        10531
+      ],
+      "quality": {
+        "type": "EPIC",
+        "name": "Epic"
+      },
+      "name": "Fused Shale Waistband",
+      "modified_appearance_id": 181659,
+      "media": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/media/item/195501?namespace=static-11.0.0_55478-us"
+        },
+        "id": 195501
+      },
+      "item_class": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-11.0.0_55478-us"
+        },
+        "name": "Armor",
+        "id": 4
+      },
+      "item_subclass": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/2?namespace=static-11.0.0_55478-us"
+        },
+        "name": "Leather",
+        "id": 2
+      },
+      "inventory_type": {
+        "type": "WAIST",
+        "name": "Waist"
+      },
+      "binding": {
+        "type": "ON_ACQUIRE",
+        "name": "Binds when picked up"
+      },
+      "armor": {
+        "value": 1140,
+        "display": {
+          "display_string": "1,140 Armor",
+          "color": {
+            "r": 255,
+            "g": 255,
+            "b": 255,
+            "a": 1
+          }
+        }
+      },
+      "stats": [
+        {
+          "type": {
+            "type": "AGILITY",
+            "name": "Agility"
+          },
+          "value": 1012,
+          "display": {
+            "display_string": "+1,012 Agility",
+            "color": {
+              "r": 255,
+              "g": 255,
+              "b": 255,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "INTELLECT",
+            "name": "Intellect"
+          },
+          "value": 1012,
+          "is_negated": true,
+          "display": {
+            "display_string": "+1,012 Intellect",
+            "color": {
+              "r": 128,
+              "g": 128,
+              "b": 128,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "STAMINA",
+            "name": "Stamina"
+          },
+          "value": 5116,
+          "display": {
+            "display_string": "+5,116 Stamina",
+            "color": {
+              "r": 255,
+              "g": 255,
+              "b": 255,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "VERSATILITY",
+            "name": "Versatility"
+          },
+          "value": 605,
+          "is_equip_bonus": true,
+          "display": {
+            "display_string": "+605 Versatility",
+            "color": {
+              "r": 0,
+              "g": 255,
+              "b": 0,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "MASTERY_RATING",
+            "name": "Mastery"
+          },
+          "value": 318,
+          "is_equip_bonus": true,
+          "display": {
+            "display_string": "+318 Mastery",
+            "color": {
+              "r": 0,
+              "g": 255,
+              "b": 0,
+              "a": 1
+            }
+          }
+        }
+      ],
+      "sell_price": {
+        "value": 466668,
+        "display_strings": {
+          "header": "Sell Price:",
+          "gold": "46",
+          "silver": "66",
+          "copper": "68"
         }
       },
       "requirements": {
@@ -1826,77 +1313,827 @@
         }
       },
       "level": {
-        "value": 444,
-        "display_string": "Item Level 444"
+        "value": 528,
+        "display_string": "Item Level 528"
       },
       "transmog": {
         "item": {
           "key": {
-            "href": "https://us.api.blizzard.com/data/wow/item/140857?namespace=static-10.2.7_54366-us"
+            "href": "https://us.api.blizzard.com/data/wow/item/187774?namespace=static-11.0.0_55478-us"
           },
-          "name": "Well-Flattened Wristguards",
-          "id": 140857
+          "name": "Druid's Waistband",
+          "id": 187774
         },
-        "display_string": "Transmogrified to:\nWell-Flattened Wristguards",
-        "item_modified_appearance_id": 81830
+        "display_string": "Transmogrified to:\nDruid's Waistband",
+        "item_modified_appearance_id": 165365
       },
       "durability": {
-        "value": 45,
-        "display_string": "Durability 45 / 55"
+        "value": 54,
+        "display_string": "Durability 54 / 55"
       },
       "name_description": {
-        "display_string": "Dragonflight Season 3 Raid Finder",
+        "display_string": "Awakened Mythic",
         "color": {
-          "r": 128,
-          "g": 128,
-          "b": 128,
-          "a": 255
+          "r": 0,
+          "g": 255,
+          "b": 0,
+          "a": 1
         }
       }
     },
     {
       "item": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item/207264?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item/217209?namespace=static-11.0.0_55478-us"
         },
-        "id": 207264
+        "id": 217209
       },
+      "enchantments": [
+        {
+          "display_string": "Enchanted: +177 Agility/Strength & +131 Stamina |A:Professions-ChatIcon-Quality-Tier3:20:20|a",
+          "source_item": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/item/193565?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Fierce Armor Kit",
+            "id": 193565
+          },
+          "enchantment_id": 6490,
+          "enchantment_slot": {
+            "id": 0,
+            "type": "PERMANENT"
+          }
+        }
+      ],
       "slot": {
-        "type": "HANDS",
-        "name": "Hands"
+        "type": "LEGS",
+        "name": "Legs"
       },
       "quantity": 1,
-      "context": 4,
+      "context": 85,
       "bonus_list": [
         6652,
-        7982,
-        9552,
-        9514,
-        1472,
-        8767
+        10338,
+        7981,
+        10884,
+        8095,
+        10868,
+        1520
       ],
       "quality": {
         "type": "EPIC",
         "name": "Epic"
       },
-      "name": "Screaming Torchfiend's Grasp",
-      "modified_appearance_id": 192385,
+      "name": "Lurking Specter's Tights",
+      "modified_appearance_id": 199138,
       "media": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/media/item/207264?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/media/item/217209?namespace=static-11.0.0_55478-us"
         },
-        "id": 207264
+        "id": 217209
       },
       "item_class": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-11.0.0_55478-us"
         },
         "name": "Armor",
         "id": 4
       },
       "item_subclass": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/2?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/2?namespace=static-11.0.0_55478-us"
+        },
+        "name": "Leather",
+        "id": 2
+      },
+      "inventory_type": {
+        "type": "LEGS",
+        "name": "Legs"
+      },
+      "binding": {
+        "type": "ON_ACQUIRE",
+        "name": "Binds when picked up"
+      },
+      "armor": {
+        "value": 1773,
+        "display": {
+          "display_string": "1,773 Armor",
+          "color": {
+            "r": 255,
+            "g": 255,
+            "b": 255,
+            "a": 1
+          }
+        }
+      },
+      "stats": [
+        {
+          "type": {
+            "type": "AGILITY",
+            "name": "Agility"
+          },
+          "value": 1349,
+          "display": {
+            "display_string": "+1,349 Agility",
+            "color": {
+              "r": 255,
+              "g": 255,
+              "b": 255,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "INTELLECT",
+            "name": "Intellect"
+          },
+          "value": 1349,
+          "is_negated": true,
+          "display": {
+            "display_string": "+1,349 Intellect",
+            "color": {
+              "r": 128,
+              "g": 128,
+              "b": 128,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "STAMINA",
+            "name": "Stamina"
+          },
+          "value": 6822,
+          "display": {
+            "display_string": "+6,822 Stamina",
+            "color": {
+              "r": 255,
+              "g": 255,
+              "b": 255,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "CRIT_RATING",
+            "name": "Critical Strike"
+          },
+          "value": 413,
+          "is_equip_bonus": true,
+          "display": {
+            "display_string": "+413 Critical Strike",
+            "color": {
+              "r": 0,
+              "g": 255,
+              "b": 0,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "MASTERY_RATING",
+            "name": "Mastery"
+          },
+          "value": 818,
+          "is_equip_bonus": true,
+          "display": {
+            "display_string": "+818 Mastery",
+            "color": {
+              "r": 0,
+              "g": 255,
+              "b": 0,
+              "a": 1
+            }
+          }
+        }
+      ],
+      "sell_price": {
+        "value": 955254,
+        "display_strings": {
+          "header": "Sell Price:",
+          "gold": "95",
+          "silver": "52",
+          "copper": "54"
+        }
+      },
+      "requirements": {
+        "level": {
+          "value": 70,
+          "display_string": "Requires Level 70"
+        },
+        "playable_classes": {
+          "links": [
+            {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-class/4?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Rogue",
+              "id": 4
+            }
+          ],
+          "display_string": "Classes: Rogue"
+        }
+      },
+      "set": {
+        "item_set": {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/item-set/1600?namespace=static-11.0.0_55478-us"
+          },
+          "name": "Lurking Specter's Shadeweave",
+          "id": 1600
+        },
+        "items": [
+          {
+            "item": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/item/217206?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Lurking Specter's Brigandine",
+              "id": 217206
+            },
+            "is_equipped": true
+          },
+          {
+            "item": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/item/217207?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Lurking Specter's Handgrips",
+              "id": 217207
+            },
+            "is_equipped": true
+          },
+          {
+            "item": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/item/217208?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Lurking Specter's Visage",
+              "id": 217208
+            }
+          },
+          {
+            "item": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/item/217209?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Lurking Specter's Tights",
+              "id": 217209
+            },
+            "is_equipped": true
+          },
+          {
+            "item": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/item/217210?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Lurking Specter's Shoulderblades",
+              "id": 217210
+            },
+            "is_equipped": true
+          }
+        ],
+        "effects": [
+          {
+            "display_string": "Set: Using Eviscerate, Rupture, or Black Powder has a chance to summon a shadow clone to echo your finishing move for 70% additional Shadow damage.",
+            "required_count": 2,
+            "is_active": true
+          },
+          {
+            "display_string": "Set: Your shadow clones deal 20% increased damage with all attacks and grant you 2 combo points per clone when summoned.",
+            "required_count": 4,
+            "is_active": true
+          }
+        ],
+        "display_string": "Lurking Specter's Shadeweave (4/5)"
+      },
+      "level": {
+        "value": 528,
+        "display_string": "Item Level 528"
+      },
+      "transmog": {
+        "item": {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/item/200373?namespace=static-11.0.0_55478-us"
+          },
+          "name": "Vault Delver's Pantaloons",
+          "id": 200373
+        },
+        "display_string": "Transmogrified to:\nVault Delver's Pantaloons",
+        "item_modified_appearance_id": 182679
+      },
+      "durability": {
+        "value": 118,
+        "display_string": "Durability 118 / 120"
+      },
+      "name_description": {
+        "display_string": "Awakened Mythic",
+        "color": {
+          "r": 0,
+          "g": 255,
+          "b": 0,
+          "a": 1
+        }
+      }
+    },
+    {
+      "item": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item/193817?namespace=static-11.0.0_55478-us"
+        },
+        "id": 193817
+      },
+      "enchantments": [
+        {
+          "display_string": "Enchanted: Watcher's Loam |A:Professions-ChatIcon-Quality-Tier3:20:20|a",
+          "enchantment_id": 6613,
+          "enchantment_slot": {
+            "id": 0,
+            "type": "PERMANENT"
+          }
+        }
+      ],
+      "slot": {
+        "type": "FEET",
+        "name": "Feet"
+      },
+      "quantity": 1,
+      "context": 35,
+      "bonus_list": [
+        9639,
+        6652,
+        10870,
+        9144,
+        10338,
+        3207,
+        8767
+      ],
+      "quality": {
+        "type": "EPIC",
+        "name": "Epic"
+      },
+      "name": "Treads of the Swift",
+      "modified_appearance_id": 180911,
+      "media": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/media/item/193817?namespace=static-11.0.0_55478-us"
+        },
+        "id": 193817
+      },
+      "item_class": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-11.0.0_55478-us"
+        },
+        "name": "Armor",
+        "id": 4
+      },
+      "item_subclass": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/2?namespace=static-11.0.0_55478-us"
+        },
+        "name": "Leather",
+        "id": 2
+      },
+      "inventory_type": {
+        "type": "FEET",
+        "name": "Feet"
+      },
+      "binding": {
+        "type": "ON_ACQUIRE",
+        "name": "Binds when picked up"
+      },
+      "armor": {
+        "value": 1267,
+        "display": {
+          "display_string": "1,267 Armor",
+          "color": {
+            "r": 255,
+            "g": 255,
+            "b": 255,
+            "a": 1
+          }
+        }
+      },
+      "stats": [
+        {
+          "type": {
+            "type": "AGILITY",
+            "name": "Agility"
+          },
+          "value": 1012,
+          "display": {
+            "display_string": "+1,012 Agility",
+            "color": {
+              "r": 255,
+              "g": 255,
+              "b": 255,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "INTELLECT",
+            "name": "Intellect"
+          },
+          "value": 1012,
+          "is_negated": true,
+          "display": {
+            "display_string": "+1,012 Intellect",
+            "color": {
+              "r": 128,
+              "g": 128,
+              "b": 128,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "STAMINA",
+            "name": "Stamina"
+          },
+          "value": 5116,
+          "display": {
+            "display_string": "+5,116 Stamina",
+            "color": {
+              "r": 255,
+              "g": 255,
+              "b": 255,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "CRIT_RATING",
+            "name": "Critical Strike"
+          },
+          "value": 343,
+          "is_equip_bonus": true,
+          "display": {
+            "display_string": "+343 Critical Strike",
+            "color": {
+              "r": 0,
+              "g": 255,
+              "b": 0,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "MASTERY_RATING",
+            "name": "Mastery"
+          },
+          "value": 580,
+          "is_equip_bonus": true,
+          "display": {
+            "display_string": "+580 Mastery",
+            "color": {
+              "r": 0,
+              "g": 255,
+              "b": 0,
+              "a": 1
+            }
+          }
+        }
+      ],
+      "sell_price": {
+        "value": 722892,
+        "display_strings": {
+          "header": "Sell Price:",
+          "gold": "72",
+          "silver": "28",
+          "copper": "92"
+        }
+      },
+      "requirements": {
+        "level": {
+          "value": 58,
+          "display_string": "Requires Level 58"
+        }
+      },
+      "level": {
+        "value": 528,
+        "display_string": "Item Level 528"
+      },
+      "transmog": {
+        "item": {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/item/188248?namespace=static-11.0.0_55478-us"
+          },
+          "name": "Searing Stompers",
+          "id": 188248
+        },
+        "display_string": "Transmogrified to:\nSearing Stompers",
+        "item_modified_appearance_id": 165606
+      },
+      "durability": {
+        "value": 79,
+        "display_string": "Durability 79 / 80"
+      },
+      "name_description": {
+        "display_string": "Mythic+",
+        "color": {
+          "r": 0,
+          "g": 255,
+          "b": 0,
+          "a": 1
+        }
+      }
+    },
+    {
+      "item": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item/193419?namespace=static-11.0.0_55478-us"
+        },
+        "id": 193419
+      },
+      "enchantments": [
+        {
+          "display_string": "Enchanted: +200 Avoidance |A:Professions-ChatIcon-Quality-Tier3:20:20|a",
+          "enchantment_id": 6574,
+          "enchantment_slot": {
+            "id": 0,
+            "type": "PERMANENT"
+          }
+        }
+      ],
+      "sockets": [
+        {
+          "socket_type": {
+            "type": "PRISMATIC",
+            "name": "Prismatic Socket"
+          },
+          "item": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/item/192938?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Zen Malygite",
+            "id": 192938
+          },
+          "display_string": "+70 Versatility and +33 Mastery",
+          "media": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/media/item/192938?namespace=static-11.0.0_55478-us"
+            },
+            "id": 192938
+          }
+        }
+      ],
+      "slot": {
+        "type": "WRIST",
+        "name": "Wrist"
+      },
+      "quantity": 1,
+      "context": 13,
+      "bonus_list": [
+        8836,
+        8840,
+        8902,
+        9405,
+        10359,
+        8932,
+        8960,
+        8794,
+        10249,
+        10531
+      ],
+      "quality": {
+        "type": "EPIC",
+        "name": "Epic"
+      },
+      "name": "Life-Bound Bindings",
+      "media": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/media/item/193419?namespace=static-11.0.0_55478-us"
+        },
+        "id": 193419
+      },
+      "item_class": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-11.0.0_55478-us"
+        },
+        "name": "Armor",
+        "id": 4
+      },
+      "item_subclass": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/2?namespace=static-11.0.0_55478-us"
+        },
+        "name": "Leather",
+        "id": 2
+      },
+      "inventory_type": {
+        "type": "WRIST",
+        "name": "Wrist"
+      },
+      "binding": {
+        "type": "ON_ACQUIRE",
+        "name": "Binds when picked up"
+      },
+      "limit_category": "Unique-Equipped: Embellished (2)",
+      "armor": {
+        "value": 904,
+        "display": {
+          "display_string": "904 Armor",
+          "color": {
+            "r": 255,
+            "g": 255,
+            "b": 255,
+            "a": 1
+          }
+        }
+      },
+      "stats": [
+        {
+          "type": {
+            "type": "AGILITY",
+            "name": "Agility"
+          },
+          "value": 738,
+          "display": {
+            "display_string": "+738 Agility",
+            "color": {
+              "r": 255,
+              "g": 255,
+              "b": 255,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "INTELLECT",
+            "name": "Intellect"
+          },
+          "value": 738,
+          "is_negated": true,
+          "display": {
+            "display_string": "+738 Intellect",
+            "color": {
+              "r": 128,
+              "g": 128,
+              "b": 128,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "STAMINA",
+            "name": "Stamina"
+          },
+          "value": 3697,
+          "display": {
+            "display_string": "+3,697 Stamina",
+            "color": {
+              "r": 255,
+              "g": 255,
+              "b": 255,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "VERSATILITY",
+            "name": "Versatility"
+          },
+          "value": 343,
+          "is_equip_bonus": true,
+          "display": {
+            "display_string": "+343 Versatility",
+            "color": {
+              "r": 0,
+              "g": 255,
+              "b": 0,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "MASTERY_RATING",
+            "name": "Mastery"
+          },
+          "value": 343,
+          "is_equip_bonus": true,
+          "display": {
+            "display_string": "+343 Mastery",
+            "color": {
+              "r": 0,
+              "g": 255,
+              "b": 0,
+              "a": 1
+            }
+          }
+        }
+      ],
+      "spells": [
+        {
+          "spell": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/spell/387335?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Blue Silken Lining",
+            "id": 387335
+          },
+          "description": "Equip: Greatly improves the comfort of your gear, allowing you to enter a Zone of Focus while over 90% health, granting you 1,193 Mastery."
+        }
+      ],
+      "sell_price": {
+        "value": 473896,
+        "display_strings": {
+          "header": "Sell Price:",
+          "gold": "47",
+          "silver": "38",
+          "copper": "96"
+        }
+      },
+      "requirements": {
+        "level": {
+          "value": 70,
+          "display_string": "Requires Level 70"
+        }
+      },
+      "level": {
+        "value": 525,
+        "display_string": "Item Level 525"
+      },
+      "durability": {
+        "value": 55,
+        "display_string": "Durability 55 / 55"
+      },
+      "name_description": {
+        "display_string": "Awakened Crafted",
+        "color": {
+          "r": 25,
+          "g": 255,
+          "b": 25,
+          "a": 1
+        }
+      },
+      "modified_crafting_stat": [
+        {
+          "id": 49,
+          "type": "MASTERY_RATING",
+          "name": "Mastery"
+        },
+        {
+          "id": 40,
+          "type": "VERSATILITY",
+          "name": "Versatility"
+        }
+      ]
+    },
+    {
+      "item": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item/217207?namespace=static-11.0.0_55478-us"
+        },
+        "id": 217207
+      },
+      "slot": {
+        "type": "HANDS",
+        "name": "Hands"
+      },
+      "quantity": 1,
+      "context": 35,
+      "bonus_list": [
+        40,
+        10338,
+        9639,
+        10866,
+        1520
+      ],
+      "quality": {
+        "type": "EPIC",
+        "name": "Epic"
+      },
+      "name": "Lurking Specter's Handgrips",
+      "modified_appearance_id": 199126,
+      "media": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/media/item/217207?namespace=static-11.0.0_55478-us"
+        },
+        "id": 217207
+      },
+      "item_class": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-11.0.0_55478-us"
+        },
+        "name": "Armor",
+        "id": 4
+      },
+      "item_subclass": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/2?namespace=static-11.0.0_55478-us"
         },
         "name": "Leather",
         "id": 2
@@ -1910,9 +2147,9 @@
         "name": "Binds when picked up"
       },
       "armor": {
-        "value": 359,
+        "value": 1140,
         "display": {
-          "display_string": "359 Armor",
+          "display_string": "1,140 Armor",
           "color": {
             "r": 255,
             "g": 255,
@@ -1927,9 +2164,9 @@
             "type": "AGILITY",
             "name": "Agility"
           },
-          "value": 450,
+          "value": 1012,
           "display": {
-            "display_string": "+450 Agility",
+            "display_string": "+1,012 Agility",
             "color": {
               "r": 255,
               "g": 255,
@@ -1943,10 +2180,10 @@
             "type": "INTELLECT",
             "name": "Intellect"
           },
-          "value": 450,
+          "value": 1012,
           "is_negated": true,
           "display": {
-            "display_string": "+450 Intellect",
+            "display_string": "+1,012 Intellect",
             "color": {
               "r": 128,
               "g": 128,
@@ -1960,9 +2197,9 @@
             "type": "STAMINA",
             "name": "Stamina"
           },
-          "value": 1667,
+          "value": 5116,
           "display": {
-            "display_string": "+1,667 Stamina",
+            "display_string": "+5,116 Stamina",
             "color": {
               "r": 255,
               "g": 255,
@@ -1976,10 +2213,10 @@
             "type": "CRIT_RATING",
             "name": "Critical Strike"
           },
-          "value": 215,
+          "value": 616,
           "is_equip_bonus": true,
           "display": {
-            "display_string": "+215 Critical Strike",
+            "display_string": "+616 Critical Strike",
             "color": {
               "r": 0,
               "g": 255,
@@ -1990,13 +2227,30 @@
         },
         {
           "type": {
-            "type": "HASTE_RATING",
-            "name": "Haste"
+            "type": "VERSATILITY",
+            "name": "Versatility"
           },
-          "value": 423,
+          "value": 307,
           "is_equip_bonus": true,
           "display": {
-            "display_string": "+423 Haste",
+            "display_string": "+307 Versatility",
+            "color": {
+              "r": 0,
+              "g": 255,
+              "b": 0,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "COMBAT_RATING_AVOIDANCE",
+            "name": "Avoidance"
+          },
+          "value": 396,
+          "is_equip_bonus": true,
+          "display": {
+            "display_string": "+396 Avoidance",
             "color": {
               "r": 0,
               "g": 255,
@@ -2007,12 +2261,12 @@
         }
       ],
       "sell_price": {
-        "value": 466552,
+        "value": 476887,
         "display_strings": {
           "header": "Sell Price:",
-          "gold": "46",
-          "silver": "65",
-          "copper": "52"
+          "gold": "47",
+          "silver": "68",
+          "copper": "87"
         }
       },
       "requirements": {
@@ -2024,161 +2278,374 @@
           "links": [
             {
               "key": {
-                "href": "https://us.api.blizzard.com/data/wow/playable-class/12?namespace=static-10.2.7_54366-us"
+                "href": "https://us.api.blizzard.com/data/wow/playable-class/4?namespace=static-11.0.0_55478-us"
               },
-              "name": "Demon Hunter",
-              "id": 12
+              "name": "Rogue",
+              "id": 4
             }
           ],
-          "display_string": "Classes: Demon Hunter"
+          "display_string": "Classes: Rogue"
         }
       },
       "set": {
         "item_set": {
           "key": {
-            "href": "https://us.api.blizzard.com/data/wow/item-set/1558?namespace=static-10.2.7_54366-us"
+            "href": "https://us.api.blizzard.com/data/wow/item-set/1600?namespace=static-11.0.0_55478-us"
           },
-          "name": "Screaming Torchfiend's Brutality",
-          "id": 1558
+          "name": "Lurking Specter's Shadeweave",
+          "id": 1600
         },
         "items": [
           {
             "item": {
               "key": {
-                "href": "https://us.api.blizzard.com/data/wow/item/207261?namespace=static-10.2.7_54366-us"
+                "href": "https://us.api.blizzard.com/data/wow/item/217206?namespace=static-11.0.0_55478-us"
               },
-              "name": "Screaming Torchfiend's Horned Memento",
-              "id": 207261
+              "name": "Lurking Specter's Brigandine",
+              "id": 217206
             },
             "is_equipped": true
           },
           {
             "item": {
               "key": {
-                "href": "https://us.api.blizzard.com/data/wow/item/207262?namespace=static-10.2.7_54366-us"
+                "href": "https://us.api.blizzard.com/data/wow/item/217207?namespace=static-11.0.0_55478-us"
               },
-              "name": "Screaming Torchfiend's Blazewraps",
-              "id": 207262
+              "name": "Lurking Specter's Handgrips",
+              "id": 217207
+            },
+            "is_equipped": true
+          },
+          {
+            "item": {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/item/217208?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Lurking Specter's Visage",
+              "id": 217208
             }
           },
           {
             "item": {
               "key": {
-                "href": "https://us.api.blizzard.com/data/wow/item/207263?namespace=static-10.2.7_54366-us"
+                "href": "https://us.api.blizzard.com/data/wow/item/217209?namespace=static-11.0.0_55478-us"
               },
-              "name": "Screaming Torchfiend's Burning Scowl",
-              "id": 207263
+              "name": "Lurking Specter's Tights",
+              "id": 217209
             },
             "is_equipped": true
           },
           {
             "item": {
               "key": {
-                "href": "https://us.api.blizzard.com/data/wow/item/207264?namespace=static-10.2.7_54366-us"
+                "href": "https://us.api.blizzard.com/data/wow/item/217210?namespace=static-11.0.0_55478-us"
               },
-              "name": "Screaming Torchfiend's Grasp",
-              "id": 207264
-            },
-            "is_equipped": true
-          },
-          {
-            "item": {
-              "key": {
-                "href": "https://us.api.blizzard.com/data/wow/item/207266?namespace=static-10.2.7_54366-us"
-              },
-              "name": "Screaming Torchfiend's Binding",
-              "id": 207266
+              "name": "Lurking Specter's Shoulderblades",
+              "id": 217210
             },
             "is_equipped": true
           }
         ],
         "effects": [
           {
-            "display_string": "Set: When you attack a target afflicted by Sigil of Flame, your damage and healing are increased by 2% and your Stamina is increased by 2% for 8 sec, stacking up to 5.",
+            "display_string": "Set: Using Eviscerate, Rupture, or Black Powder has a chance to summon a shadow clone to echo your finishing move for 70% additional Shadow damage.",
             "required_count": 2,
             "is_active": true
           },
           {
-            "display_string": "Set: Sigil of Flame's periodic damage has a chance to flare up, shattering an additional Soul Fragment from a target and dealing 13,797 additional damage. Each 40 Fury you spend reduces its cooldown by 1.0 sec.",
+            "display_string": "Set: Your shadow clones deal 20% increased damage with all attacks and grant you 2 combo points per clone when summoned.",
             "required_count": 4,
             "is_active": true
           }
         ],
-        "display_string": "Screaming Torchfiend's Brutality (4/5)"
+        "display_string": "Lurking Specter's Shadeweave (4/5)"
       },
       "level": {
-        "value": 441,
-        "display_string": "Item Level 441"
+        "value": 528,
+        "display_string": "Item Level 528"
       },
       "transmog": {
         "item": {
           "key": {
-            "href": "https://us.api.blizzard.com/data/wow/item/158329?namespace=static-10.2.7_54366-us"
+            "href": "https://us.api.blizzard.com/data/wow/item/52612?namespace=static-11.0.0_55478-us"
           },
-          "name": "Hidden Gloves",
-          "id": 158329
+          "name": "Planter's Gloves",
+          "id": 52612
         },
-        "display_string": "Transmogrified to:\nHidden Gloves",
-        "item_modified_appearance_id": 94331
+        "display_string": "Transmogrified to:\nPlanter's Gloves",
+        "item_modified_appearance_id": 25797
       },
       "durability": {
-        "value": 47,
-        "display_string": "Durability 47 / 55"
+        "value": 55,
+        "display_string": "Durability 55 / 55"
       },
       "name_description": {
-        "display_string": "Dragonflight Season 3 Raid Finder",
+        "display_string": "Mythic+",
         "color": {
-          "r": 128,
-          "g": 128,
-          "b": 128,
-          "a": 255
+          "r": 0,
+          "g": 255,
+          "b": 0,
+          "a": 1
         }
       }
     },
     {
       "item": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item/134531?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item/192999?namespace=static-11.0.0_55478-us"
         },
-        "id": 134531
+        "id": 192999
       },
+      "enchantments": [
+        {
+          "display_string": "Enchanted: +82 Mastery |A:Professions-ChatIcon-Quality-Tier3:20:20|a",
+          "enchantment_id": 6562,
+          "enchantment_slot": {
+            "id": 0,
+            "type": "PERMANENT"
+          }
+        }
+      ],
+      "sockets": [
+        {
+          "socket_type": {
+            "type": "PRISMATIC",
+            "name": "Prismatic Socket"
+          },
+          "item": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/item/192964?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Zen Neltharite",
+            "id": 192964
+          },
+          "display_string": "+70 Mastery and +33 Versatility",
+          "media": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/media/item/192964?namespace=static-11.0.0_55478-us"
+            },
+            "id": 192964
+          }
+        }
+      ],
       "slot": {
         "type": "FINGER_1",
         "name": "Ring 1"
       },
       "quantity": 1,
-      "context": 16,
+      "context": 13,
       "bonus_list": [
-        9555,
-        9639,
-        6652,
-        9599,
-        9144,
-        3329,
-        8767
+        8836,
+        8840,
+        8902,
+        8780,
+        9405,
+        8794,
+        10359,
+        8932,
+        8960,
+        10249
       ],
       "quality": {
         "type": "EPIC",
         "name": "Epic"
       },
-      "name": "Band of Twisted Bark",
-      "modified_appearance_id": 0,
+      "name": "Signet of Titanic Insight",
       "media": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/media/item/134531?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/media/item/192999?namespace=static-11.0.0_55478-us"
         },
-        "id": 134531
+        "id": 192999
       },
       "item_class": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-11.0.0_55478-us"
         },
         "name": "Armor",
         "id": 4
       },
       "item_subclass": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/0?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/0?namespace=static-11.0.0_55478-us"
+        },
+        "name": "Miscellaneous",
+        "id": 0
+      },
+      "inventory_type": {
+        "type": "FINGER",
+        "name": "Finger"
+      },
+      "binding": {
+        "type": "ON_ACQUIRE",
+        "name": "Binds when picked up"
+      },
+      "unique_equipped": "Unique-Equipped",
+      "limit_category": "Unique-Equipped: Embellished (2)",
+      "stats": [
+        {
+          "type": {
+            "type": "STAMINA",
+            "name": "Stamina"
+          },
+          "value": 3697,
+          "display": {
+            "display_string": "+3,697 Stamina",
+            "color": {
+              "r": 255,
+              "g": 255,
+              "b": 255,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "VERSATILITY",
+            "name": "Versatility"
+          },
+          "value": 1400,
+          "is_equip_bonus": true,
+          "display": {
+            "display_string": "+1,400 Versatility",
+            "color": {
+              "r": 0,
+              "g": 255,
+              "b": 0,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "MASTERY_RATING",
+            "name": "Mastery"
+          },
+          "value": 1400,
+          "is_equip_bonus": true,
+          "display": {
+            "display_string": "+1,400 Mastery",
+            "color": {
+              "r": 0,
+              "g": 255,
+              "b": 0,
+              "a": 1
+            }
+          }
+        }
+      ],
+      "spells": [
+        {
+          "spell": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/spell/387335?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Blue Silken Lining",
+            "id": 387335
+          },
+          "description": "Equip: Greatly improves the comfort of your gear, allowing you to enter a Zone of Focus while over 90% health, granting you 1,193 Mastery."
+        }
+      ],
+      "level": {
+        "value": 525,
+        "display_string": "Item Level 525"
+      },
+      "is_subclass_hidden": true,
+      "name_description": {
+        "display_string": "Awakened Crafted",
+        "color": {
+          "r": 25,
+          "g": 255,
+          "b": 25,
+          "a": 1
+        }
+      },
+      "modified_crafting_stat": [
+        {
+          "id": 36,
+          "type": "HASTE_RATING",
+          "name": "Haste"
+        },
+        {
+          "id": 32,
+          "type": "CRIT_RATING",
+          "name": "Critical Strike"
+        }
+      ]
+    },
+    {
+      "item": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item/195480?namespace=static-11.0.0_55478-us"
+        },
+        "id": 195480
+      },
+      "enchantments": [
+        {
+          "display_string": "Enchanted: +82 Versatility |A:Professions-ChatIcon-Quality-Tier3:20:20|a",
+          "enchantment_id": 6568,
+          "enchantment_slot": {
+            "id": 0,
+            "type": "PERMANENT"
+          }
+        }
+      ],
+      "sockets": [
+        {
+          "socket_type": {
+            "type": "PRISMATIC",
+            "name": "Prismatic Socket"
+          },
+          "item": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/item/192964?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Zen Neltharite",
+            "id": 192964
+          },
+          "display_string": "+70 Mastery and +33 Versatility",
+          "media": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/media/item/192964?namespace=static-11.0.0_55478-us"
+            },
+            "id": 192964
+          }
+        }
+      ],
+      "slot": {
+        "type": "FINGER_2",
+        "name": "Ring 2"
+      },
+      "quantity": 1,
+      "context": 89,
+      "bonus_list": [
+        6652,
+        10418,
+        1605,
+        8767,
+        10531
+      ],
+      "quality": {
+        "type": "EPIC",
+        "name": "Epic"
+      },
+      "name": "Seal of Diurna's Chosen",
+      "modified_appearance_id": 0,
+      "media": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/media/item/195480?namespace=static-11.0.0_55478-us"
+        },
+        "id": 195480
+      },
+      "item_class": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-11.0.0_55478-us"
+        },
+        "name": "Armor",
+        "id": 4
+      },
+      "item_subclass": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/0?namespace=static-11.0.0_55478-us"
         },
         "name": "Miscellaneous",
         "id": 0
@@ -2198,9 +2665,9 @@
             "type": "STAMINA",
             "name": "Stamina"
           },
-          "value": 1396,
+          "value": 3837,
           "display": {
-            "display_string": "+1,396 Stamina",
+            "display_string": "+3,837 Stamina",
             "color": {
               "r": 255,
               "g": 255,
@@ -2214,10 +2681,10 @@
             "type": "CRIT_RATING",
             "name": "Critical Strike"
           },
-          "value": 1000,
+          "value": 705,
           "is_equip_bonus": true,
           "display": {
-            "display_string": "+1,000 Critical Strike",
+            "display_string": "+705 Critical Strike",
             "color": {
               "r": 0,
               "g": 255,
@@ -2228,260 +2695,17 @@
         },
         {
           "type": {
-            "type": "MASTERY_RATING",
-            "name": "Mastery"
+            "type": "VERSATILITY",
+            "name": "Versatility"
           },
-          "value": 459,
+          "value": 2131,
           "is_equip_bonus": true,
           "display": {
-            "display_string": "+459 Mastery",
+            "display_string": "+2,131 Versatility",
             "color": {
               "r": 0,
               "g": 255,
               "b": 0,
-              "a": 1
-            }
-          }
-        }
-      ],
-      "sell_price": {
-        "value": 583063,
-        "display_strings": {
-          "header": "Sell Price:",
-          "gold": "58",
-          "silver": "30",
-          "copper": "63"
-        }
-      },
-      "requirements": {
-        "level": {
-          "value": 40,
-          "display_string": "Requires Level 40"
-        }
-      },
-      "level": {
-        "value": 450,
-        "display_string": "Item Level 450"
-      },
-      "is_subclass_hidden": true,
-      "name_description": {
-        "display_string": "Mythic+ Dragonflight Season 3",
-        "color": {
-          "r": 128,
-          "g": 128,
-          "b": 128,
-          "a": 255
-        }
-      }
-    },
-    {
-      "item": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item/134487?namespace=static-10.2.7_54366-us"
-        },
-        "id": 134487
-      },
-      "slot": {
-        "type": "FINGER_2",
-        "name": "Ring 2"
-      },
-      "quantity": 1,
-      "context": 33,
-      "bonus_list": [
-        9555,
-        9639,
-        6652,
-        9599,
-        9144,
-        3329,
-        8767
-      ],
-      "quality": {
-        "type": "EPIC",
-        "name": "Epic"
-      },
-      "name": "Arch-Druid's Tainted Seal",
-      "modified_appearance_id": 0,
-      "media": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/media/item/134487?namespace=static-10.2.7_54366-us"
-        },
-        "id": 134487
-      },
-      "item_class": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-10.2.7_54366-us"
-        },
-        "name": "Armor",
-        "id": 4
-      },
-      "item_subclass": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/0?namespace=static-10.2.7_54366-us"
-        },
-        "name": "Miscellaneous",
-        "id": 0
-      },
-      "inventory_type": {
-        "type": "FINGER",
-        "name": "Finger"
-      },
-      "binding": {
-        "type": "ON_ACQUIRE",
-        "name": "Binds when picked up"
-      },
-      "unique_equipped": "Unique-Equipped",
-      "stats": [
-        {
-          "type": {
-            "type": "STAMINA",
-            "name": "Stamina"
-          },
-          "value": 1396,
-          "display": {
-            "display_string": "+1,396 Stamina",
-            "color": {
-              "r": 255,
-              "g": 255,
-              "b": 255,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "HASTE_RATING",
-            "name": "Haste"
-          },
-          "value": 417,
-          "is_equip_bonus": true,
-          "display": {
-            "display_string": "+417 Haste",
-            "color": {
-              "r": 0,
-              "g": 255,
-              "b": 0,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "MASTERY_RATING",
-            "name": "Mastery"
-          },
-          "value": 1042,
-          "is_equip_bonus": true,
-          "display": {
-            "display_string": "+1,042 Mastery",
-            "color": {
-              "r": 0,
-              "g": 255,
-              "b": 0,
-              "a": 1
-            }
-          }
-        }
-      ],
-      "sell_price": {
-        "value": 560031,
-        "display_strings": {
-          "header": "Sell Price:",
-          "gold": "56",
-          "silver": "0",
-          "copper": "31"
-        }
-      },
-      "requirements": {
-        "level": {
-          "value": 40,
-          "display_string": "Requires Level 40"
-        }
-      },
-      "level": {
-        "value": 450,
-        "display_string": "Item Level 450"
-      },
-      "is_subclass_hidden": true,
-      "name_description": {
-        "display_string": "Mythic+ Dragonflight Season 3",
-        "color": {
-          "r": 128,
-          "g": 128,
-          "b": 128,
-          "a": 255
-        }
-      }
-    },
-    {
-      "item": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item/158319?namespace=static-10.2.7_54366-us"
-        },
-        "id": 158319
-      },
-      "slot": {
-        "type": "TRINKET_1",
-        "name": "Trinket 1"
-      },
-      "quantity": 1,
-      "context": 33,
-      "bonus_list": [
-        9555,
-        9639,
-        6652,
-        9144,
-        3320,
-        8767
-      ],
-      "quality": {
-        "type": "EPIC",
-        "name": "Epic"
-      },
-      "name": "My'das Talisman",
-      "modified_appearance_id": 0,
-      "media": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/media/item/158319?namespace=static-10.2.7_54366-us"
-        },
-        "id": 158319
-      },
-      "item_class": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-10.2.7_54366-us"
-        },
-        "name": "Armor",
-        "id": 4
-      },
-      "item_subclass": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/0?namespace=static-10.2.7_54366-us"
-        },
-        "name": "Miscellaneous",
-        "id": 0
-      },
-      "inventory_type": {
-        "type": "TRINKET",
-        "name": "Trinket"
-      },
-      "binding": {
-        "type": "ON_ACQUIRE",
-        "name": "Binds when picked up"
-      },
-      "unique_equipped": "Unique-Equipped",
-      "stats": [
-        {
-          "type": {
-            "type": "AGILITY",
-            "name": "Agility"
-          },
-          "value": 620,
-          "display": {
-            "display_string": "+620 Agility",
-            "color": {
-              "r": 255,
-              "g": 255,
-              "b": 255,
               "a": 1
             }
           }
@@ -2491,76 +2715,75 @@
         {
           "spell": {
             "key": {
-              "href": "https://us.api.blizzard.com/data/wow/spell/265954?namespace=static-10.2.7_54366-us"
+              "href": "https://us.api.blizzard.com/data/wow/spell/394452?namespace=static-11.0.0_55478-us"
             },
-            "name": "Touch of Gold",
-            "id": 265954
+            "name": "Broodkeeper's Blaze",
+            "id": 394452
           },
-          "description": "Use: Turn your hands to gold, causing your next 5 auto-attacks to deal 60,374 extra Physical damage. (1 Min 30 Sec Cooldown)"
+          "description": "Equip: Dealing Fire damage has a chance to ignite your enemies, burning them for an additional 27,069 damage every 2 seconds.\r\n\r\n"
         }
       ],
       "sell_price": {
-        "value": 777731,
+        "value": 581284,
         "display_strings": {
           "header": "Sell Price:",
-          "gold": "77",
-          "silver": "77",
-          "copper": "31"
+          "gold": "58",
+          "silver": "12",
+          "copper": "84"
+        }
+      },
+      "requirements": {
+        "level": {
+          "value": 70,
+          "display_string": "Requires Level 70"
         }
       },
       "level": {
-        "value": 450,
-        "display_string": "Item Level 450"
+        "value": 528,
+        "display_string": "Item Level 528"
       },
-      "is_subclass_hidden": true,
-      "name_description": {
-        "display_string": "Mythic+ Dragonflight Season 3",
-        "color": {
-          "r": 128,
-          "g": 128,
-          "b": 128,
-          "a": 255
-        }
-      }
+      "is_subclass_hidden": true
     },
     {
       "item": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item/154744?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item/204211?namespace=static-11.0.0_55478-us"
         },
-        "id": 154744
+        "id": 204211
       },
       "slot": {
-        "type": "TRINKET_2",
-        "name": "Trinket 2"
+        "type": "TRINKET_1",
+        "name": "Trinket 1"
       },
       "quantity": 1,
-      "context": 61,
+      "context": 92,
       "bonus_list": [
-        3303,
+        10503,
+        1576,
         8767
       ],
       "quality": {
         "type": "EPIC",
         "name": "Epic"
       },
-      "name": "Charm of Demonic Fire",
+      "name": "Neltharion's Call to Suffering",
+      "modified_appearance_id": 0,
       "media": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/media/item/154744?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/media/item/204211?namespace=static-11.0.0_55478-us"
         },
-        "id": 154744
+        "id": 204211
       },
       "item_class": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-11.0.0_55478-us"
         },
         "name": "Armor",
         "id": 4
       },
       "item_subclass": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/0?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/0?namespace=static-11.0.0_55478-us"
         },
         "name": "Miscellaneous",
         "id": 0
@@ -2577,63 +2800,13 @@
       "stats": [
         {
           "type": {
-            "type": "AGILITY",
-            "name": "Agility"
+            "type": "VERSATILITY",
+            "name": "Versatility"
           },
-          "value": 487,
-          "display": {
-            "display_string": "+487 Agility",
-            "color": {
-              "r": 255,
-              "g": 255,
-              "b": 255,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "STRENGTH",
-            "name": "Strength"
-          },
-          "value": 487,
-          "is_negated": true,
-          "display": {
-            "display_string": "+487 Strength",
-            "color": {
-              "r": 128,
-              "g": 128,
-              "b": 128,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "INTELLECT",
-            "name": "Intellect"
-          },
-          "value": 487,
-          "is_negated": true,
-          "display": {
-            "display_string": "+487 Intellect",
-            "color": {
-              "r": 128,
-              "g": 128,
-              "b": 128,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "HASTE_RATING",
-            "name": "Haste"
-          },
-          "value": 561,
+          "value": 900,
           "is_equip_bonus": true,
           "display": {
-            "display_string": "+561 Haste",
+            "display_string": "+900 Versatility",
             "color": {
               "r": 0,
               "g": 255,
@@ -2643,77 +2816,231 @@
           }
         }
       ],
+      "spells": [
+        {
+          "spell": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/spell/403385?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Neltharion's Call to Suffering",
+            "id": 403385
+          },
+          "description": "Equip: Your harmful debuffs, and periodic spells and abilities have a chance to grant you 7,582 Agility and suffer 125,860 Shadow damage over 12 sec."
+        }
+      ],
       "sell_price": {
-        "value": 1,
+        "value": 810169,
         "display_strings": {
           "header": "Sell Price:",
-          "gold": "0",
-          "silver": "0",
-          "copper": "1"
+          "gold": "81",
+          "silver": "1",
+          "copper": "69"
         }
       },
       "requirements": {
         "level": {
-          "value": 45,
-          "display_string": "Requires Level 45"
+          "value": 70,
+          "display_string": "Requires Level 70"
         },
         "playable_classes": {
           "links": [
             {
               "key": {
-                "href": "https://us.api.blizzard.com/data/wow/playable-class/12?namespace=static-10.2.7_54366-us"
+                "href": "https://us.api.blizzard.com/data/wow/playable-class/11?namespace=static-11.0.0_55478-us"
               },
-              "name": "Demon Hunter",
-              "id": 12
+              "name": "Druid",
+              "id": 11
+            },
+            {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-class/6?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Death Knight",
+              "id": 6
+            },
+            {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-class/5?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Priest",
+              "id": 5
+            },
+            {
+              "key": {
+                "href": "https://us.api.blizzard.com/data/wow/playable-class/4?namespace=static-11.0.0_55478-us"
+              },
+              "name": "Rogue",
+              "id": 4
             }
           ],
-          "display_string": "Classes: Demon Hunter"
+          "display_string": "Classes: Druid, Death Knight, Priest, Rogue"
         }
       },
       "level": {
-        "value": 424,
-        "display_string": "Item Level 424"
+        "value": 535,
+        "display_string": "Item Level 535"
       },
       "is_subclass_hidden": true
     },
     {
       "item": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item/154748?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item/207167?namespace=static-11.0.0_55478-us"
         },
-        "id": 154748
+        "id": 207167
       },
       "slot": {
-        "type": "BACK",
-        "name": "Back"
+        "type": "TRINKET_2",
+        "name": "Trinket 2"
       },
       "quantity": 1,
-      "context": 61,
+      "context": 89,
       "bonus_list": [
-        3303,
+        10418,
+        1559,
         8767
       ],
       "quality": {
         "type": "EPIC",
         "name": "Epic"
       },
-      "name": "Illidari Drape",
+      "name": "Ashes of the Embersoul",
+      "modified_appearance_id": 0,
       "media": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/media/item/154748?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/media/item/207167?namespace=static-11.0.0_55478-us"
         },
-        "id": 154748
+        "id": 207167
       },
       "item_class": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-11.0.0_55478-us"
         },
         "name": "Armor",
         "id": 4
       },
       "item_subclass": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/1?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/0?namespace=static-11.0.0_55478-us"
+        },
+        "name": "Miscellaneous",
+        "id": 0
+      },
+      "inventory_type": {
+        "type": "TRINKET",
+        "name": "Trinket"
+      },
+      "binding": {
+        "type": "ON_ACQUIRE",
+        "name": "Binds when picked up"
+      },
+      "unique_equipped": "Unique-Equipped",
+      "stats": [
+        {
+          "type": {
+            "type": "HASTE_RATING",
+            "name": "Haste"
+          },
+          "value": 879,
+          "is_equip_bonus": true,
+          "display": {
+            "display_string": "+879 Haste",
+            "color": {
+              "r": 0,
+              "g": 255,
+              "b": 0,
+              "a": 1
+            }
+          }
+        }
+      ],
+      "spells": [
+        {
+          "spell": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/spell/423611?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Soul Ignition",
+            "id": 423611
+          },
+          "description": "Use: Draw power from the remnants of the Embersoul, gaining 10,531 Agility for 20 sec, decaying every 2 sec. Once this effect ends, become Burned Out, losing 879 Haste for 60 sec before recovering.\r\n\r\nWhen circumstances are dire your soul ignites, granting this bonus again without decaying. This effect may only occur once per combat. (2 Min Cooldown)"
+        }
+      ],
+      "sell_price": {
+        "value": 820547,
+        "display_strings": {
+          "header": "Sell Price:",
+          "gold": "82",
+          "silver": "5",
+          "copper": "47"
+        }
+      },
+      "requirements": {
+        "level": {
+          "value": 70,
+          "display_string": "Requires Level 70"
+        }
+      },
+      "level": {
+        "value": 528,
+        "display_string": "Item Level 528"
+      },
+      "is_subclass_hidden": true
+    },
+    {
+      "item": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item/195511?namespace=static-11.0.0_55478-us"
+        },
+        "id": 195511
+      },
+      "enchantments": [
+        {
+          "display_string": "Enchanted: Graceful Avoidance |A:Professions-ChatIcon-Quality-Tier3:20:20|a",
+          "enchantment_id": 6592,
+          "enchantment_slot": {
+            "id": 0,
+            "type": "PERMANENT"
+          }
+        }
+      ],
+      "slot": {
+        "type": "BACK",
+        "name": "Back"
+      },
+      "quantity": 1,
+      "context": 85,
+      "bonus_list": [
+        6652,
+        10874,
+        7981,
+        10884,
+        10338,
+        1611,
+        8767
+      ],
+      "quality": {
+        "type": "EPIC",
+        "name": "Epic"
+      },
+      "name": "Acid-Proof Webbing",
+      "modified_appearance_id": 183407,
+      "media": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/media/item/195511?namespace=static-11.0.0_55478-us"
+        },
+        "id": 195511
+      },
+      "item_class": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4?namespace=static-11.0.0_55478-us"
+        },
+        "name": "Armor",
+        "id": 4
+      },
+      "item_subclass": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item-class/4/item-subclass/1?namespace=static-11.0.0_55478-us"
         },
         "name": "Cloth",
         "id": 1
@@ -2727,9 +3054,9 @@
         "name": "Binds when picked up"
       },
       "armor": {
-        "value": 228,
+        "value": 811,
         "display": {
-          "display_string": "228 Armor",
+          "display_string": "811 Armor",
           "color": {
             "r": 255,
             "g": 255,
@@ -2744,9 +3071,9 @@
             "type": "AGILITY",
             "name": "Agility"
           },
-          "value": 288,
+          "value": 759,
           "display": {
-            "display_string": "+288 Agility",
+            "display_string": "+759 Agility",
             "color": {
               "r": 255,
               "g": 255,
@@ -2760,10 +3087,10 @@
             "type": "STRENGTH",
             "name": "Strength"
           },
-          "value": 288,
+          "value": 759,
           "is_negated": true,
           "display": {
-            "display_string": "+288 Strength",
+            "display_string": "+759 Strength",
             "color": {
               "r": 128,
               "g": 128,
@@ -2777,10 +3104,10 @@
             "type": "INTELLECT",
             "name": "Intellect"
           },
-          "value": 288,
+          "value": 759,
           "is_negated": true,
           "display": {
-            "display_string": "+288 Intellect",
+            "display_string": "+759 Intellect",
             "color": {
               "r": 128,
               "g": 128,
@@ -2794,9 +3121,9 @@
             "type": "STAMINA",
             "name": "Stamina"
           },
-          "value": 1014,
+          "value": 3837,
           "display": {
-            "display_string": "+1,014 Stamina",
+            "display_string": "+3,837 Stamina",
             "color": {
               "r": 255,
               "g": 255,
@@ -2810,380 +3137,10 @@
             "type": "CRIT_RATING",
             "name": "Critical Strike"
           },
-          "value": 212,
+          "value": 470,
           "is_equip_bonus": true,
           "display": {
-            "display_string": "+212 Critical Strike",
-            "color": {
-              "r": 0,
-              "g": 255,
-              "b": 0,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "HASTE_RATING",
-            "name": "Haste"
-          },
-          "value": 231,
-          "is_equip_bonus": true,
-          "display": {
-            "display_string": "+231 Haste",
-            "color": {
-              "r": 0,
-              "g": 255,
-              "b": 0,
-              "a": 1
-            }
-          }
-        }
-      ],
-      "sell_price": {
-        "value": 1,
-        "display_strings": {
-          "header": "Sell Price:",
-          "gold": "0",
-          "silver": "0",
-          "copper": "1"
-        }
-      },
-      "requirements": {
-        "level": {
-          "value": 45,
-          "display_string": "Requires Level 45"
-        },
-        "playable_classes": {
-          "links": [
-            {
-              "key": {
-                "href": "https://us.api.blizzard.com/data/wow/playable-class/12?namespace=static-10.2.7_54366-us"
-              },
-              "name": "Demon Hunter",
-              "id": 12
-            }
-          ],
-          "display_string": "Classes: Demon Hunter"
-        }
-      },
-      "level": {
-        "value": 424,
-        "display_string": "Item Level 424"
-      },
-      "transmog": {
-        "item": {
-          "key": {
-            "href": "https://us.api.blizzard.com/data/wow/item/134111?namespace=static-10.2.7_54366-us"
-          },
-          "name": "Hidden Cloak",
-          "id": 134111
-        },
-        "display_string": "Transmogrified to:\nHidden Cloak",
-        "item_modified_appearance_id": 77345
-      },
-      "is_subclass_hidden": true
-    },
-    {
-      "item": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item/207791?namespace=static-10.2.7_54366-us"
-        },
-        "id": 207791
-      },
-      "slot": {
-        "type": "MAIN_HAND",
-        "name": "Main Hand"
-      },
-      "quantity": 1,
-      "context": 4,
-      "bonus_list": [
-        6652,
-        7982,
-        9554,
-        1478,
-        8767
-      ],
-      "quality": {
-        "type": "EPIC",
-        "name": "Epic"
-      },
-      "name": "Remnant Charglaive",
-      "modified_appearance_id": 191080,
-      "media": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/media/item/207791?namespace=static-10.2.7_54366-us"
-        },
-        "id": 207791
-      },
-      "item_class": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/2?namespace=static-10.2.7_54366-us"
-        },
-        "name": "Weapon",
-        "id": 2
-      },
-      "item_subclass": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/2/item-subclass/9?namespace=static-10.2.7_54366-us"
-        },
-        "name": "Warglaives",
-        "id": 9
-      },
-      "inventory_type": {
-        "type": "WEAPON",
-        "name": "One-Hand"
-      },
-      "binding": {
-        "type": "ON_ACQUIRE",
-        "name": "Binds when picked up"
-      },
-      "weapon": {
-        "damage": {
-          "min_value": 726,
-          "max_value": 1150,
-          "display_string": "726 - 1,150 Damage",
-          "damage_class": {
-            "type": "PHYSICAL",
-            "name": "Physical"
-          }
-        },
-        "attack_speed": {
-          "value": 2600,
-          "display_string": "Speed 2.60"
-        },
-        "dps": {
-          "value": 360.5769,
-          "display_string": "(360.6 damage per second)"
-        }
-      },
-      "stats": [
-        {
-          "type": {
-            "type": "AGILITY",
-            "name": "Agility"
-          },
-          "value": 317,
-          "display": {
-            "display_string": "+317 Agility",
-            "color": {
-              "r": 255,
-              "g": 255,
-              "b": 255,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "STAMINA",
-            "name": "Stamina"
-          },
-          "value": 1198,
-          "display": {
-            "display_string": "+1,198 Stamina",
-            "color": {
-              "r": 255,
-              "g": 255,
-              "b": 255,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "CRIT_RATING",
-            "name": "Critical Strike"
-          },
-          "value": 128,
-          "is_equip_bonus": true,
-          "display": {
-            "display_string": "+128 Critical Strike",
-            "color": {
-              "r": 0,
-              "g": 255,
-              "b": 0,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "HASTE_RATING",
-            "name": "Haste"
-          },
-          "value": 309,
-          "is_equip_bonus": true,
-          "display": {
-            "display_string": "+309 Haste",
-            "color": {
-              "r": 0,
-              "g": 255,
-              "b": 0,
-              "a": 1
-            }
-          }
-        }
-      ],
-      "sell_price": {
-        "value": 1340318,
-        "display_strings": {
-          "header": "Sell Price:",
-          "gold": "134",
-          "silver": "3",
-          "copper": "18"
-        }
-      },
-      "requirements": {
-        "level": {
-          "value": 70,
-          "display_string": "Requires Level 70"
-        }
-      },
-      "level": {
-        "value": 447,
-        "display_string": "Item Level 447"
-      },
-      "transmog": {
-        "item": {
-          "key": {
-            "href": "https://us.api.blizzard.com/data/wow/item/9424?namespace=static-10.2.7_54366-us"
-          },
-          "name": "Ginn-Su Sword",
-          "id": 9424
-        },
-        "display_string": "Transmogrified to:\nGinn-Su Sword",
-        "item_modified_appearance_id": 3273
-      },
-      "durability": {
-        "value": 102,
-        "display_string": "Durability 102 / 120"
-      },
-      "name_description": {
-        "display_string": "Dragonflight Season 3 Raid Finder",
-        "color": {
-          "r": 128,
-          "g": 128,
-          "b": 128,
-          "a": 255
-        }
-      }
-    },
-    {
-      "item": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item/207787?namespace=static-10.2.7_54366-us"
-        },
-        "id": 207787
-      },
-      "slot": {
-        "type": "OFF_HAND",
-        "name": "Off Hand"
-      },
-      "quantity": 1,
-      "context": 4,
-      "bonus_list": [
-        43,
-        7982,
-        9552,
-        1472,
-        8767
-      ],
-      "quality": {
-        "type": "EPIC",
-        "name": "Epic"
-      },
-      "name": "Igira's Flaying Hatchet",
-      "modified_appearance_id": 191043,
-      "media": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/media/item/207787?namespace=static-10.2.7_54366-us"
-        },
-        "id": 207787
-      },
-      "item_class": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/2?namespace=static-10.2.7_54366-us"
-        },
-        "name": "Weapon",
-        "id": 2
-      },
-      "item_subclass": {
-        "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-class/2/item-subclass/0?namespace=static-10.2.7_54366-us"
-        },
-        "name": "Axe",
-        "id": 0
-      },
-      "inventory_type": {
-        "type": "WEAPON",
-        "name": "One-Hand"
-      },
-      "binding": {
-        "type": "ON_ACQUIRE",
-        "name": "Binds when picked up"
-      },
-      "weapon": {
-        "damage": {
-          "min_value": 576,
-          "max_value": 1198,
-          "display_string": "576 - 1,198 Damage",
-          "damage_class": {
-            "type": "PHYSICAL",
-            "name": "Physical"
-          }
-        },
-        "attack_speed": {
-          "value": 2600,
-          "display_string": "Speed 2.60"
-        },
-        "dps": {
-          "value": 340.96152,
-          "display_string": "(341.0 damage per second)"
-        }
-      },
-      "stats": [
-        {
-          "type": {
-            "type": "AGILITY",
-            "name": "Agility"
-          },
-          "value": 300,
-          "display": {
-            "display_string": "+300 Agility",
-            "color": {
-              "r": 255,
-              "g": 255,
-              "b": 255,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "STAMINA",
-            "name": "Stamina"
-          },
-          "value": 1112,
-          "display": {
-            "display_string": "+1,112 Stamina",
-            "color": {
-              "r": 255,
-              "g": 255,
-              "b": 255,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "HASTE_RATING",
-            "name": "Haste"
-          },
-          "value": 295,
-          "is_equip_bonus": true,
-          "display": {
-            "display_string": "+295 Haste",
+            "display_string": "+470 Critical Strike",
             "color": {
               "r": 0,
               "g": 255,
@@ -3197,27 +3154,10 @@
             "type": "MASTERY_RATING",
             "name": "Mastery"
           },
-          "value": 131,
+          "value": 223,
           "is_equip_bonus": true,
           "display": {
-            "display_string": "+131 Mastery",
-            "color": {
-              "r": 0,
-              "g": 255,
-              "b": 0,
-              "a": 1
-            }
-          }
-        },
-        {
-          "type": {
-            "type": "COMBAT_RATING_STURDINESS",
-            "name": "Indestructible"
-          },
-          "value": 182,
-          "is_equip_bonus": true,
-          "display": {
-            "display_string": "Indestructible",
+            "display_string": "+223 Mastery",
             "color": {
               "r": 0,
               "g": 255,
@@ -3228,12 +3168,12 @@
         }
       ],
       "sell_price": {
-        "value": 1282681,
+        "value": 668949,
         "display_strings": {
           "header": "Sell Price:",
-          "gold": "128",
-          "silver": "26",
-          "copper": "81"
+          "gold": "66",
+          "silver": "89",
+          "copper": "49"
         }
       },
       "requirements": {
@@ -3243,31 +3183,452 @@
         }
       },
       "level": {
-        "value": 441,
-        "display_string": "Item Level 441"
+        "value": 528,
+        "display_string": "Item Level 528"
       },
       "transmog": {
         "item": {
           "key": {
-            "href": "https://us.api.blizzard.com/data/wow/item/9424?namespace=static-10.2.7_54366-us"
+            "href": "https://us.api.blizzard.com/data/wow/item/134111?namespace=static-11.0.0_55478-us"
           },
-          "name": "Ginn-Su Sword",
-          "id": 9424
+          "name": "Hidden Cloak",
+          "id": 134111
         },
-        "display_string": "Transmogrified to:\nGinn-Su Sword",
-        "item_modified_appearance_id": 3273
+        "display_string": "Transmogrified to:\nHidden Cloak",
+        "item_modified_appearance_id": 77345
+      },
+      "is_subclass_hidden": true,
+      "name_description": {
+        "display_string": "Awakened Mythic",
+        "color": {
+          "r": 0,
+          "g": 255,
+          "b": 0,
+          "a": 1
+        }
+      }
+    },
+    {
+      "item": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item/207783?namespace=static-11.0.0_55478-us"
+        },
+        "id": 207783
+      },
+      "enchantments": [
+        {
+          "display_string": "Enchanted: Sophic Devotion |A:Professions-ChatIcon-Quality-Tier3:20:20|a",
+          "enchantment_id": 6643,
+          "enchantment_slot": {
+            "id": 0,
+            "type": "PERMANENT"
+          }
+        },
+        {
+          "display_string": "Buzzing Rune",
+          "source_item": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/item/194823?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Buzzing Rune",
+            "id": 194823
+          },
+          "enchantment_id": 6514,
+          "enchantment_slot": {
+            "id": 1,
+            "type": "TEMPORARY"
+          }
+        }
+      ],
+      "slot": {
+        "type": "MAIN_HAND",
+        "name": "Main Hand"
+      },
+      "quantity": 1,
+      "context": 85,
+      "bonus_list": [
+        6652,
+        7981,
+        10884,
+        10338,
+        1559,
+        8767
+      ],
+      "quality": {
+        "type": "EPIC",
+        "name": "Epic"
+      },
+      "name": "Cruel Dreamcarver",
+      "modified_appearance_id": 191039,
+      "media": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/media/item/207783?namespace=static-11.0.0_55478-us"
+        },
+        "id": 207783
+      },
+      "item_class": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item-class/2?namespace=static-11.0.0_55478-us"
+        },
+        "name": "Weapon",
+        "id": 2
+      },
+      "item_subclass": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item-class/2/item-subclass/15?namespace=static-11.0.0_55478-us"
+        },
+        "name": "Dagger",
+        "id": 15
+      },
+      "inventory_type": {
+        "type": "WEAPON",
+        "name": "One-Hand"
+      },
+      "binding": {
+        "type": "ON_ACQUIRE",
+        "name": "Binds when picked up"
+      },
+      "unique_equipped": "Unique-Equipped",
+      "weapon": {
+        "damage": {
+          "min_value": 1034,
+          "max_value": 1726,
+          "display_string": "1,034 - 1,726 Damage",
+          "damage_class": {
+            "type": "PHYSICAL",
+            "name": "Physical"
+          }
+        },
+        "attack_speed": {
+          "value": 1800,
+          "display_string": "Speed 1.80"
+        },
+        "dps": {
+          "value": 766.38885,
+          "display_string": "(766.4 damage per second)"
+        }
+      },
+      "stats": [
+        {
+          "type": {
+            "type": "AGILITY",
+            "name": "Agility"
+          },
+          "value": 674,
+          "display": {
+            "display_string": "+674 Agility",
+            "color": {
+              "r": 255,
+              "g": 255,
+              "b": 255,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "STAMINA",
+            "name": "Stamina"
+          },
+          "value": 3411,
+          "display": {
+            "display_string": "+3,411 Stamina",
+            "color": {
+              "r": 255,
+              "g": 255,
+              "b": 255,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "VERSATILITY",
+            "name": "Versatility"
+          },
+          "value": 433,
+          "is_equip_bonus": true,
+          "display": {
+            "display_string": "+433 Versatility",
+            "color": {
+              "r": 0,
+              "g": 255,
+              "b": 0,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "MASTERY_RATING",
+            "name": "Mastery"
+          },
+          "value": 183,
+          "is_equip_bonus": true,
+          "display": {
+            "display_string": "+183 Mastery",
+            "color": {
+              "r": 0,
+              "g": 255,
+              "b": 0,
+              "a": 1
+            }
+          }
+        }
+      ],
+      "spells": [
+        {
+          "spell": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/spell/424846?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Dream Eater",
+            "id": 424846
+          },
+          "description": "Use: Carve out a piece of your target's dreams, consuming it to gain a benefit based on the creature's type. (1 Min Cooldown)"
+        }
+      ],
+      "sell_price": {
+        "value": 1322965,
+        "display_strings": {
+          "header": "Sell Price:",
+          "gold": "132",
+          "silver": "29",
+          "copper": "65"
+        }
+      },
+      "requirements": {
+        "level": {
+          "value": 70,
+          "display_string": "Requires Level 70"
+        }
+      },
+      "level": {
+        "value": 528,
+        "display_string": "Item Level 528"
+      },
+      "transmog": {
+        "item": {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/item/207996?namespace=static-11.0.0_55478-us"
+          },
+          "name": "Nick of Time",
+          "id": 207996
+        },
+        "display_string": "Transmogrified to:\nNick of Time",
+        "item_modified_appearance_id": 189064
       },
       "durability": {
-        "value": 110,
-        "display_string": "Durability 110 / 110"
+        "value": 78,
+        "display_string": "Durability 78 / 80"
       },
       "name_description": {
-        "display_string": "Dragonflight Season 3 Raid Finder",
+        "display_string": "Awakened Mythic",
         "color": {
-          "r": 128,
-          "g": 128,
-          "b": 128,
-          "a": 255
+          "r": 0,
+          "g": 255,
+          "b": 0,
+          "a": 1
+        }
+      }
+    },
+    {
+      "item": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item/195503?namespace=static-11.0.0_55478-us"
+        },
+        "id": 195503
+      },
+      "enchantments": [
+        {
+          "display_string": "Enchanted: Sophic Devotion |A:Professions-ChatIcon-Quality-Tier3:20:20|a",
+          "enchantment_id": 6643,
+          "enchantment_slot": {
+            "id": 0,
+            "type": "PERMANENT"
+          }
+        },
+        {
+          "display_string": "Hissing Rune",
+          "source_item": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/item/204973?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Hissing Rune",
+            "id": 204973
+          },
+          "enchantment_id": 6839,
+          "enchantment_slot": {
+            "id": 1,
+            "type": "TEMPORARY"
+          }
+        }
+      ],
+      "slot": {
+        "type": "OFF_HAND",
+        "name": "Off Hand"
+      },
+      "quantity": 1,
+      "context": 85,
+      "bonus_list": [
+        6652,
+        7981,
+        10884,
+        10338,
+        1611,
+        8767
+      ],
+      "quality": {
+        "type": "EPIC",
+        "name": "Epic"
+      },
+      "name": "Enduring Shard of Terros",
+      "modified_appearance_id": 183264,
+      "media": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/media/item/195503?namespace=static-11.0.0_55478-us"
+        },
+        "id": 195503
+      },
+      "item_class": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item-class/2?namespace=static-11.0.0_55478-us"
+        },
+        "name": "Weapon",
+        "id": 2
+      },
+      "item_subclass": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item-class/2/item-subclass/15?namespace=static-11.0.0_55478-us"
+        },
+        "name": "Dagger",
+        "id": 15
+      },
+      "inventory_type": {
+        "type": "WEAPON",
+        "name": "One-Hand"
+      },
+      "binding": {
+        "type": "ON_ACQUIRE",
+        "name": "Binds when picked up"
+      },
+      "weapon": {
+        "damage": {
+          "min_value": 1034,
+          "max_value": 1726,
+          "display_string": "1,034 - 1,726 Damage",
+          "damage_class": {
+            "type": "PHYSICAL",
+            "name": "Physical"
+          }
+        },
+        "attack_speed": {
+          "value": 1800,
+          "display_string": "Speed 1.80"
+        },
+        "dps": {
+          "value": 766.38885,
+          "display_string": "(766.4 damage per second)"
+        }
+      },
+      "stats": [
+        {
+          "type": {
+            "type": "AGILITY",
+            "name": "Agility"
+          },
+          "value": 674,
+          "display": {
+            "display_string": "+674 Agility",
+            "color": {
+              "r": 255,
+              "g": 255,
+              "b": 255,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "STAMINA",
+            "name": "Stamina"
+          },
+          "value": 3411,
+          "display": {
+            "display_string": "+3,411 Stamina",
+            "color": {
+              "r": 255,
+              "g": 255,
+              "b": 255,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "CRIT_RATING",
+            "name": "Critical Strike"
+          },
+          "value": 187,
+          "is_equip_bonus": true,
+          "display": {
+            "display_string": "+187 Critical Strike",
+            "color": {
+              "r": 0,
+              "g": 255,
+              "b": 0,
+              "a": 1
+            }
+          }
+        },
+        {
+          "type": {
+            "type": "VERSATILITY",
+            "name": "Versatility"
+          },
+          "value": 428,
+          "is_equip_bonus": true,
+          "display": {
+            "display_string": "+428 Versatility",
+            "color": {
+              "r": 0,
+              "g": 255,
+              "b": 0,
+              "a": 1
+            }
+          }
+        }
+      ],
+      "sell_price": {
+        "value": 1335617,
+        "display_strings": {
+          "header": "Sell Price:",
+          "gold": "133",
+          "silver": "56",
+          "copper": "17"
+        }
+      },
+      "requirements": {
+        "level": {
+          "value": 70,
+          "display_string": "Requires Level 70"
+        }
+      },
+      "level": {
+        "value": 528,
+        "display_string": "Item Level 528"
+      },
+      "durability": {
+        "value": 79,
+        "display_string": "Durability 79 / 80"
+      },
+      "name_description": {
+        "display_string": "Awakened Mythic",
+        "color": {
+          "r": 0,
+          "g": 255,
+          "b": 0,
+          "a": 1
         }
       }
     }
@@ -3276,75 +3637,75 @@
     {
       "item_set": {
         "key": {
-          "href": "https://us.api.blizzard.com/data/wow/item-set/1558?namespace=static-10.2.7_54366-us"
+          "href": "https://us.api.blizzard.com/data/wow/item-set/1600?namespace=static-11.0.0_55478-us"
         },
-        "name": "Screaming Torchfiend's Brutality",
-        "id": 1558
+        "name": "Lurking Specter's Shadeweave",
+        "id": 1600
       },
       "items": [
         {
           "item": {
             "key": {
-              "href": "https://us.api.blizzard.com/data/wow/item/207261?namespace=static-10.2.7_54366-us"
+              "href": "https://us.api.blizzard.com/data/wow/item/217206?namespace=static-11.0.0_55478-us"
             },
-            "name": "Screaming Torchfiend's Horned Memento",
-            "id": 207261
+            "name": "Lurking Specter's Brigandine",
+            "id": 217206
           },
           "is_equipped": true
         },
         {
           "item": {
             "key": {
-              "href": "https://us.api.blizzard.com/data/wow/item/207262?namespace=static-10.2.7_54366-us"
+              "href": "https://us.api.blizzard.com/data/wow/item/217207?namespace=static-11.0.0_55478-us"
             },
-            "name": "Screaming Torchfiend's Blazewraps",
-            "id": 207262
+            "name": "Lurking Specter's Handgrips",
+            "id": 217207
+          },
+          "is_equipped": true
+        },
+        {
+          "item": {
+            "key": {
+              "href": "https://us.api.blizzard.com/data/wow/item/217208?namespace=static-11.0.0_55478-us"
+            },
+            "name": "Lurking Specter's Visage",
+            "id": 217208
           }
         },
         {
           "item": {
             "key": {
-              "href": "https://us.api.blizzard.com/data/wow/item/207263?namespace=static-10.2.7_54366-us"
+              "href": "https://us.api.blizzard.com/data/wow/item/217209?namespace=static-11.0.0_55478-us"
             },
-            "name": "Screaming Torchfiend's Burning Scowl",
-            "id": 207263
+            "name": "Lurking Specter's Tights",
+            "id": 217209
           },
           "is_equipped": true
         },
         {
           "item": {
             "key": {
-              "href": "https://us.api.blizzard.com/data/wow/item/207264?namespace=static-10.2.7_54366-us"
+              "href": "https://us.api.blizzard.com/data/wow/item/217210?namespace=static-11.0.0_55478-us"
             },
-            "name": "Screaming Torchfiend's Grasp",
-            "id": 207264
-          },
-          "is_equipped": true
-        },
-        {
-          "item": {
-            "key": {
-              "href": "https://us.api.blizzard.com/data/wow/item/207266?namespace=static-10.2.7_54366-us"
-            },
-            "name": "Screaming Torchfiend's Binding",
-            "id": 207266
+            "name": "Lurking Specter's Shoulderblades",
+            "id": 217210
           },
           "is_equipped": true
         }
       ],
       "effects": [
         {
-          "display_string": "Set: When you attack a target afflicted by Sigil of Flame, your damage and healing are increased by 2% and your Stamina is increased by 2% for 8 sec, stacking up to 5.",
+          "display_string": "Set: Using Eviscerate, Rupture, or Black Powder has a chance to summon a shadow clone to echo your finishing move for 70% additional Shadow damage.",
           "required_count": 2,
           "is_active": true
         },
         {
-          "display_string": "Set: Sigil of Flame's periodic damage has a chance to flare up, shattering an additional Soul Fragment from a target and dealing 13,797 additional damage. Each 40 Fury you spend reduces its cooldown by 1.0 sec.",
+          "display_string": "Set: Your shadow clones deal 20% increased damage with all attacks and grant you 2 combo points per clone when summoned.",
           "required_count": 4,
           "is_active": true
         }
       ],
-      "display_string": "Screaming Torchfiend's Brutality (4/5)"
+      "display_string": "Lurking Specter's Shadeweave (4/5)"
     }
   ]
 }
