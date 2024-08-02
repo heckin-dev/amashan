@@ -8,6 +8,7 @@ import (
 	"github.com/heckin-dev/amashan/pkg/wl"
 	"net/http"
 	"strconv"
+	"time"
 )
 
 type WarcraftLogs struct {
@@ -27,11 +28,25 @@ func (wls *WarcraftLogs) ClearCachedExpansion(w http.ResponseWriter, r *http.Req
 		return
 	}
 
+	// TODO: Might be worth changing this magic value to something we know always.
+	cache := r.Context().Value(middleware.CacheContextKey).(middleware.CacheClient)
+	go cache.Del("/api/warcraftlogs/partitions")
+
 	wls.client.ClearPartitionedExpansion()
 	w.WriteHeader(http.StatusNoContent)
 }
 
 func (wls *WarcraftLogs) Partitions(w http.ResponseWriter, r *http.Request) {
+	cache := r.Context().Value(middleware.CacheContextKey).(middleware.CacheClient)
+	key := r.URL.Path
+
+	// Cache HIT
+	if val, err := cache.Get(r.Context(), key); err == nil {
+		w.Header().Set("Content-Type", "application/json")
+		_, _ = w.Write([]byte(val))
+		return
+	}
+
 	partitionedExpansion, err := wls.client.GetExpansionEncounters(r.Context())
 	if err != nil {
 		wls.l.Error("failed to retrieve partitioned expansion", "error", err)
@@ -39,11 +54,32 @@ func (wls *WarcraftLogs) Partitions(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// Marshal the PartitionedExpansion
+	bs, err := json.Marshal(partitionedExpansion)
+	if err != nil {
+		wls.l.Error("json.Marshal failed for PartitionedExpansion", "error", err)
+		http.Error(w, "failed to marshal partitioned expansion", http.StatusInternalServerError)
+		return
+	}
+
+	// Cache SET
+	go cache.Set(key, string(bs), 12*time.Hour)
+
 	w.Header().Set("Content-Type", "application/json")
-	_ = json.NewEncoder(w).Encode(partitionedExpansion)
+	_, _ = w.Write(bs)
 }
 
 func (wls *WarcraftLogs) CharacterParses(w http.ResponseWriter, r *http.Request) {
+	cache := r.Context().Value(middleware.CacheContextKey).(middleware.CacheClient)
+	key := r.RequestURI
+
+	// Cache HIT
+	if val, err := cache.Get(r.Context(), key); err == nil {
+		w.Header().Set("Content-Type", "application/json")
+		_, _ = w.Write([]byte(val))
+		return
+	}
+
 	options := wl.CharacterParsesQueryOptionsFromContext(r.Context())
 
 	q := r.URL.Query()
@@ -77,8 +113,19 @@ func (wls *WarcraftLogs) CharacterParses(w http.ResponseWriter, r *http.Request)
 		return
 	}
 
+	// Marshal the CharacterParses
+	bs, err := json.Marshal(parses)
+	if err != nil {
+		wls.l.Error("json.Marshal failed for CharacterParses", "error", err)
+		http.Error(w, "failed to marshal character parses", http.StatusInternalServerError)
+		return
+	}
+
+	// Cache SET
+	go cache.Set(key, string(bs), 5*time.Minute)
+
 	w.Header().Set("Content-Type", "application/json")
-	_ = json.NewEncoder(w).Encode(parses.ToDTO())
+	_, _ = w.Write(bs)
 }
 
 func (wls *WarcraftLogs) Route(r *mux.Router) {

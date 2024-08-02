@@ -7,6 +7,7 @@ import (
 	"github.com/heckin-dev/amashan/pkg/middleware"
 	"github.com/heckin-dev/amashan/pkg/rio"
 	"net/http"
+	"time"
 )
 
 type RaiderIO struct {
@@ -15,6 +16,16 @@ type RaiderIO struct {
 }
 
 func (i *RaiderIO) CharacterProfile(w http.ResponseWriter, r *http.Request) {
+	cache := r.Context().Value(middleware.CacheContextKey).(middleware.CacheClient)
+	key := r.URL.Path
+
+	// Cache HIT
+	if val, err := cache.Get(r.Context(), key); err == nil {
+		w.Header().Set("Content-Type", "application/json")
+		_, _ = w.Write([]byte(val))
+		return
+	}
+
 	profile, err := i.client.CharacterProfile(r.Context(), rio.CharacterProfileOptionsFromContext(r.Context()))
 	if err != nil {
 		i.l.Error("failed to retrieve raiderio character profile", "error", err)
@@ -22,8 +33,19 @@ func (i *RaiderIO) CharacterProfile(w http.ResponseWriter, r *http.Request) {
 		return
 	}
 
+	// Marshal the CharacterProfile
+	bs, err := json.Marshal(profile)
+	if err != nil {
+		i.l.Error("json.Marshal failed for CharacterProfile", "error", err)
+		http.Error(w, "failed to marshal raiderio character profile", http.StatusInternalServerError)
+		return
+	}
+
+	// Cache SET
+	go cache.Set(key, string(bs), 5*time.Minute)
+
 	w.Header().Set("Content-Type", "application/json")
-	_ = json.NewEncoder(w).Encode(profile)
+	_, _ = w.Write(bs)
 }
 
 func (i *RaiderIO) Route(r *mux.Router) {

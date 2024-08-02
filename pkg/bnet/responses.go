@@ -68,30 +68,46 @@ type CharacterEquipmentResponse struct {
 }
 
 type CharacterEquipmentEquippedItem struct {
-	Item                 KeyedID          `json:"item"`
-	Slot                 TypeAndName      `json:"slot"`
-	Quantity             int              `json:"quantity"`
-	Context              int              `json:"context"`
-	BonusList            []int            `json:"bonus_list"`
-	Quality              TypeAndName      `json:"quality"`
-	Name                 string           `json:"name"`
-	ModifiedAppearanceID *int             `json:"modified_appearance_id,omitempty"`
-	Media                KeyedID          `json:"media"`
-	ItemClass            NamedTypeAndID   `json:"item_class"`
-	ItemSubclass         NamedTypeAndID   `json:"item_subclass"`
-	InventoryType        TypeAndName      `json:"inventory_type"`
-	Binding              TypeAndName      `json:"binding"`
-	Armor                *Armor           `json:"armor,omitempty"`
-	Weapon               *Armor           `json:"weapon,omitempty"`
-	Stats                []ItemStat       `json:"stats"`
-	SellPrice            SellPrice        `json:"sell_price"`
-	Requirements         ItemRequirements `json:"requirements"`
-	Set                  *Set             `json:"set,omitempty"`
-	Level                IntDisplayValue  `json:"level"`
-	Transmog             *Transmog        `json:"transmog,omitempty"`
-	Durability           *IntDisplayValue `json:"durability,omitempty"`
-	NameDescription      *Display         `json:"name_description,omitempty"`
-	IsSubclassHidden     *bool            `json:"is_subclass_hidden,omitempty"`
+	Item                 KeyedID            `json:"item"`
+	Enchantments         []*ItemEnchantment `json:"enchantments,omitempty"`
+	Sockets              []*ItemSocket      `json:"sockets"`
+	Slot                 TypeAndName        `json:"slot"`
+	Quantity             int                `json:"quantity"`
+	Context              int                `json:"context"`
+	BonusList            []int              `json:"bonus_list"`
+	Quality              TypeAndName        `json:"quality"`
+	Name                 string             `json:"name"`
+	ModifiedAppearanceID *int               `json:"modified_appearance_id,omitempty"`
+	Media                KeyedID            `json:"media"`
+	ItemClass            NamedTypeAndID     `json:"item_class"`
+	ItemSubclass         NamedTypeAndID     `json:"item_subclass"`
+	InventoryType        TypeAndName        `json:"inventory_type"`
+	Binding              TypeAndName        `json:"binding"`
+	Armor                *Armor             `json:"armor,omitempty"`
+	Weapon               *Armor             `json:"weapon,omitempty"`
+	Stats                []ItemStat         `json:"stats"`
+	SellPrice            SellPrice          `json:"sell_price"`
+	Requirements         ItemRequirements   `json:"requirements"`
+	Set                  *Set               `json:"set,omitempty"`
+	Level                IntDisplayValue    `json:"level"`
+	Transmog             *Transmog          `json:"transmog,omitempty"`
+	Durability           *IntDisplayValue   `json:"durability,omitempty"`
+	NameDescription      *Display           `json:"name_description,omitempty"`
+	IsSubclassHidden     *bool              `json:"is_subclass_hidden,omitempty"`
+}
+
+type ItemEnchantment struct {
+	DisplayString   string         `json:"display_string"`
+	SourceItem      NamedTypeAndID `json:"source_item"`
+	EnchantmentID   int            `json:"enchantment_id"`
+	EnchantmentSlot TypeAndID      `json:"enchantment_slot"`
+}
+
+type ItemSocket struct {
+	SocketType    TypeAndName    `json:"socket_type"`
+	Item          NamedTypeAndID `json:"item"`
+	DisplayString string         `json:"display_string"`
+	Media         KeyedID        `json:"media"`
 }
 
 type CharacterEquipmentEquippedItemSet struct {
@@ -378,4 +394,9 @@ type Guild struct {
 	NamedTypeAndID
 	Realm   Realm       `json:"realm"`
 	Faction TypeAndName `json:"faction"`
+}
+
+type TypeAndID struct {
+	ID   int    `json:"id"`
+	Type string `json:"type"`
 }

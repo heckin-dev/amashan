@@ -35,6 +35,9 @@ WL_REDIRECT_URL="<callback_url>"
 
 # Session
 SESSION_KEY="<your_session_key>"
+
+# Redis
+REDIS_URL="<redis_url>"
 ```
 
 ---
@@ -66,6 +69,10 @@ http://localhost:9090/api/auth/warcraftlogs/callback
 #### Session
 
 This is the value that will be used for the `CookieStore`.
+
+#### Redis URL
+
+This is the value used to connect with `redis.ParseURL(...)`. 
 
 ## Dependencies
 
