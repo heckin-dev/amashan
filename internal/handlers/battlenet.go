@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/gorilla/mux"
 	"github.com/gorilla/sessions"
 	"github.com/hashicorp/go-hclog"
@@ -120,10 +121,12 @@ func (b *BattleNet) ProfileSummary(w http.ResponseWriter, r *http.Request) {
 
 func (b *BattleNet) CharacterSummary(w http.ResponseWriter, r *http.Request) {
 	cache := r.Context().Value(middleware.CacheContextKey).(middleware.CacheClient)
+	duration := 15 * time.Minute
 	key := r.URL.Path
 
 	// Cache HIT
 	if val, err := cache.Get(r.Context(), key); err == nil {
+		w.Header().Set("Cache-Control", fmt.Sprintf("max-age=%.0f, public", duration.Seconds()))
 		w.Header().Set("Content-Type", "application/json")
 		_, _ = w.Write([]byte(val))
 		return
@@ -145,18 +148,21 @@ func (b *BattleNet) CharacterSummary(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Cache SET
-	go cache.Set(key, string(bs), 15*time.Minute)
+	go cache.Set(key, string(bs), duration)
 
+	w.Header().Set("Cache-Control", fmt.Sprintf("max-age=%.0f", duration.Seconds()))
 	w.Header().Set("Content-Type", "application/json")
 	_, _ = w.Write(bs)
 }
 
 func (b *BattleNet) CharacterEquipment(w http.ResponseWriter, r *http.Request) {
 	cache := r.Context().Value(middleware.CacheContextKey).(middleware.CacheClient)
+	duration := 15 * time.Minute
 	key := r.URL.Path
 
 	// Cache HIT
 	if val, err := cache.Get(r.Context(), key); err == nil {
+		w.Header().Set("Cache-Control", fmt.Sprintf("max-age=%.0f", duration.Seconds()))
 		w.Header().Set("Content-Type", "application/json")
 		_, _ = w.Write([]byte(val))
 		return
@@ -178,18 +184,21 @@ func (b *BattleNet) CharacterEquipment(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Cache SET
-	go cache.Set(key, string(bs), 15*time.Minute)
+	go cache.Set(key, string(bs), duration)
 
+	w.Header().Set("Cache-Control", fmt.Sprintf("max-age=%.0f", duration.Seconds()))
 	w.Header().Set("Content-Type", "application/json")
 	_, _ = w.Write(bs)
 }
 
 func (b *BattleNet) CharacterMedia(w http.ResponseWriter, r *http.Request) {
 	cache := r.Context().Value(middleware.CacheContextKey).(middleware.CacheClient)
+	duration := 15 * time.Minute
 	key := r.URL.Path
 
 	// Cache HIT
 	if val, err := cache.Get(r.Context(), key); err == nil {
+		w.Header().Set("Cache-Control", fmt.Sprintf("max-age=%.0f", duration.Seconds()))
 		w.Header().Set("Content-Type", "application/json")
 		_, _ = w.Write([]byte(val))
 		return
@@ -211,18 +220,21 @@ func (b *BattleNet) CharacterMedia(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Cache SET
-	go cache.Set(key, string(bs), 15*time.Minute)
+	go cache.Set(key, string(bs), duration)
 
+	w.Header().Set("Cache-Control", fmt.Sprintf("max-age=%.0f", duration.Seconds()))
 	w.Header().Set("Content-Type", "application/json")
 	_, _ = w.Write(bs)
 }
 
 func (b *BattleNet) CharacterStatistics(w http.ResponseWriter, r *http.Request) {
 	cache := r.Context().Value(middleware.CacheContextKey).(middleware.CacheClient)
+	duration := 15 * time.Minute
 	key := r.URL.Path
 
 	// Cache HIT
 	if val, err := cache.Get(r.Context(), key); err == nil {
+		w.Header().Set("Cache-Control", fmt.Sprintf("max-age=%.0f", duration.Seconds()))
 		w.Header().Set("Content-Type", "application/json")
 		_, _ = w.Write([]byte(val))
 		return
@@ -244,8 +256,9 @@ func (b *BattleNet) CharacterStatistics(w http.ResponseWriter, r *http.Request) 
 	}
 
 	// Cache SET
-	go cache.Set(key, string(bs), 15*time.Minute)
+	go cache.Set(key, string(bs), duration)
 
+	w.Header().Set("Cache-Control", fmt.Sprintf("max-age=%.0f", duration.Seconds()))
 	w.Header().Set("Content-Type", "application/json")
 	_, _ = w.Write(bs)
 }
@@ -314,6 +327,49 @@ func (b *BattleNet) MythicKeystoneSeason(w http.ResponseWriter, r *http.Request)
 	_ = json.NewEncoder(w).Encode(mks)
 }
 
+func (b *BattleNet) RealmIndex(w http.ResponseWriter, r *http.Request) {
+	cache := r.Context().Value(middleware.CacheContextKey).(middleware.CacheClient)
+	duration := 60 * time.Minute
+	key := r.URL.Path
+
+	// Cache HIT
+	if val, err := cache.Get(r.Context(), key); err == nil {
+		w.Header().Set("Cache-Control", fmt.Sprintf("max-age=%.0f, public", duration.Seconds()))
+		w.Header().Set("Content-Type", "application/json")
+		_, _ = w.Write([]byte(val))
+		return
+	}
+
+	// Ensure region is valid, just in case.
+	region := r.Context().Value(middleware.RegionContextKey).(string)
+	option, ok := bnet.RegionsMap[region]
+	if !ok {
+		http.Error(w, fmt.Errorf("the provided region: '%s' is invalid", region).Error(), http.StatusBadRequest)
+	}
+
+	ri, err := b.client.RealmsByRegion(r.Context(), option)
+	if err != nil {
+		b.l.Error("failed to retrieve realm index", "error", err)
+		http.Error(w, "failed to retrieve realm index", http.StatusInternalServerError)
+		return
+	}
+
+	// Marshal the RealmIndex
+	bs, err := json.Marshal(ri)
+	if err != nil {
+		b.l.Error("json.Marshal failed for RealmIndex", "error", err)
+		http.Error(w, "failed to marshal realm index", http.StatusInternalServerError)
+		return
+	}
+
+	// Cache SET
+	go cache.Set(key, string(bs), duration)
+
+	w.Header().Set("Cache-Control", fmt.Sprintf("max-age=%.0f, public", duration.Seconds()))
+	w.Header().Set("Content-Type", "application/json")
+	_, _ = w.Write(bs)
+}
+
 func (b *BattleNet) Route(r *mux.Router) {
 	oauthRouter := r.PathPrefix("/auth").Subrouter()
 
@@ -322,6 +378,8 @@ func (b *BattleNet) Route(r *mux.Router) {
 
 	regionalWowRouter := r.PathPrefix("/{region}/wow").Subrouter()
 	regionalWowRouter.Use(middleware.UseRegion().Middleware)
+
+	regionalWowRouter.HandleFunc("/realm-index", b.RealmIndex)
 
 	realmAndCharacterRouter := regionalWowRouter.PathPrefix("/{realm}/{character}").Subrouter()
 	realmAndCharacterRouter.Use(middleware.UseRealm().Middleware)

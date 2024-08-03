@@ -136,10 +136,11 @@ func (b *BattlenetClient) UserInfo(ctx context.Context, t *oauth2.Token) (*UserI
 func (b *BattlenetClient) AccountProfileSummary(ctx context.Context, options *AccountSummaryOptions) (*AccountSummaryResponse, error) {
 	const endpoint string = "/profile/user/wow"
 
-	req, err := b.prepareProfileRequest(&ProfileRequestOptions{
-		Region:   options.Region,
-		Endpoint: endpoint,
-		Method:   http.MethodGet,
+	req, err := b.prepareRequest(&RequestOptions{
+		Region:    options.Region,
+		Namespace: ProfileNamespace,
+		Endpoint:  endpoint,
+		Method:    http.MethodGet,
 	})
 	if err != nil {
 		return nil, err
@@ -166,10 +167,11 @@ func (b *BattlenetClient) AccountProfileSummary(ctx context.Context, options *Ac
 func (b *BattlenetClient) CharacterSummary(ctx context.Context, options *CharacterOptions) (*CharacterSummaryResponse, error) {
 	var endpoint = fmt.Sprintf("/profile/wow/character/%s/%s", options.Realm, options.Character)
 
-	req, err := b.prepareProfileRequest(&ProfileRequestOptions{
-		Region:   options.Region,
-		Endpoint: endpoint,
-		Method:   http.MethodGet,
+	req, err := b.prepareRequest(&RequestOptions{
+		Region:    options.Region,
+		Namespace: ProfileNamespace,
+		Endpoint:  endpoint,
+		Method:    http.MethodGet,
 	})
 	if err != nil {
 		return nil, err
@@ -194,10 +196,11 @@ func (b *BattlenetClient) CharacterSummary(ctx context.Context, options *Charact
 func (b *BattlenetClient) CharacterStatus(ctx context.Context, options *CharacterOptions) (*CharacterStatusResponse, error) {
 	var endpoint = fmt.Sprintf("/profile/wow/character/%s/%s/status", options.Realm, options.Character)
 
-	req, err := b.prepareProfileRequest(&ProfileRequestOptions{
-		Region:   options.Region,
-		Endpoint: endpoint,
-		Method:   http.MethodGet,
+	req, err := b.prepareRequest(&RequestOptions{
+		Region:    options.Region,
+		Namespace: ProfileNamespace,
+		Endpoint:  endpoint,
+		Method:    http.MethodGet,
 	})
 	if err != nil {
 		return nil, err
@@ -222,10 +225,11 @@ func (b *BattlenetClient) CharacterStatus(ctx context.Context, options *Characte
 func (b *BattlenetClient) CharacterEquipmentSummary(ctx context.Context, options *CharacterOptions) (*CharacterEquipmentResponse, error) {
 	var endpoint = fmt.Sprintf("/profile/wow/character/%s/%s/equipment", options.Realm, options.Character)
 
-	req, err := b.prepareProfileRequest(&ProfileRequestOptions{
-		Region:   options.Region,
-		Endpoint: endpoint,
-		Method:   http.MethodGet,
+	req, err := b.prepareRequest(&RequestOptions{
+		Region:    options.Region,
+		Namespace: ProfileNamespace,
+		Endpoint:  endpoint,
+		Method:    http.MethodGet,
 	})
 	if err != nil {
 		return nil, err
@@ -250,10 +254,11 @@ func (b *BattlenetClient) CharacterEquipmentSummary(ctx context.Context, options
 func (b *BattlenetClient) CharacterMedia(ctx context.Context, options *CharacterOptions) (*CharacterMediaResponse, error) {
 	var endpoint = fmt.Sprintf("/profile/wow/character/%s/%s/character-media", options.Realm, options.Character)
 
-	req, err := b.prepareProfileRequest(&ProfileRequestOptions{
-		Region:   options.Region,
-		Endpoint: endpoint,
-		Method:   http.MethodGet,
+	req, err := b.prepareRequest(&RequestOptions{
+		Region:    options.Region,
+		Namespace: ProfileNamespace,
+		Endpoint:  endpoint,
+		Method:    http.MethodGet,
 	})
 	if err != nil {
 		return nil, err
@@ -278,10 +283,11 @@ func (b *BattlenetClient) CharacterMedia(ctx context.Context, options *Character
 func (b *BattlenetClient) CharacterStatistics(ctx context.Context, options *CharacterOptions) (*CharacterStatisticsResponse, error) {
 	var endpoint = fmt.Sprintf("/profile/wow/character/%s/%s/statistics", options.Realm, options.Character)
 
-	req, err := b.prepareProfileRequest(&ProfileRequestOptions{
-		Region:   options.Region,
-		Endpoint: endpoint,
-		Method:   http.MethodGet,
+	req, err := b.prepareRequest(&RequestOptions{
+		Region:    options.Region,
+		Namespace: ProfileNamespace,
+		Endpoint:  endpoint,
+		Method:    http.MethodGet,
 	})
 	if err != nil {
 		return nil, err
@@ -306,10 +312,11 @@ func (b *BattlenetClient) CharacterStatistics(ctx context.Context, options *Char
 func (b *BattlenetClient) CharacterDungeonEncounters(ctx context.Context, options *CharacterOptions) (*CharacterDungeonEncountersResponse, error) {
 	var endpoint = fmt.Sprintf("/profile/wow/character/%s/%s/encounters/dungeons", options.Realm, options.Character)
 
-	req, err := b.prepareProfileRequest(&ProfileRequestOptions{
-		Region:   options.Region,
-		Endpoint: endpoint,
-		Method:   http.MethodGet,
+	req, err := b.prepareRequest(&RequestOptions{
+		Region:    options.Region,
+		Namespace: ProfileNamespace,
+		Endpoint:  endpoint,
+		Method:    http.MethodGet,
 	})
 	if err != nil {
 		return nil, err
@@ -334,10 +341,11 @@ func (b *BattlenetClient) CharacterDungeonEncounters(ctx context.Context, option
 func (b *BattlenetClient) CharacterRaidEncounters(ctx context.Context, options *CharacterOptions) (*CharacterRaidEncountersResponse, error) {
 	var endpoint = fmt.Sprintf("/profile/wow/character/%s/%s/encounters/raids", options.Realm, options.Character)
 
-	req, err := b.prepareProfileRequest(&ProfileRequestOptions{
-		Region:   options.Region,
-		Endpoint: endpoint,
-		Method:   http.MethodGet,
+	req, err := b.prepareRequest(&RequestOptions{
+		Region:    options.Region,
+		Namespace: ProfileNamespace,
+		Endpoint:  endpoint,
+		Method:    http.MethodGet,
 	})
 	if err != nil {
 		return nil, err
@@ -363,10 +371,11 @@ func (b *BattlenetClient) MythicKeystoneIndex(ctx context.Context, options *Char
 	// /profile/wow/character/{realmSlug}/{characterName}/mythic-keystone-profile
 	var endpoint = fmt.Sprintf("/profile/wow/character/%s/%s/mythic-keystone-profile", options.Realm, options.Character)
 
-	req, err := b.prepareProfileRequest(&ProfileRequestOptions{
-		Region:   options.Region,
-		Endpoint: endpoint,
-		Method:   http.MethodGet,
+	req, err := b.prepareRequest(&RequestOptions{
+		Region:    options.Region,
+		Namespace: ProfileNamespace,
+		Endpoint:  endpoint,
+		Method:    http.MethodGet,
 	})
 	if err != nil {
 		return nil, err
@@ -392,8 +401,9 @@ func (b *BattlenetClient) MythicKeystoneSeason(ctx context.Context, options *Myt
 	// /profile/wow/character/{realmSlug}/{characterName}/mythic-keystone-profile/season/{seasonId}
 	var endpoint = fmt.Sprintf("/profile/wow/character/%s/%s/mythic-keystone-profile/season/%d", options.Realm, options.Character, options.Season)
 
-	req, err := b.prepareProfileRequest(&ProfileRequestOptions{
+	req, err := b.prepareRequest(&RequestOptions{
 		Region:      options.Region,
+		Namespace:   ProfileNamespace,
 		Endpoint:    endpoint,
 		Method:      http.MethodGet,
 		QueryParams: map[string]string{"seasonId": strconv.Itoa(options.Season)},
@@ -424,6 +434,37 @@ func (b *BattlenetClient) MythicKeystoneSeason(ctx context.Context, options *Myt
 
 	mksRes.CharacterPlayedSeason = true
 	return mksRes, nil
+}
+
+// RealmsByRegion gets the realm index for the given region.
+func (b *BattlenetClient) RealmsByRegion(ctx context.Context, region RegionOption) (*RealmIndexResponse, error) {
+	// /data/wow/realm/index
+	const endpoint = "/data/wow/realm/index"
+
+	req, err := b.prepareRequest(&RequestOptions{
+		Region:    region.String(),
+		Namespace: DynamicNamespace,
+		Endpoint:  endpoint,
+		Method:    http.MethodGet,
+	})
+	if err != nil {
+		return nil, err
+	}
+
+	res, err := b.Do(ctx, nil, req, ClientRequest)
+	if err != nil {
+		return nil, err
+	}
+	defer res.Body.Close()
+
+	riRes := &RealmIndexResponse{}
+	err = json.NewDecoder(res.Body).Decode(riRes)
+	if err != nil {
+		return nil, err
+	}
+
+	riRes.Region = region.String()
+	return riRes, nil
 }
 
 // Do does the provided *http.Request using the http.Client associated with the provided *oauth2.Token. This can be
@@ -502,14 +543,14 @@ func (b *BattlenetClient) SetConfig(config *oauth2.Config) {
 	b.oauthConfig = config
 }
 
-// prepareProfileRequest util wraps common http.NewRequest(...) and query param setup.
+// prepareRequest util wraps common http.NewRequest(...) and query param setup.
 //
 // by default this provides the following query params:
 //
-//	?region=ProfileRequestOptions.Region
-//	&namespaced=profile-ProfileRequestOptions.Region
+//	?region=RequestOptions.Region
+//	&namespaced=RequestOptions.Namespace-RequestOptions.Region
 //	&locale=en_US
-func (b *BattlenetClient) prepareProfileRequest(options *ProfileRequestOptions) (*http.Request, error) {
+func (b *BattlenetClient) prepareRequest(options *RequestOptions) (*http.Request, error) {
 	url := fmt.Sprintf("%s%s", b.apiURLFn(options.Region), options.Endpoint)
 	req, err := http.NewRequest(options.Method, url, options.Body)
 	if err != nil {
@@ -519,7 +560,7 @@ func (b *BattlenetClient) prepareProfileRequest(options *ProfileRequestOptions) 
 
 	q := req.URL.Query()
 	q.Add("region", options.Region)
-	q.Add("namespace", fmt.Sprintf("profile-%s", options.Region))
+	q.Add("namespace", fmt.Sprintf("%s-%s", options.Namespace, options.Region))
 	q.Add("locale", "en_US")
 
 	if options.QueryParams != nil {

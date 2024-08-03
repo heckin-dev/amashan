@@ -28,3 +28,6 @@ var MythicKeystoneIndex []byte
 
 //go:embed mythic-keystone-season.json
 var MythicKeystoneSeason []byte
+
+//go:embed data-realm-index.json
+var RealmDataIndexKR []byte

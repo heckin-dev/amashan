@@ -18,8 +18,37 @@ type CharacterOptions struct {
 	Character string
 }
 
-type ProfileRequestOptions struct {
+var RegionsMap = map[string]RegionOption{
+	"us": RegionUS,
+	"eu": RegionEU,
+	"kr": RegionKR,
+	"tw": RegionTW,
+}
+
+type RegionOption string
+
+func (r RegionOption) String() string {
+	return string(r)
+}
+
+const (
+	RegionUS RegionOption = "us"
+	RegionEU              = "eu"
+	RegionKR              = "kr"
+	RegionTW              = "tw"
+)
+
+type Namespace string
+
+const (
+	ProfileNamespace Namespace = "profile"
+	DynamicNamespace           = "dynamic"
+	StaticNamespace            = "static"
+)
+
+type RequestOptions struct {
 	Region      string
+	Namespace   Namespace
 	Endpoint    string
 	Method      string
 	Body        io.Reader

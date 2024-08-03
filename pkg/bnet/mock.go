@@ -133,7 +133,21 @@ func (b *BattleNetMock) MythicKeystoneSeason(w http.ResponseWriter, r *http.Requ
 	_ = json.NewEncoder(w).Encode(res)
 }
 
+func (b *BattleNetMock) RealmIndex(w http.ResponseWriter, r *http.Request) {
+	res := &RealmIndexResponse{}
+	err := json.NewDecoder(bytes.NewReader(test.RealmDataIndexKR)).Decode(res)
+	if err != nil {
+		http.Error(w, "failed to decode test.RealmDataIndexKR", http.StatusInternalServerError)
+		return
+	}
+
+	w.Header().Set("Content-Type", "application/json")
+	_ = json.NewEncoder(w).Encode(res)
+}
+
 func (b *BattleNetMock) Route(r *mux.Router) {
+	r.HandleFunc("/data/wow/realm/index", b.RealmIndex)
+
 	publicProfile := r.PathPrefix("/profile/wow").Subrouter()
 	publicProfile.Use(middleware.UseRealm().Middleware)
 	publicProfile.Use(middleware.UseCharacter().Middleware)

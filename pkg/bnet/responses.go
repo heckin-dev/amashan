@@ -262,6 +262,13 @@ type Encounter struct {
 	LastKillTimestamp uint64         `json:"last_kill_timestamp"`
 }
 
+// RealmIndexResponse /data/wow/realm/index
+type RealmIndexResponse struct {
+	// Region is not  field is provided by Blizzard. We add this field for response clarity.
+	Region string  `json:"region"`
+	Realms []Realm `json:"realms"`
+}
+
 type KeyAndValue struct {
 	Key   string `json:"key"`
 	Value string `json:"value"`

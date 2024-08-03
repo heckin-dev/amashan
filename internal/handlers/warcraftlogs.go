@@ -2,6 +2,7 @@ package handlers
 
 import (
 	"encoding/json"
+	"fmt"
 	"github.com/gorilla/mux"
 	"github.com/hashicorp/go-hclog"
 	"github.com/heckin-dev/amashan/pkg/middleware"
@@ -38,10 +39,12 @@ func (wls *WarcraftLogs) ClearCachedExpansion(w http.ResponseWriter, r *http.Req
 
 func (wls *WarcraftLogs) Partitions(w http.ResponseWriter, r *http.Request) {
 	cache := r.Context().Value(middleware.CacheContextKey).(middleware.CacheClient)
+	duration := 12 * time.Hour
 	key := r.URL.Path
 
 	// Cache HIT
 	if val, err := cache.Get(r.Context(), key); err == nil {
+		w.Header().Set("Cache-Control", fmt.Sprintf("max-age=%.0f", duration.Seconds()))
 		w.Header().Set("Content-Type", "application/json")
 		_, _ = w.Write([]byte(val))
 		return
@@ -63,18 +66,21 @@ func (wls *WarcraftLogs) Partitions(w http.ResponseWriter, r *http.Request) {
 	}
 
 	// Cache SET
-	go cache.Set(key, string(bs), 12*time.Hour)
+	go cache.Set(key, string(bs), duration)
 
+	w.Header().Set("Cache-Control", fmt.Sprintf("max-age=%.0f", duration.Seconds()))
 	w.Header().Set("Content-Type", "application/json")
 	_, _ = w.Write(bs)
 }
 
 func (wls *WarcraftLogs) CharacterParses(w http.ResponseWriter, r *http.Request) {
 	cache := r.Context().Value(middleware.CacheContextKey).(middleware.CacheClient)
+	duration := 5 * time.Minute
 	key := r.RequestURI
 
 	// Cache HIT
 	if val, err := cache.Get(r.Context(), key); err == nil {
+		w.Header().Set("Cache-Control", fmt.Sprintf("max-age=%.0f", duration.Seconds()))
 		w.Header().Set("Content-Type", "application/json")
 		_, _ = w.Write([]byte(val))
 		return
@@ -122,8 +128,9 @@ func (wls *WarcraftLogs) CharacterParses(w http.ResponseWriter, r *http.Request)
 	}
 
 	// Cache SET
-	go cache.Set(key, string(bs), 5*time.Minute)
+	go cache.Set(key, string(bs), duration)
 
+	w.Header().Set("Cache-Control", fmt.Sprintf("max-age=%.0f", duration.Seconds()))
 	w.Header().Set("Content-Type", "application/json")
 	_, _ = w.Write(bs)
 }

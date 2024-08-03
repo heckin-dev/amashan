@@ -721,3 +721,60 @@ func TestBattlenetClient_CharacterStatus(t *testing.T) {
 		})
 	}
 }
+
+func TestBattlenetClient_RealmsByRegion(t *testing.T) {
+	type args struct {
+		ctx    context.Context
+		option RegionOption
+	}
+	tests := []struct {
+		name    string
+		args    args
+		want    Realm
+		wantErr bool
+	}{
+		{
+			name: "Should 200",
+			args: args{
+				ctx:    nil,
+				option: RegionsMap["kr"],
+			},
+			want: Realm{
+				NamedTypeAndID: NamedTypeAndID{
+					KeyedID: KeyedID{
+						Key: Link{
+							Href: "https://kr.api.blizzard.com/data/wow/realm/205?namespace=dynamic-kr",
+						},
+						ID: 205,
+					},
+					Name: toString("Azshara"),
+				},
+				Slug: "azshara",
+			},
+			wantErr: false,
+		},
+	}
+
+	for _, tt := range tests {
+		t.Run(tt.name, func(t *testing.T) {
+			b, srv := newMockedClient()
+			defer srv.Close()
+
+			got, err := b.RealmsByRegion(tt.args.ctx, tt.args.option)
+			if (err != nil) != tt.wantErr {
+				t.Errorf("RealmsByRegion() error = %v, wantErr %v", err, tt.wantErr)
+				return
+			}
+
+			if tt.wantErr {
+				return
+			}
+
+			assert.Contains(t, got.Realms, tt.want)
+		})
+	}
+}
+
+func toString(v string) *string {
+	return &v
+}
